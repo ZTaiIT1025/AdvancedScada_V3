@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Channel ChannelId="2" ChannelName="CH1" ChannelTypes="LSIS" ConnectionType="Ethernet" IPAddress="127.0.0.1" Port="2004" Description="" />
+</Root>

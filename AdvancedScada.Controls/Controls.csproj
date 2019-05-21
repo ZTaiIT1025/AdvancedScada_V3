@@ -1,0 +1,1348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{61D652F9-ADEF-4024-B1A8-4709656068CA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AdvancedScada.Controls</RootNamespace>
+    <AssemblyName>AdvancedScada.Controls</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <OutputPath>C:\AdvancedScadaCS\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <WarningLevel>1</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>TagManager.Controls.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+  </PropertyGroup>
+  <PropertyGroup>
+  </PropertyGroup>
+  <PropertyGroup>
+  </PropertyGroup>
+  <PropertyGroup>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Alarm\Designers\ListViewDesigner.cs" />
+    <Compile Include="Alarm\Designers\ListViewDesignerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alarm\Designers\ListViewDesignerForm.Designer.cs">
+      <DependentUpon>ListViewDesignerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alarm\Designers\ListViewItemComparer.cs" />
+    <Compile Include="Alarm\Designers\PLCAddressItem.cs" />
+    <Compile Include="Alarm\Designers\TestDialogEditorAlarm.cs" />
+    <Compile Include="Alarm\HMIAlarmMan.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Animation\AnimationFunctions.cs" />
+    <Compile Include="Animation\Animator.cs" />
+    <Compile Include="Animation\Animator2D.cs" />
+    <Compile Include="Animation\Animator3D.cs" />
+    <Compile Include="Animation\AnimatorStatus.cs" />
+    <Compile Include="Animation\Float2D.cs" />
+    <Compile Include="Animation\Float3D.cs" />
+    <Compile Include="Animation\FloatExtensions.cs" />
+    <Compile Include="Animation\FPSLimiterKnownValues.cs" />
+    <Compile Include="Animation\GlobalSuppressions.cs" />
+    <Compile Include="Animation\IAnimator.cs" />
+    <Compile Include="Animation\Path.cs" />
+    <Compile Include="Animation\Path2D.cs" />
+    <Compile Include="Animation\Path2DExtensions.cs" />
+    <Compile Include="Animation\Path3D.cs" />
+    <Compile Include="Animation\Path3DExtensions.cs" />
+    <Compile Include="Animation\PathExtensions.cs" />
+    <Compile Include="Animation\SafeInvoker.cs" />
+    <Compile Include="Animation\SafeInvoker1.cs" />
+    <Compile Include="Animation\Timer.cs" />
+    <Compile Include="ButtonAll\HMIBasicButtonFlag.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ButtonAll\HMIAnnunciator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ButtonAll\HMIBeveledButtonDisplay.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ButtonAll\HMIbutton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ButtonAll\HMICheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ButtonAll\HMISquareIlluminatedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClassBase\AnalogMeterBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClassBase\ButtonBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClassBase\LinearMeterBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Class\AutoToDoubleEditor.cs" />
+    <Compile Include="Class\AutoToDoubleTypeConverter.cs" />
+    <Compile Include="Class\DoubleValueChangedEventArgs.cs" />
+    <Compile Include="Class\PanelGraphics.cs" />
+    <Compile Include="Class\RollingDigit.cs" />
+    <Compile Include="Class\RotationScale.cs" />
+    <Compile Include="Class\RotationTypeConverter.cs" />
+    <Compile Include="Class\RotationValueEditor.cs" />
+    <Compile Include="Class\RotationValueEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class\RotationValueEditorForm.Designer.cs">
+      <DependentUpon>RotationValueEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\TranslationScale.cs" />
+    <Compile Include="Class\TranslationScaleTypeConverter.cs" />
+    <Compile Include="Common\BaseEventArgs.cs" />
+    <Compile Include="Common\ValueChangedEventArgs.cs" />
+    <Compile Include="Components\FileFolderEditor.cs" />
+    <Compile Include="Components\HMISimpleWebServer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\HMISoundPlayer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HMIBasicNumericUpDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HMIPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HMIGroupPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HMIIndicator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HMIRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DialogEditor\GraphicDialogEditor.cs" />
+    <Compile Include="DialogEditor\TestDialogEditor.cs" />
+    <Compile Include="DialogEditor\ValveWeiCtriDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogEditor\ValveWeiCtriDialog.Designer.cs">
+      <DependentUpon>ValveWeiCtriDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DigitalDisplay\HMIConveyor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DigitalDisplay\HMIDigitalPanelMeter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DigitalDisplay\HMIDigitalPanelMeterBlue.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DigitalDisplay\HMIOdometer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DigitalDisplay\HMITempController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Display\HMIDateTimeDisplay.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Display\HMILabelWerk.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Display\HMITextBoxInput.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Display\HMITextEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Display\HMIKeyboardInput.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Display\HMILabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Display\HMITextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Display\Label\Format.cs" />
+    <Compile Include="Display\SetLabel.cs" />
+    <Compile Include="Enum\Enums.cs" />
+    <Compile Include="Gauge2\HMICircularGauge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gauge2\HMICircularGauge.Designer.cs">
+      <DependentUpon>HMICircularGauge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gauge2\HMICircularGauge2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gauge2\HMICircularGauge2.Designer.cs">
+      <DependentUpon>HMICircularGauge2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hydraulic\HMIHydraulicCylinder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Hydraulic\HMIHydraulicCylinderAnalog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Hydraulic\HMIPipe.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Hydraulic\HMIPipes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Hydraulic\HMIPneumaticBallVave.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Hydraulic\HMIPump.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImageAll\HMIAnimatingPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImageAll\HMIGraphicIndicator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImageAll\HMIImageContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImageAll\HMIImageDisplayByValue.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImageAll\Symbols\GraphicIndicatorBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inverter\HMIInverter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Keyboard\AlphaKeyboard3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Keyboard\IKeyboard.cs" />
+    <Compile Include="Keyboard\KeyboardInput.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Keyboard\KeyPadEventArgs.cs" />
+    <Compile Include="Keyboard\Keypad_v3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Keyboard\On-ScreenKeyboard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Leds\DrawAll\DrawGraphics.cs" />
+    <Compile Include="Leds\HMILedSingle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LED\HMISimpleLED.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Licenses\LicenseManager.cs" />
+    <Compile Include="Linear\HMILinearMeter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Linear\HMILinearMeterH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Linear\HMILinearMeterHorizontal.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Linear\HMILinearMeterV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Linear\HMILinearMeterVertical.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Meter\HMIMeter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Meter\HMIMeter2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Motor\HMIFan.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Motor\HMIMotor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Motor\HMIMotor2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Motor\HMIMotor3Color.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Motor\OutputType.cs" />
+    <Compile Include="Motor\HMIWaterPump.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NumericHelper.cs" />
+    <Compile Include="ProcessAll\DrawAll\DrawGraphics2.cs" />
+    <Compile Include="ProcessAll\DrawAll\DrawGraphics.cs" />
+    <Compile Include="ProcessAll\HMIProcessLevel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProcessAll\HMIProcessIndicator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProgressBar\HMIProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Application.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Segment\DrawAll\DrawGraphics.cs" />
+    <Compile Include="Segment\HMILCDMatrix.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Segment\HMISegment16LED.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Segment\HMISegment7LED.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClassBase\BasicSelectorSwitch.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SelectorSwitch\HMIMushroomButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SelectorSwitch\HMIPilotLight.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SelectorSwitch\HMIPilotLight3Color.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SelectorSwitch\HMIPushButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SelectorSwitch\HMISelectorSwitch.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SelectorSwitch\HMISelectorSwitch3Pos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SevenSegment\HMIDigitalDisplayControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SevenSegment\HMILED.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SevenSegment\HMISevenSegment.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SevenSegment\HMISevenSegment2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SevenSegment\HMISevenSegment3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SevenSegment\SevenSegmentGDI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\SocketClient\HMIGenericTCPClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\SocketClient\GenericTCPEventArgs.cs" />
+    <Compile Include="Components\SocketClient\MessageEventArgs.cs" />
+    <Compile Include="Components\SocketClient\SocketStateObject.cs" />
+    <Compile Include="TankAll\HMIBarLevel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TankAll\HMICylinderTrackBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TankAll\DrawingUtils.cs" />
+    <Compile Include="SelectorSwitch\HMIIllumButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImageAll\HMIImageSelectByBit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SelectorSwitch\HMIPilotLightEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TankAll\HMITank.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TankAll\HMITankLibrary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Thermometer\HMIThermometer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Thermometer\HMIThermometer2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HMITagManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utility\Utility.cs" />
+    <Compile Include="Vertical\HMIThumbDial.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Vertical\HMIVerticalSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Vertical\HMIVerticalSlider3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WCFChannelFactory.cs" />
+    <Compile Include="Weight Indicator\HMIWeightIndicator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Weight Indicator\HMIWeightIndicator2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Alarm\Designers\ListViewDesignerForm.resx">
+      <DependentUpon>ListViewDesignerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alarm\HMIAlarmMan.resx">
+      <DependentUpon>HMIAlarmMan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class\RotationValueEditorForm.resx">
+      <DependentUpon>RotationValueEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogEditor\ValveWeiCtriDialog.resx">
+      <DependentUpon>ValveWeiCtriDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gauge2\HMICircularGauge.resx">
+      <DependentUpon>HMICircularGauge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Keyboard\Keypad_v3.resx">
+      <DependentUpon>Keypad_v3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_vY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1N.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_vY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2N.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3_vY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3N.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4_vY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4N.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AnalogSliderSlot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AnnunciatorOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AnnunciatorOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BckgndBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BckgndGrayLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BckgndGrayLightLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BckgndTan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlackButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlackButtonPressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueBackgroundFrame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueButtonPressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BluePilotOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BluePilotOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueSevenSegmentDot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ButoneTARE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChromeKnob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConveyorOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConveyorOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DigitalPanelMeter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DigitalPanelMeter2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DigitalPanelMeter3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DigitalPanelMeterLeftHalf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DigitalPanelMeterLeftHalf2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DigitalPanelMeterLeftHalf3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DrumBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DrumBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DrumGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DrumRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwonF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwonHold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwonPRINT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwonTARE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwonZERO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Elbow1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EstopButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EstopButtonDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FanBlades.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FanCenterCap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FanFrame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fpng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Frame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GaugeNeedle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GaugeNeedleShadow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GaugeSilverNoNeedle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenBackgroundFrame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenButtonPressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenDash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenDecimal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenPilotOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenPilotOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOLD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HorizontalPipe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HydraulicCylinder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HydraulicCylinderRod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Indicator_SI580E.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Indicator2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InverterMain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ketlle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ketlle1Green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ketlle1Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KetlleLongLegs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KetlleLongLegsGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KetlleLongLegsRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KettleShortLegs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KettleShortLegsGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KettleShortLegsRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KeypadBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KeyPadKey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KeyPadKeyDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KeypadKeyWide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KeypadKeyWideDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segement_.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segement0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segement1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segement2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segement3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segement4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segement5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segement6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segement7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segement8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segement9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7SegementOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segment_Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segment0Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segment1Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segment2Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segment3Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segment4Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segment5Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segment6Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segment7Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segment8Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7Segment9Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7SegmentDecimalRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LED7SegmentOffRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LegendPlate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LegendPlateLargeWithNut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LegendPlateShort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LegendPlateSmallWithNut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Legs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LinearMeterBase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LinearMeterNeedle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LinearMeterVertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LinearMeterVerticalNeedle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeterBase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeterNeedle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeterNoNeedle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeterNoNeedleCenterScale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeterRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeterScale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeterScaleBackGround.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Motor1 Blue Right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Motor1 Gray Right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Motor1 Green Right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Motor1 Red Right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Motor1 Yellow Right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MotorGray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MotorGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MotorRed1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Needle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\p_h.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PilotLightDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pipe Blue Vert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pipe Gray Vert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pipe Green Vert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pipe Red Vert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pipe Yellow Vert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PneumaticBallValveOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PneumaticBallValveOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PRINT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedButtonPressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedDash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedDecimal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedEight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedFive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedFour.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedNine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedOne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedPilotOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedPilotOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedSeven.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedSix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedThree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedTwo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedZero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RSCorPumpOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RSCorPumpOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SelectorSwitchCenter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SelectorSwitchCenterNoNut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SelectorSwitchLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SelectorSwitchRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SevenSegment_.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SevenSegment0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SevenSegment1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SevenSegment2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SevenSegment3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SevenSegment4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SevenSegment5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SevenSegment6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SevenSegment7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SevenSegment8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SevenSegment9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Silo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SiloGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SiloRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SiloWithLegs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SiloWithLegsGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SiloWithLegsRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SquareButtonBlueOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SquareButtonBlueOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SquareButtonDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SquareButtonGreenOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SquareButtonGreenOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SquareButtonRedOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SquareButtonRedOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StackLightAmberOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StackLightAmberOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StackLightBase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StackLightCap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StackLightGreenOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StackLightGreenOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StackLightRedOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StackLightRedON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tank1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tank1Green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tank1Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tank1WithLegs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tank1WithLegsGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tank1WithLegsRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TankLibraryListing Blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TankLibraryListing Yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TankWithWindow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tee1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TempController.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TempControllerButton1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TempControllerButton1Pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TempControllerButton2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TempControllerButton2Pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TempControllerButton3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TempControllerButton3Pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TempControllerButton4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TempControllerButton4Pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Thermometer2Bulb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Thermometer2BulbBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Thermometer2BulbGrn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Thermometer2Column.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Thermometer2ColumnBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Thermometer2ColumnGrn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Thermometer2Static.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThermometerStatic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThumbDialBase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThumbDialFrame1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThumbDialFrame2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThumbDialFrame3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VerticalSlider.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vessel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VesselGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VesselRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VesselRedWithLegs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VesselWithLegs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VesselWithLegsGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhitePilotOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhitePilotOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\YellowBackgroundFrame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\YellowPilotOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\YellowPilotOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZEROpng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ButtonGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdvancedScada.ImagePicker\ImagePicker.csproj">
+      <Project>{5931D911-82C4-4C91-A32D-94D3DC870156}</Project>
+      <Name>ImagePicker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdvancedScada.Monitor\Monitor.csproj">
+      <Project>{f9d07eb2-4d39-457a-81bb-ea9d28623779}</Project>
+      <Name>Monitor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdvancedScada.BaseService\BaseService.csproj">
+      <Project>{fe960c7a-e85b-48ed-9bca-9be1a6a1cb0b}</Project>
+      <Name>BaseService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdvancedScada.IBaseService\IBaseService.csproj">
+      <Project>{4ba1e9c3-f791-458c-b4f7-3b7943e8de10}</Project>
+      <Name>IBaseService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Drivers\AdvancedScada.DriverBase\DriverBase.csproj">
+      <Project>{0c4043a0-522d-456f-82c3-d086bd07ee27}</Project>
+      <Name>DriverBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdvancedScada.Utils\Utils.csproj">
+      <Project>{6892B89E-2CC0-4F7D-95D1-BEAA1A21C607}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Drivers\AdvancedScada.ErorrPLC\HMIException.csproj">
+      <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
+      <Name>HMIException</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MotorYellow.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

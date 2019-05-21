@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Channel ChannelId="1" ChannelName="CH1" ChannelTypes="Modbus" Model="Modbus" Rack="0" Slot="0" ConnectionType="Ethernet" Mode="TCP" IPAddress="127.0.0.1" Port="502" Description="">
+    <Device DeviceId="1" DeviceName="PLC1" SlaveId="1" Description="CH1">
+      <DataBlock ChannelId="1" DeviceId="1" DataBlockId="1" DataBlockName="DataBlock1" TypeOfRead="" StartAddress="0" Length="20" DataType="Word" MemoryType="DW" Description="CH1">
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="1" TagName="TAG00001" Address="0" DataType="Word" Description="CH1 1" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="2" TagName="TAG00002" Address="1" DataType="Word" Description="CH1 2" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="3" TagName="TAG00003" Address="2" DataType="Word" Description="CH1 3" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="4" TagName="TAG00004" Address="3" DataType="Word" Description="CH1 4" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="5" TagName="TAG00005" Address="4" DataType="Word" Description="CH1 5" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="6" TagName="TAG00006" Address="5" DataType="Word" Description="CH1 6" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="7" TagName="TAG00007" Address="6" DataType="Word" Description="CH1 7" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="8" TagName="TAG00008" Address="7" DataType="Word" Description="CH1 8" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="9" TagName="TAG00009" Address="8" DataType="Word" Description="CH1 9" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="10" TagName="TAG00010" Address="9" DataType="Word" Description="CH1 10" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="11" TagName="TAG00011" Address="10" DataType="Word" Description="CH1 11" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="12" TagName="TAG00012" Address="11" DataType="Word" Description="CH1 12" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="13" TagName="TAG00013" Address="12" DataType="Word" Description="CH1 13" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="14" TagName="TAG00014" Address="13" DataType="Word" Description="CH1 14" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="15" TagName="TAG00015" Address="14" DataType="Word" Description="CH1 15" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="16" TagName="TAG00016" Address="15" DataType="Word" Description="CH1 16" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="17" TagName="TAG00017" Address="16" DataType="Word" Description="CH1 17" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="18" TagName="TAG00018" Address="17" DataType="Word" Description="CH1 18" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="19" TagName="TAG00019" Address="18" DataType="Word" Description="CH1 19" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="1" TagId="20" TagName="TAG00020" Address="19" DataType="Word" Description="CH1 20" />
+      </DataBlock>
+      <DataBlock ChannelId="1" DeviceId="1" DataBlockId="2" DataBlockName="DataBlock2" TypeOfRead="" StartAddress="0" Length="16" DataType="Bit" MemoryType="MX" Description="CH1">
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="2" TagId="1" TagName="TAG00021" Address="0" DataType="Bit" Description="CH1 1" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="2" TagId="2" TagName="TAG00022" Address="1" DataType="Bit" Description="CH1 2" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="2" TagId="3" TagName="TAG00023" Address="2" DataType="Bit" Description="CH1 3" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="2" TagId="4" TagName="TAG00024" Address="3" DataType="Bit" Description="CH1 4" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="2" TagId="5" TagName="TAG00025" Address="4" DataType="Bit" Description="CH1 5" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="2" TagId="6" TagName="TAG00026" Address="5" DataType="Bit" Description="CH1 6" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="2" TagId="7" TagName="TAG00027" Address="6" DataType="Bit" Description="CH1 7" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="2" TagId="8" TagName="TAG00028" Address="7" DataType="Bit" Description="CH1 8" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="2" TagId="9" TagName="TAG00029" Address="8" DataType="Bit" Description="CH1 9" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="2" TagId="10" TagName="TAG00030" Address="9" DataType="Bit" Description="CH1 10" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="2" TagId="11" TagName="TAG00031" Address="10" DataType="Bit" Description="CH1 11" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="2" TagId="12" TagName="TAG00032" Address="11" DataType="Bit" Description="CH1 12" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="2" TagId="13" TagName="TAG00033" Address="12" DataType="Bit" Description="CH1 13" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="2" TagId="14" TagName="TAG00034" Address="13" DataType="Bit" Description="CH1 14" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="2" TagId="15" TagName="TAG00035" Address="14" DataType="Bit" Description="CH1 15" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="2" TagId="16" TagName="TAG00036" Address="15" DataType="Bit" Description="CH1 16" />
+      </DataBlock>
+      <DataBlock ChannelId="1" DeviceId="1" DataBlockId="3" DataBlockName="DataBlock3" TypeOfRead="ReadHoldingRegisters" StartAddress="0" Length="20" DataType="Real1" MemoryType="DD" Description="CH1">
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="1" TagName="TAG00073" Address="0" DataType="Real1" Description="CH1 1" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="2" TagName="TAG00074" Address="1" DataType="Real1" Description="CH1 2" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="3" TagName="TAG00075" Address="2" DataType="Real1" Description="CH1 3" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="4" TagName="TAG00076" Address="3" DataType="Real1" Description="CH1 4" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="5" TagName="TAG00077" Address="4" DataType="Real1" Description="CH1 5" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="6" TagName="TAG00078" Address="5" DataType="Real1" Description="CH1 6" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="7" TagName="TAG00079" Address="6" DataType="Real1" Description="CH1 7" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="8" TagName="TAG00080" Address="7" DataType="Real1" Description="CH1 8" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="9" TagName="TAG00081" Address="8" DataType="Real1" Description="CH1 9" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="10" TagName="TAG00082" Address="9" DataType="Real1" Description="CH1 10" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="11" TagName="TAG00083" Address="10" DataType="Real1" Description="CH1 11" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="12" TagName="TAG00084" Address="11" DataType="Real1" Description="CH1 12" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="13" TagName="TAG00085" Address="12" DataType="Real1" Description="CH1 13" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="14" TagName="TAG00086" Address="13" DataType="Real1" Description="CH1 14" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="15" TagName="TAG00087" Address="14" DataType="Real1" Description="CH1 15" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="16" TagName="TAG00088" Address="15" DataType="Real1" Description="CH1 16" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="17" TagName="TAG00089" Address="16" DataType="Real1" Description="CH1 17" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="18" TagName="TAG00090" Address="17" DataType="Real1" Description="CH1 18" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="19" TagName="TAG00091" Address="18" DataType="Real1" Description="CH1 19" />
+        <Tag ChannelId="1" DeviceId="1" DataBlockId="3" TagId="20" TagName="TAG00092" Address="19" DataType="Real1" Description="CH1 20" />
+      </DataBlock>
+    </Device>
+  </Channel>
+  <Channel ChannelId="2" ChannelName="CH2" ChannelTypes="LSIS" Model=" XGB " Rack="0" Slot="3" ConnectionType="Ethernet" Mode="FENET" IPAddress="127.0.0.1" Port="2004" Description="">
+    <Device DeviceId="1" DeviceName="PLC1" SlaveId="1" Description="CH2">
+      <DataBlock ChannelId="2" DeviceId="1" DataBlockId="1" DataBlockName="DataBlock1" TypeOfRead="" StartAddress="0" Length="1" DataType="Bit" MemoryType="MX" Description="CH2">
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="1" TagId="1" TagName="TAG00001" Address="MX0" DataType="Bit" Description="CH2 0" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="1" TagId="2" TagName="TAG00002" Address="MX1" DataType="Bit" Description="CH2 1" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="1" TagId="3" TagName="TAG00003" Address="MX2" DataType="Bit" Description="CH2 2" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="1" TagId="4" TagName="TAG00004" Address="MX3" DataType="Bit" Description="CH2 3" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="1" TagId="5" TagName="TAG00005" Address="MX4" DataType="Bit" Description="CH2 4" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="1" TagId="6" TagName="TAG00006" Address="MX5" DataType="Bit" Description="CH2 5" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="1" TagId="7" TagName="TAG00007" Address="MX6" DataType="Bit" Description="CH2 6" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="1" TagId="8" TagName="TAG00008" Address="MX7" DataType="Bit" Description="CH2 7" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="1" TagId="9" TagName="TAG00009" Address="MX8" DataType="Bit" Description="CH2 8" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="1" TagId="10" TagName="TAG00010" Address="MX9" DataType="Bit" Description="CH2 9" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="1" TagId="11" TagName="TAG00011" Address="MXA" DataType="Bit" Description="CH2 A" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="1" TagId="12" TagName="TAG00012" Address="MXB" DataType="Bit" Description="CH2 B" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="1" TagId="13" TagName="TAG00013" Address="MXC" DataType="Bit" Description="CH2 C" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="1" TagId="14" TagName="TAG00014" Address="MXD" DataType="Bit" Description="CH2 D" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="1" TagId="15" TagName="TAG00015" Address="MXE" DataType="Bit" Description="CH2 E" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="1" TagId="16" TagName="TAG00016" Address="MXF" DataType="Bit" Description="CH2 F" />
+      </DataBlock>
+      <DataBlock ChannelId="2" DeviceId="1" DataBlockId="2" DataBlockName="DataBlock2" TypeOfRead="" StartAddress="0" Length="20" DataType="Word" MemoryType="DW" Description="CH2">
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="1" TagName="TAG00017" Address="DW0" DataType="Word" Description="CH2 1" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="2" TagName="TAG00018" Address="DW1" DataType="Word" Description="CH2 2" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="3" TagName="TAG00019" Address="DW2" DataType="Word" Description="CH2 3" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="4" TagName="TAG00020" Address="DW3" DataType="Word" Description="CH2 4" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="5" TagName="TAG00021" Address="DW4" DataType="Word" Description="CH2 5" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="6" TagName="TAG00022" Address="DW5" DataType="Word" Description="CH2 6" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="7" TagName="TAG00023" Address="DW6" DataType="Word" Description="CH2 7" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="8" TagName="TAG00024" Address="DW7" DataType="Word" Description="CH2 8" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="9" TagName="TAG00025" Address="DW8" DataType="Word" Description="CH2 9" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="10" TagName="TAG00026" Address="DW9" DataType="Word" Description="CH2 10" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="11" TagName="TAG00027" Address="DW10" DataType="Word" Description="CH2 11" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="12" TagName="TAG00028" Address="DW11" DataType="Word" Description="CH2 12" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="13" TagName="TAG00029" Address="DW12" DataType="Word" Description="CH2 13" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="14" TagName="TAG00030" Address="DW13" DataType="Word" Description="CH2 14" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="15" TagName="TAG00031" Address="DW14" DataType="Word" Description="CH2 15" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="16" TagName="TAG00032" Address="DW15" DataType="Word" Description="CH2 16" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="17" TagName="TAG00033" Address="DW16" DataType="Word" Description="CH2 17" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="18" TagName="TAG00034" Address="DW17" DataType="Word" Description="CH2 18" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="19" TagName="TAG00035" Address="DW18" DataType="Word" Description="CH2 19" />
+        <Tag ChannelId="2" DeviceId="1" DataBlockId="2" TagId="20" TagName="TAG00036" Address="DW19" DataType="Word" Description="CH2 20" />
+      </DataBlock>
+    </Device>
+  </Channel>
+  <Channel ChannelId="3" ChannelName="CH3" ChannelTypes="LSIS" Model=" XGB " Rack="0" Slot="0" ConnectionType="SerialPort" Mode="Cnet" PortName="COM2" BaudRate="9600" DataBits="8" StopBits="One" Parity="None" Handshake="None" Description="CH3">
+    <Device DeviceId="1" DeviceName="PLC1" SlaveId="1" Description="CH3">
+      <DataBlock ChannelId="3" DeviceId="1" DataBlockId="1" DataBlockName="DataBlock1" TypeOfRead="" StartAddress="0" Length="1" DataType="Bit" MemoryType="MX" Description="CH3">
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="1" TagId="1" TagName="TAG00001" Address="MX0" DataType="Bit" Description="CH3 0" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="1" TagId="2" TagName="TAG00002" Address="MX1" DataType="Bit" Description="CH3 1" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="1" TagId="3" TagName="TAG00003" Address="MX2" DataType="Bit" Description="CH3 2" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="1" TagId="4" TagName="TAG00004" Address="MX3" DataType="Bit" Description="CH3 3" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="1" TagId="5" TagName="TAG00005" Address="MX4" DataType="Bit" Description="CH3 4" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="1" TagId="6" TagName="TAG00006" Address="MX5" DataType="Bit" Description="CH3 5" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="1" TagId="7" TagName="TAG00007" Address="MX6" DataType="Bit" Description="CH3 6" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="1" TagId="8" TagName="TAG00008" Address="MX7" DataType="Bit" Description="CH3 7" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="1" TagId="9" TagName="TAG00009" Address="MX8" DataType="Bit" Description="CH3 8" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="1" TagId="10" TagName="TAG00010" Address="MX9" DataType="Bit" Description="CH3 9" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="1" TagId="11" TagName="TAG00011" Address="MXA" DataType="Bit" Description="CH3 A" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="1" TagId="12" TagName="TAG00012" Address="MXB" DataType="Bit" Description="CH3 B" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="1" TagId="13" TagName="TAG00013" Address="MXC" DataType="Bit" Description="CH3 C" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="1" TagId="14" TagName="TAG00014" Address="MXD" DataType="Bit" Description="CH3 D" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="1" TagId="15" TagName="TAG00015" Address="MXE" DataType="Bit" Description="CH3 E" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="1" TagId="16" TagName="TAG00016" Address="MXF" DataType="Bit" Description="CH3 F" />
+      </DataBlock>
+      <DataBlock ChannelId="3" DeviceId="1" DataBlockId="2" DataBlockName="DataBlock2" TypeOfRead="" StartAddress="0" Length="20" DataType="Int" MemoryType="DW" Description="CH3">
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="1" TagName="TAG00017" Address="DW0" DataType="Int" Description="CH3 1" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="2" TagName="TAG00018" Address="DW1" DataType="Int" Description="CH3 2" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="3" TagName="TAG00019" Address="DW2" DataType="Int" Description="CH3 3" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="4" TagName="TAG00020" Address="DW3" DataType="Int" Description="CH3 4" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="5" TagName="TAG00021" Address="DW4" DataType="Int" Description="CH3 5" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="6" TagName="TAG00022" Address="DW5" DataType="Int" Description="CH3 6" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="7" TagName="TAG00023" Address="DW6" DataType="Int" Description="CH3 7" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="8" TagName="TAG00024" Address="DW7" DataType="Int" Description="CH3 8" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="9" TagName="TAG00025" Address="DW8" DataType="Int" Description="CH3 9" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="10" TagName="TAG00026" Address="DW9" DataType="Int" Description="CH3 10" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="11" TagName="TAG00027" Address="DW10" DataType="Int" Description="CH3 11" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="12" TagName="TAG00028" Address="DW11" DataType="Int" Description="CH3 12" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="13" TagName="TAG00029" Address="DW12" DataType="Int" Description="CH3 13" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="14" TagName="TAG00030" Address="DW13" DataType="Int" Description="CH3 14" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="15" TagName="TAG00031" Address="DW14" DataType="Int" Description="CH3 15" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="16" TagName="TAG00032" Address="DW15" DataType="Int" Description="CH3 16" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="17" TagName="TAG00033" Address="DW16" DataType="Int" Description="CH3 17" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="18" TagName="TAG00034" Address="DW17" DataType="Int" Description="CH3 18" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="19" TagName="TAG00035" Address="DW18" DataType="Int" Description="CH3 19" />
+        <Tag ChannelId="3" DeviceId="1" DataBlockId="2" TagId="20" TagName="TAG00036" Address="DW19" DataType="Int" Description="CH3 20" />
+      </DataBlock>
+    </Device>
+  </Channel>
+</Root>

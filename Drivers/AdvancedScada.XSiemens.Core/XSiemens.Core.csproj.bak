@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{23238893-CAA2-4308-B7F9-0F01DADB08AA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AdvancedScada.XSiemens.Core</RootNamespace>
+    <AssemblyName>AdvancedScada.XSiemens.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>C:\AdvancedScadaCS\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comm\Conversion.cs" />
+    <Compile Include="Comm\Enums.cs" />
+    <Compile Include="Comm\IPLCS7Master.cs" />
+    <Compile Include="Comm\Struct.cs" />
+    <Compile Include="Profinet\COTP.cs" />
+    <Compile Include="Profinet\PLC.cs" />
+    <Compile Include="Profinet\PLCAddress.cs" />
+    <Compile Include="Profinet\PlcAsynchronous.cs" />
+    <Compile Include="Profinet\PlcException.cs" />
+    <Compile Include="Profinet\PLCExceptions.cs" />
+    <Compile Include="Profinet\PLCHelpers.cs" />
+    <Compile Include="Profinet\PlcSynchronous.cs" />
+    <Compile Include="Profinet\TPKT.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Protocol\ConnectionRequest.cs" />
+    <Compile Include="Protocol\S7WriteMultiple.cs" />
+    <Compile Include="Protocol\Serialization.cs" />
+    <Compile Include="Protocol\Sharp7.cs" />
+    <Compile Include="Protocol\TcpClientMixins.cs" />
+    <Compile Include="DataService.cs" />
+    <Compile Include="Types\Bit.cs" />
+    <Compile Include="Types\Boolean.cs" />
+    <Compile Include="Types\Byte.cs" />
+    <Compile Include="Types\ByteArray.cs" />
+    <Compile Include="Types\Class.cs" />
+    <Compile Include="Types\Counter.cs" />
+    <Compile Include="Types\DataItem.cs" />
+    <Compile Include="Types\DInt.cs" />
+    <Compile Include="Types\Double.cs" />
+    <Compile Include="Types\DWord.cs" />
+    <Compile Include="Types\Int.cs" />
+    <Compile Include="Types\Single.cs" />
+    <Compile Include="Types\String.cs" />
+    <Compile Include="Types\StringEx.cs" />
+    <Compile Include="Types\Struct.cs" />
+    <Compile Include="Types\Timer.cs" />
+    <Compile Include="Types\Word.cs" />
+    <Compile Include="UserEditors\XUserChannelForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserEditors\XUserChannelForm.Designer.cs">
+      <DependentUpon>XUserChannelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserEditors\XUserDataBlockForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserEditors\XUserDataBlockForm.Designer.cs">
+      <DependentUpon>XUserDataBlockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserEditors\XUserDeviceForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserEditors\XUserDeviceForm.Designer.cs">
+      <DependentUpon>XUserDeviceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserEditors\XUserTagForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserEditors\XUserTagForm.Designer.cs">
+      <DependentUpon>XUserTagForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="UserEditors\XUserChannelForm.resx">
+      <DependentUpon>XUserChannelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserEditors\XUserDataBlockForm.resx">
+      <DependentUpon>XUserDataBlockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserEditors\XUserDeviceForm.resx">
+      <DependentUpon>XUserDeviceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserEditors\XUserTagForm.resx">
+      <DependentUpon>XUserTagForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\AdvancedScada.IBaseService\IBaseService.csproj">
+      <Project>{4BA1E9C3-F791-458C-B4F7-3B7943E8DE10}</Project>
+      <Name>IBaseService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AdvancedScada.Management\Management.csproj">
+      <Project>{a6981d28-2360-4212-8eef-f78c117eb615}</Project>
+      <Name>Management</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AdvancedScada.Utils\Utils.csproj">
+      <Project>{6892b89e-2cc0-4f7d-95d1-beaa1a21c607}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdvancedScada.ErorrPLC\ErorrPLC.csproj">
+      <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
+      <Name>ErorrPLC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdvancedScada.DriverBase\DriverBase.csproj">
+      <Project>{0c4043a0-522d-456f-82c3-d086bd07ee27}</Project>
+      <Name>DriverBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

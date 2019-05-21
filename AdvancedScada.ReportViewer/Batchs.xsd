@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Batchs" targetNamespace="http://tempuri.org/Batchs.xsd" xmlns:mstns="http://tempuri.org/Batchs.xsd" xmlns="http://tempuri.org/Batchs.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Batchs" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Batchs" msprop:Generator_UserDSName="Batchs">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BatchFinal" msprop:Generator_TableClassName="BatchFinalDataTable" msprop:Generator_TableVarName="tableBatchFinal" msprop:Generator_TablePropName="BatchFinal" msprop:Generator_RowDeletingName="BatchFinalRowDeleting" msprop:Generator_RowChangingName="BatchFinalRowChanging" msprop:Generator_RowEvHandlerName="BatchFinalRowChangeEventHandler" msprop:Generator_RowDeletedName="BatchFinalRowDeleted" msprop:Generator_UserTableName="BatchFinal" msprop:Generator_RowChangedName="BatchFinalRowChanged" msprop:Generator_RowEvArgName="BatchFinalRowChangeEvent" msprop:Generator_RowClassName="BatchFinalRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BatchID" msprop:Generator_ColumnVarNameInTable="columnBatchID" msprop:Generator_ColumnPropNameInRow="BatchID" msprop:Generator_ColumnPropNameInTable="BatchIDColumn" msprop:Generator_UserColumnName="BatchID" type="xs:int" />
+              <xs:element name="Tank1" msprop:Generator_ColumnVarNameInTable="columnTank1" msprop:Generator_ColumnPropNameInRow="Tank1" msprop:Generator_ColumnPropNameInTable="Tank1Column" msprop:Generator_UserColumnName="Tank1" type="xs:double" minOccurs="0" />
+              <xs:element name="Tank2" msprop:Generator_ColumnVarNameInTable="columnTank2" msprop:Generator_ColumnPropNameInRow="Tank2" msprop:Generator_ColumnPropNameInTable="Tank2Column" msprop:Generator_UserColumnName="Tank2" type="xs:double" minOccurs="0" />
+              <xs:element name="Tank3" msprop:Generator_ColumnVarNameInTable="columnTank3" msprop:Generator_ColumnPropNameInRow="Tank3" msprop:Generator_ColumnPropNameInTable="Tank3Column" msprop:Generator_UserColumnName="Tank3" type="xs:double" minOccurs="0" />
+              <xs:element name="Tank4" msprop:Generator_ColumnVarNameInTable="columnTank4" msprop:Generator_ColumnPropNameInRow="Tank4" msprop:Generator_ColumnPropNameInTable="Tank4Column" msprop:Generator_UserColumnName="Tank4" type="xs:double" minOccurs="0" />
+              <xs:element name="Tank5" msprop:Generator_ColumnVarNameInTable="columnTank5" msprop:Generator_ColumnPropNameInRow="Tank5" msprop:Generator_ColumnPropNameInTable="Tank5Column" msprop:Generator_UserColumnName="Tank5" type="xs:double" minOccurs="0" />
+              <xs:element name="Tank6" msprop:Generator_ColumnVarNameInTable="columnTank6" msprop:Generator_ColumnPropNameInRow="Tank6" msprop:Generator_ColumnPropNameInTable="Tank6Column" msprop:Generator_UserColumnName="Tank6" type="xs:double" minOccurs="0" />
+              <xs:element name="Tank7" msprop:Generator_ColumnVarNameInTable="columnTank7" msprop:Generator_ColumnPropNameInRow="Tank7" msprop:Generator_ColumnPropNameInTable="Tank7Column" msprop:Generator_UserColumnName="Tank7" type="xs:double" minOccurs="0" />
+              <xs:element name="Tank8" msprop:Generator_ColumnVarNameInTable="columnTank8" msprop:Generator_ColumnPropNameInRow="Tank8" msprop:Generator_ColumnPropNameInTable="Tank8Column" msprop:Generator_UserColumnName="Tank8" type="xs:double" minOccurs="0" />
+              <xs:element name="Tank9" msprop:Generator_ColumnVarNameInTable="columnTank9" msprop:Generator_ColumnPropNameInRow="Tank9" msprop:Generator_ColumnPropNameInTable="Tank9Column" msprop:Generator_UserColumnName="Tank9" type="xs:double" minOccurs="0" />
+              <xs:element name="Works" msprop:Generator_ColumnVarNameInTable="columnWorks" msprop:Generator_ColumnPropNameInRow="Works" msprop:Generator_ColumnPropNameInTable="WorksColumn" msprop:Generator_UserColumnName="Works" type="xs:int" />
+              <xs:element name="DateT" msprop:Generator_ColumnVarNameInTable="columnDateT" msprop:Generator_ColumnPropNameInRow="DateT" msprop:Generator_ColumnPropNameInTable="DateTColumn" msprop:Generator_UserColumnName="DateT" type="xs:dateTime" />
+              <xs:element name="BatchName" msprop:Generator_ColumnVarNameInTable="columnBatchName" msprop:Generator_ColumnPropNameInRow="BatchName" msprop:Generator_ColumnPropNameInTable="BatchNameColumn" msprop:Generator_UserColumnName="BatchName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tank1N" msprop:Generator_ColumnVarNameInTable="columnTank1N" msprop:Generator_ColumnPropNameInRow="Tank1N" msprop:Generator_ColumnPropNameInTable="Tank1NColumn" msprop:Generator_UserColumnName="Tank1N">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tank2N" msprop:Generator_ColumnVarNameInTable="columnTank2N" msprop:Generator_ColumnPropNameInRow="Tank2N" msprop:Generator_ColumnPropNameInTable="Tank2NColumn" msprop:Generator_UserColumnName="Tank2N">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tank3N" msprop:Generator_ColumnVarNameInTable="columnTank3N" msprop:Generator_ColumnPropNameInRow="Tank3N" msprop:Generator_ColumnPropNameInTable="Tank3NColumn" msprop:Generator_UserColumnName="Tank3N">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tank4N" msprop:Generator_ColumnVarNameInTable="columnTank4N" msprop:Generator_ColumnPropNameInRow="Tank4N" msprop:Generator_ColumnPropNameInTable="Tank4NColumn" msprop:Generator_UserColumnName="Tank4N">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tank5N" msprop:Generator_ColumnVarNameInTable="columnTank5N" msprop:Generator_ColumnPropNameInRow="Tank5N" msprop:Generator_ColumnPropNameInTable="Tank5NColumn" msprop:Generator_UserColumnName="Tank5N">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tank6N" msprop:Generator_ColumnVarNameInTable="columnTank6N" msprop:Generator_ColumnPropNameInRow="Tank6N" msprop:Generator_ColumnPropNameInTable="Tank6NColumn" msprop:Generator_UserColumnName="Tank6N">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tank7N" msprop:Generator_ColumnVarNameInTable="columnTank7N" msprop:Generator_ColumnPropNameInRow="Tank7N" msprop:Generator_ColumnPropNameInTable="Tank7NColumn" msprop:Generator_UserColumnName="Tank7N">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tank8N" msprop:Generator_ColumnVarNameInTable="columnTank8N" msprop:Generator_ColumnPropNameInRow="Tank8N" msprop:Generator_ColumnPropNameInTable="Tank8NColumn" msprop:Generator_UserColumnName="Tank8N">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TimeT" msprop:Generator_ColumnVarNameInTable="columnTimeT" msprop:Generator_ColumnPropNameInRow="TimeT" msprop:Generator_ColumnPropNameInTable="TimeTColumn" msprop:Generator_UserColumnName="TimeT" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BatchFinal" />
+      <xs:field xpath="mstns:BatchID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
