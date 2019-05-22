@@ -45,6 +45,9 @@ namespace AdvancedScada.Studio.Service
                 var frame = Functions.GetFunctions();
                 iServiceDriverAll = frame.GetAssemblyService(@"\AdvancedScada.BaseService.dll", "AdvancedScada.BaseService.ServiceBase");
                 if (iServiceDriverAll != null)
+                    client = iServiceDriverAll.GetStartService();
+
+                if (iServiceDriverAll != null)
                     host = iServiceDriverAll.GetServiceHostHttp();
                 host.Opened += host_Opened;
                 host.Open();
@@ -61,12 +64,7 @@ namespace AdvancedScada.Studio.Service
                 GridControl1.DataSource = _ServerUtilsGrid;
                 if (host.State == CommunicationState.Opened) txtStatus.Caption = "The Server is running";
 
-
-
-
-
-                if (iServiceDriverAll != null)
-                    client = iServiceDriverAll.GetStartService();
+              
 
             }
             catch (Exception ex)

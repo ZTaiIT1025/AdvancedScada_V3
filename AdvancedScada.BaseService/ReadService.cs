@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
+using System.Threading;
 using System.Timers;
 using static AdvancedScada.IBaseService.Common.Functions;
 
@@ -15,7 +16,8 @@ namespace AdvancedScada.BaseService
     [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.PerSession)]
     public class ReadService : IReadService
     {
-        private Timer _timerUpdate;
+        private bool RUN_APPLICATION;
+      
         public IServiceCallback EventDataChanged;
         public IServiceDriver iServiceDriver = null;
         readonly Functions frame = Functions.GetFunctions();
@@ -45,13 +47,7 @@ namespace AdvancedScada.BaseService
         {
            
             objChannelManager = ChannelManager.GetChannelManager();
-            if (_timerUpdate == null)
-            {
-                _timerUpdate = new System.Timers.Timer();
-                _timerUpdate.Elapsed += timerUpdate_Elapsed;
-                _timerUpdate.Interval = 100;
-                _timerUpdate.Start();
-            }
+            
         }
         public IServiceDriver GetAssemblyDrivers(string ChannelTypes)
         {
@@ -69,40 +65,7 @@ namespace AdvancedScada.BaseService
             }
             return iServiceDriver;
         }
-        private void timerUpdate_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            try
-            {
-                lock (mutexUpdate)
-                {
-
-
-                    if (EventDataChanged != null)
-                    {
-                        // Query the channel state. For example:-
-
-                        var state = (EventDataChanged as IChannel).State;
-                        if (state == CommunicationState.Closed || state == CommunicationState.Faulted)
-                        {
-                            // Channel has closed, or has faulted...
-                            EventDataChanged = null;
-                            EventChannelCount?.Invoke(1, false);
-                        }
-                        else
-                        {
-                            
-                            EventDataChanged?.DataTags(TagCollection.Tags);
-                        }
-                    }
-                }
-            }
-            catch (FaultException ex)
-            {
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
-            }
-
-        }
-
+       
         public void Connection()
         {
             try
@@ -112,7 +75,40 @@ namespace AdvancedScada.BaseService
 
                     EventDataChanged = OperationContext.Current.GetCallbackChannel<IServiceCallback>();
                     EventChannelCount?.Invoke(1, true);
+                    RUN_APPLICATION = true;
                 }
+                ThreadPool.QueueUserWorkItem(delegate
+                {
+                    while (RUN_APPLICATION)
+                    {
+                        try
+                        {
+                            if (EventDataChanged != null)
+                            {
+                                // Query the channel state. For example:-
+
+                                var state = (EventDataChanged as IChannel).State;
+                                if (state == CommunicationState.Closed || state == CommunicationState.Faulted)
+                                {
+                                    // Channel has closed, or has faulted...
+                                    EventDataChanged = null;
+                                    EventChannelCount?.Invoke(1, false);
+                                }
+                                else
+                                {
+
+                                    EventDataChanged?.DataTags(TagCollection.Tags);
+                                }
+                            }
+                            Thread.Sleep(100);
+                        }
+                        catch (Exception ex)
+                        {
+                            RUN_APPLICATION = false;
+                            var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                        }
+                    }
+                });
             }
             catch (System.Exception ex)
             {
@@ -126,7 +122,7 @@ namespace AdvancedScada.BaseService
         {
             try
             {
-                 
+                RUN_APPLICATION = false;
                 EventDataChanged = null;
                 EventChannelCount?.Invoke(1, false);
                 
