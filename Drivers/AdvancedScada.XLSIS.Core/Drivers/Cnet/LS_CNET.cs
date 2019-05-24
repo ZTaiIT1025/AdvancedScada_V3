@@ -1,16 +1,16 @@
 ﻿using AdvancedScada.DriverBase;
 using AdvancedScada.DriverBase.Comm;
-using AdvancedScada.XLSIS.Core.Comm;
+using HslCommunication;
 using HslCommunication.Profinet.LSIS;
 using System;
-using System.Diagnostics;
 using System.IO.Ports;
 using System.Windows.Forms;
-using AdvancedScada.HMIException;
 
 namespace AdvancedScada.XLSIS.Core.Drivers.Cnet
-{
-    public class LS_CNET : IReadWritePLC
+{/// <summary>
+/// 
+/// </summary>
+    public class LS_CNET : IDriverAdapter
     {
         private SerialPort serialPort;
         private XGBCnet xGBCnet = null;
@@ -174,6 +174,10 @@ namespace AdvancedScada.XLSIS.Core.Drivers.Cnet
 
             throw new InvalidOperationException(string.Format("type '{0}' not supported.", typeof(TValue)));
         }
-   
+
+        public OperateResult<bool[]> ReadDiscrete(string address, ushort length)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
