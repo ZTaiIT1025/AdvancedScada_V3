@@ -1,19 +1,14 @@
 ﻿using AdvancedScada.DriverBase;
-using AdvancedScada.DriverBase.Comm;
+using HslCommunication;
 using HslCommunication.Profinet.Siemens;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using XSiemens.Core.Comm;
 
 namespace AdvancedScada.XSiemens.Core.Profinet
 {
-   public  class SiemensComPPI : IPLCS7Master
+    public  class SiemensComPPI : IDriverAdapter
     {
         private SiemensPPI siemensPPI = null;
         private const int DELAY = 100; // delay 100 ms
@@ -176,6 +171,11 @@ namespace AdvancedScada.XSiemens.Core.Profinet
             }
 
             throw new InvalidOperationException(string.Format("type '{0}' not supported.", typeof(TValue)));
+        }
+
+        public OperateResult<bool[]> ReadDiscrete(string address, ushort length)
+        {
+            throw new NotImplementedException();
         }
     }
 }

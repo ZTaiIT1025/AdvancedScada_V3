@@ -729,7 +729,7 @@ namespace AdvancedScada.HMI.MainForm
             this.txt_thnk_set_8.Location = new System.Drawing.Point(169, 89);
             this.txt_thnk_set_8.Multiline = true;
             this.txt_thnk_set_8.Name = "txt_thnk_set_8";
-            this.txt_thnk_set_8.PLCAddressValueToWrite = "";
+            this.txt_thnk_set_8.PLCAddressValueToWrite = "CH2.PLC1.DataBlock2.TAG00024";
             this.txt_thnk_set_8.Size = new System.Drawing.Size(94, 26);
             this.txt_thnk_set_8.TabIndex = 399;
             this.txt_thnk_set_8.Text = "0";
@@ -742,7 +742,7 @@ namespace AdvancedScada.HMI.MainForm
             this.txt_thnk_set_1.Location = new System.Drawing.Point(883, 89);
             this.txt_thnk_set_1.Multiline = true;
             this.txt_thnk_set_1.Name = "txt_thnk_set_1";
-            this.txt_thnk_set_1.PLCAddressValueToWrite = "";
+            this.txt_thnk_set_1.PLCAddressValueToWrite = "CH1.PLC1.DataBlock1.TAG00001";
             this.txt_thnk_set_1.Size = new System.Drawing.Size(94, 26);
             this.txt_thnk_set_1.TabIndex = 398;
             this.txt_thnk_set_1.Text = "0";
@@ -755,7 +755,7 @@ namespace AdvancedScada.HMI.MainForm
             this.txt_thnk_set_2.Location = new System.Drawing.Point(784, 88);
             this.txt_thnk_set_2.Multiline = true;
             this.txt_thnk_set_2.Name = "txt_thnk_set_2";
-            this.txt_thnk_set_2.PLCAddressValueToWrite = "";
+            this.txt_thnk_set_2.PLCAddressValueToWrite = "CH3.PLC1.DataBlock2.TAG00018";
             this.txt_thnk_set_2.Size = new System.Drawing.Size(94, 27);
             this.txt_thnk_set_2.TabIndex = 397;
             this.txt_thnk_set_2.Text = "0";
@@ -768,7 +768,7 @@ namespace AdvancedScada.HMI.MainForm
             this.txt_thnk_set_3.Location = new System.Drawing.Point(679, 89);
             this.txt_thnk_set_3.Multiline = true;
             this.txt_thnk_set_3.Name = "txt_thnk_set_3";
-            this.txt_thnk_set_3.PLCAddressValueToWrite = "";
+            this.txt_thnk_set_3.PLCAddressValueToWrite = "CH3.PLC1.DataBlock2.TAG00019";
             this.txt_thnk_set_3.Size = new System.Drawing.Size(94, 26);
             this.txt_thnk_set_3.TabIndex = 396;
             this.txt_thnk_set_3.Text = "0";
@@ -781,7 +781,7 @@ namespace AdvancedScada.HMI.MainForm
             this.txt_thnk_set_4.Location = new System.Drawing.Point(574, 88);
             this.txt_thnk_set_4.Multiline = true;
             this.txt_thnk_set_4.Name = "txt_thnk_set_4";
-            this.txt_thnk_set_4.PLCAddressValueToWrite = "";
+            this.txt_thnk_set_4.PLCAddressValueToWrite = "CH2.PLC1.DataBlock2.TAG00020";
             this.txt_thnk_set_4.Size = new System.Drawing.Size(94, 26);
             this.txt_thnk_set_4.TabIndex = 395;
             this.txt_thnk_set_4.Text = "0";
@@ -794,7 +794,7 @@ namespace AdvancedScada.HMI.MainForm
             this.txt_thnk_set_5.Location = new System.Drawing.Point(473, 89);
             this.txt_thnk_set_5.Multiline = true;
             this.txt_thnk_set_5.Name = "txt_thnk_set_5";
-            this.txt_thnk_set_5.PLCAddressValueToWrite = "";
+            this.txt_thnk_set_5.PLCAddressValueToWrite = "CH2.PLC1.DataBlock2.TAG00021";
             this.txt_thnk_set_5.Size = new System.Drawing.Size(94, 26);
             this.txt_thnk_set_5.TabIndex = 394;
             this.txt_thnk_set_5.Text = "0";
@@ -807,7 +807,7 @@ namespace AdvancedScada.HMI.MainForm
             this.txt_thnk_set_6.Location = new System.Drawing.Point(374, 89);
             this.txt_thnk_set_6.Multiline = true;
             this.txt_thnk_set_6.Name = "txt_thnk_set_6";
-            this.txt_thnk_set_6.PLCAddressValueToWrite = "";
+            this.txt_thnk_set_6.PLCAddressValueToWrite = "CH2.PLC1.DataBlock2.TAG00022";
             this.txt_thnk_set_6.Size = new System.Drawing.Size(94, 26);
             this.txt_thnk_set_6.TabIndex = 393;
             this.txt_thnk_set_6.Text = "0";
@@ -820,7 +820,7 @@ namespace AdvancedScada.HMI.MainForm
             this.txt_thnk_set_7.Location = new System.Drawing.Point(274, 89);
             this.txt_thnk_set_7.Multiline = true;
             this.txt_thnk_set_7.Name = "txt_thnk_set_7";
-            this.txt_thnk_set_7.PLCAddressValueToWrite = "";
+            this.txt_thnk_set_7.PLCAddressValueToWrite = "CH3.PLC1.DataBlock2.TAG00023";
             this.txt_thnk_set_7.Size = new System.Drawing.Size(94, 26);
             this.txt_thnk_set_7.TabIndex = 392;
             this.txt_thnk_set_7.Text = "0";

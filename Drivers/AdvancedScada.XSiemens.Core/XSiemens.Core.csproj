@@ -57,7 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comm\IPLCS7Master.cs" />
     <Compile Include="Profinet\SiemensComPPI.cs" />
     <Compile Include="Profinet\SiemensNet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

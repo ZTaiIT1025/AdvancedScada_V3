@@ -19,16 +19,7 @@ namespace AdvancedScada.DriverBase.Devices
             ConnectionType = "Ethernet";
         }
 
-        /// <summary>
-        ///     Hàm khởi tạo.
-        /// </summary>
-        /// <param name="channelId">Mã kênh</param>
-        /// <param name="channelName">Tên kênh</param>
-        /// <param name="md">Chế độ của giao thức</param>
-        /// <param name="ip">Địa chỉ IP</param>
-        /// <param name="port">Port</param>
-        /// <param name="desc">Mô tả thông tin thiết bị</param>
-        /// <param name="connType">Kiểu kết nối</param>
+     
         public DIEthernet(int channelId, string channelName, string md, string ip, short port = 102, string desc = null,
             string connType = "Ethernet")
             : this()

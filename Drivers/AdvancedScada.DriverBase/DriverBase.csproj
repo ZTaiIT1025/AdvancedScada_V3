@@ -53,7 +53,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client\TagCollectionClient.cs" />
-    <Compile Include="Comm\Conversion.cs" />
     <Compile Include="Comm\EventsPLC.cs" />
     <Compile Include="Comm\RequestAndResponseMessage.cs" />
     <Compile Include="Comm\Util.cs" />

@@ -66,7 +66,6 @@
   <ItemGroup>
     <Compile Include="ASCII\ModbusASCIIMaster.cs" />
     <Compile Include="DataService.cs" />
-    <Compile Include="IModbusMaster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RTU\ModbusRTUMaster.cs" />
     <Compile Include="TCP\ModbusTCPMaster.cs" />

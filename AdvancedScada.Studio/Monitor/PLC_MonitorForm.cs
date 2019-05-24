@@ -20,6 +20,7 @@ using Microsoft.Win32;
 namespace AdvancedScada.Studio.Monitor
 {
     public delegate void EventTagSelected(string tagName);
+    [CallbackBehavior(UseSynchronizationContext = true)]
     public partial class PLC_MonitorForm : IServiceCallback
     {
         public const string Driver = "Driver";

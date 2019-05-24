@@ -959,7 +959,7 @@ namespace AdvancedScada.HMI.MainForm
             this.thnk_set_4.NumericFormat = null;
             this.thnk_set_4.PLCAddressHighlight = "";
             this.thnk_set_4.PLCAddressKeypad = "";
-            this.thnk_set_4.PLCAddressValue = "TEST.PLC.DW.DW13";
+            this.thnk_set_4.PLCAddressValue = "CH2.PLC1.DataBlock2.TAG00020";
             this.thnk_set_4.PLCAddressVisible = "";
             this.thnk_set_4.PollRate = 0;
             this.thnk_set_4.Size = new System.Drawing.Size(51, 19);
@@ -1136,7 +1136,7 @@ namespace AdvancedScada.HMI.MainForm
             this.thnk_set_8.NumericFormat = null;
             this.thnk_set_8.PLCAddressHighlight = "";
             this.thnk_set_8.PLCAddressKeypad = "";
-            this.thnk_set_8.PLCAddressValue = "TEST.PLC.DW.DW21";
+            this.thnk_set_8.PLCAddressValue = "CH2.PLC1.DataBlock2.TAG00024";
             this.thnk_set_8.PLCAddressVisible = "";
             this.thnk_set_8.PollRate = 0;
             this.thnk_set_8.Size = new System.Drawing.Size(51, 19);
@@ -1313,7 +1313,7 @@ namespace AdvancedScada.HMI.MainForm
             this.thnk_set_7.NumericFormat = null;
             this.thnk_set_7.PLCAddressHighlight = "";
             this.thnk_set_7.PLCAddressKeypad = "";
-            this.thnk_set_7.PLCAddressValue = "TEST.PLC.DW.DW19";
+            this.thnk_set_7.PLCAddressValue = "CH2.PLC1.DataBlock2.TAG00023";
             this.thnk_set_7.PLCAddressVisible = "";
             this.thnk_set_7.PollRate = 0;
             this.thnk_set_7.Size = new System.Drawing.Size(51, 19);
@@ -1490,7 +1490,7 @@ namespace AdvancedScada.HMI.MainForm
             this.thnk_set_6.NumericFormat = null;
             this.thnk_set_6.PLCAddressHighlight = "";
             this.thnk_set_6.PLCAddressKeypad = "";
-            this.thnk_set_6.PLCAddressValue = "TEST.PLC.DW.DW17";
+            this.thnk_set_6.PLCAddressValue = "CH2.PLC1.DataBlock2.TAG00022";
             this.thnk_set_6.PLCAddressVisible = "";
             this.thnk_set_6.PollRate = 0;
             this.thnk_set_6.Size = new System.Drawing.Size(51, 19);
@@ -1667,7 +1667,7 @@ namespace AdvancedScada.HMI.MainForm
             this.thnk_set_5.NumericFormat = null;
             this.thnk_set_5.PLCAddressHighlight = "";
             this.thnk_set_5.PLCAddressKeypad = "";
-            this.thnk_set_5.PLCAddressValue = "TEST.PLC.DW.DW15";
+            this.thnk_set_5.PLCAddressValue = "CH2.PLC1.DataBlock2.TAG00021";
             this.thnk_set_5.PLCAddressVisible = "";
             this.thnk_set_5.PollRate = 0;
             this.thnk_set_5.Size = new System.Drawing.Size(51, 19);
@@ -1844,7 +1844,7 @@ namespace AdvancedScada.HMI.MainForm
             this.thnk_set_3.NumericFormat = null;
             this.thnk_set_3.PLCAddressHighlight = "";
             this.thnk_set_3.PLCAddressKeypad = "";
-            this.thnk_set_3.PLCAddressValue = "TEST.PLC.DW.DW11";
+            this.thnk_set_3.PLCAddressValue = "CH2.PLC1.DataBlock2.TAG00019";
             this.thnk_set_3.PLCAddressVisible = "";
             this.thnk_set_3.PollRate = 0;
             this.thnk_set_3.Size = new System.Drawing.Size(51, 19);
@@ -2021,7 +2021,7 @@ namespace AdvancedScada.HMI.MainForm
             this.thnk_set_1.NumericFormat = null;
             this.thnk_set_1.PLCAddressHighlight = "";
             this.thnk_set_1.PLCAddressKeypad = "";
-            this.thnk_set_1.PLCAddressValue = "TEST.PLC.DW.DW7";
+            this.thnk_set_1.PLCAddressValue = "CH1.PLC1.DataBlock1.TAG00001";
             this.thnk_set_1.PLCAddressVisible = "";
             this.thnk_set_1.PollRate = 0;
             this.thnk_set_1.Size = new System.Drawing.Size(51, 19);
@@ -2198,7 +2198,7 @@ namespace AdvancedScada.HMI.MainForm
             this.thnk_set_2.NumericFormat = null;
             this.thnk_set_2.PLCAddressHighlight = "";
             this.thnk_set_2.PLCAddressKeypad = "";
-            this.thnk_set_2.PLCAddressValue = "TEST.PLC.DW.DW9";
+            this.thnk_set_2.PLCAddressValue = "CH2.PLC1.DataBlock2.TAG00018";
             this.thnk_set_2.PLCAddressVisible = "";
             this.thnk_set_2.PollRate = 0;
             this.thnk_set_2.Size = new System.Drawing.Size(51, 19);
@@ -2286,8 +2286,8 @@ namespace AdvancedScada.HMI.MainForm
             this.hmiSevenSegment1.Location = new System.Drawing.Point(84, 15);
             this.hmiSevenSegment1.Name = "hmiSevenSegment1";
             this.hmiSevenSegment1.NumberOfDigits = 5;
-            this.hmiSevenSegment1.PLCAddressKeypad = "CH1.PLC1.DataBlock2.TAG00074";
-            this.hmiSevenSegment1.PLCAddressValue = "CH1.PLC1.DataBlock2.TAG00074";
+            this.hmiSevenSegment1.PLCAddressKeypad = "CH2.PLC1.DataBlock2.TAG00017";
+            this.hmiSevenSegment1.PLCAddressValue = "CH2.PLC1.DataBlock2.TAG00017";
             this.hmiSevenSegment1.PLCAddressVisible = "";
             this.hmiSevenSegment1.ResolutionOfLastDigit = new decimal(new int[] {
             1,
@@ -3430,9 +3430,9 @@ namespace AdvancedScada.HMI.MainForm
             this.hmiDigitalPanelMeter1.Location = new System.Drawing.Point(427, 123);
             this.hmiDigitalPanelMeter1.Name = "hmiDigitalPanelMeter1";
             this.hmiDigitalPanelMeter1.NumberOfDigits = 5;
-            this.hmiDigitalPanelMeter1.PLCAddressKeypad = "TEST.PLC.StartAddress22.StartAddress22:54";
+            this.hmiDigitalPanelMeter1.PLCAddressKeypad = "CH2.PLC1.DataBlock2.TAG00023";
             this.hmiDigitalPanelMeter1.PLCAddressText = "";
-            this.hmiDigitalPanelMeter1.PLCAddressValue = "TEST.PLC.StartAddress22.StartAddress22:54";
+            this.hmiDigitalPanelMeter1.PLCAddressValue = "CH2.PLC1.DataBlock2.TAG00023";
             this.hmiDigitalPanelMeter1.PLCAddressVisible = "";
             this.hmiDigitalPanelMeter1.Resolution = new decimal(new int[] {
             1,
@@ -3480,9 +3480,9 @@ namespace AdvancedScada.HMI.MainForm
             this.hmiWaterPump1.MinimumHoldTime = 500;
             this.hmiWaterPump1.Name = "hmiWaterPump1";
             this.hmiWaterPump1.OutputType = AdvancedScada.Controls.Motor.OutputType.Toggle;
-            this.hmiWaterPump1.PLCAddressClick = "TEST.PLC.StartAddress100bit.StartAddress100bit:100";
+            this.hmiWaterPump1.PLCAddressClick = "CH2.PLC1.DataBlock2.TAG00021";
             this.hmiWaterPump1.PLCAddressText = "";
-            this.hmiWaterPump1.PLCAddressValue = "TEST.PLC.StartAddress100bit.StartAddress100bit:100";
+            this.hmiWaterPump1.PLCAddressValue = "CH2.PLC1.DataBlock1.TAG00005";
             this.hmiWaterPump1.PLCAddressVisible = "";
             this.hmiWaterPump1.Size = new System.Drawing.Size(101, 49);
             this.hmiWaterPump1.TabIndex = 517;
@@ -3755,7 +3755,7 @@ namespace AdvancedScada.HMI.MainForm
             this.hmiProcessLevel1.OuterBorderLightColor = System.Drawing.Color.White;
             this.hmiProcessLevel1.PLCAddressKeypad = "";
             this.hmiProcessLevel1.PLCAddressText = "";
-            this.hmiProcessLevel1.PLCAddressValue = "CH1.PLC1.DataBlock2.TAG00069";
+            this.hmiProcessLevel1.PLCAddressValue = "CH2.PLC1.DataBlock1.TAG00004";
             this.hmiProcessLevel1.PLCAddressVisible = "";
             this.hmiProcessLevel1.RoundRadius = 30;
             this.hmiProcessLevel1.ShadowColor = System.Drawing.Color.DimGray;
@@ -3822,7 +3822,7 @@ namespace AdvancedScada.HMI.MainForm
             this.hmiProcessLevel2.OuterBorderLightColor = System.Drawing.Color.White;
             this.hmiProcessLevel2.PLCAddressKeypad = "";
             this.hmiProcessLevel2.PLCAddressText = "";
-            this.hmiProcessLevel2.PLCAddressValue = "CH3.PLC1.DataBlock1.TAG00001";
+            this.hmiProcessLevel2.PLCAddressValue = "CH3.PLC1.DataBlock1.TAG00006";
             this.hmiProcessLevel2.PLCAddressVisible = "";
             this.hmiProcessLevel2.RoundRadius = 30;
             this.hmiProcessLevel2.ShadowColor = System.Drawing.Color.DimGray;
@@ -3887,9 +3887,9 @@ namespace AdvancedScada.HMI.MainForm
             this.hmiProcessLevel3.OuterBorderDarkColor = System.Drawing.Color.DimGray;
             this.hmiProcessLevel3.OuterBorderLength = 3;
             this.hmiProcessLevel3.OuterBorderLightColor = System.Drawing.Color.White;
-            this.hmiProcessLevel3.PLCAddressKeypad = "";
+            this.hmiProcessLevel3.PLCAddressKeypad = "CH3.PLC1.DataBlock2.TAG00021";
             this.hmiProcessLevel3.PLCAddressText = "";
-            this.hmiProcessLevel3.PLCAddressValue = "CH2.PLC1.DataBlock1.TAG00001";
+            this.hmiProcessLevel3.PLCAddressValue = "CH3.PLC1.DataBlock2.TAG00021";
             this.hmiProcessLevel3.PLCAddressVisible = "";
             this.hmiProcessLevel3.RoundRadius = 30;
             this.hmiProcessLevel3.ShadowColor = System.Drawing.Color.DimGray;
@@ -4019,9 +4019,9 @@ namespace AdvancedScada.HMI.MainForm
             this.hmiLedSingle1.OuterBorderLength = 2;
             this.hmiLedSingle1.OuterBorderLightColor = System.Drawing.Color.White;
             this.hmiLedSingle1.OutputType = AdvancedScada.Controls.Motor.OutputType.ValveWeiCtriDialog;
-            this.hmiLedSingle1.PLCAddressClick = "CH1.PLC1.DataBlock1.TAG00001";
+            this.hmiLedSingle1.PLCAddressClick = "CH2.PLC1.DataBlock1.TAG00001";
             this.hmiLedSingle1.PLCAddressText = "";
-            this.hmiLedSingle1.PLCAddressValue = "CH1.PLC1.DataBlock1.TAG00001";
+            this.hmiLedSingle1.PLCAddressValue = "CH2.PLC1.DataBlock1.TAG00001";
             this.hmiLedSingle1.PLCAddressVisible = "";
             this.hmiLedSingle1.RoundRadius = 30;
             this.hmiLedSingle1.Shape = AdvancedScada.Controls.Enum.DAS_ShapeStyle.SS_Circle;
@@ -4069,9 +4069,9 @@ namespace AdvancedScada.HMI.MainForm
             this.hmiLedSingle2.OuterBorderLength = 2;
             this.hmiLedSingle2.OuterBorderLightColor = System.Drawing.Color.White;
             this.hmiLedSingle2.OutputType = AdvancedScada.Controls.Motor.OutputType.ValveWeiCtriDialog;
-            this.hmiLedSingle2.PLCAddressClick = "CH1.PLC1.DataBlock1.TAG00002";
+            this.hmiLedSingle2.PLCAddressClick = "CH2.PLC1.DataBlock1.TAG00002";
             this.hmiLedSingle2.PLCAddressText = "";
-            this.hmiLedSingle2.PLCAddressValue = "CH1.PLC1.DataBlock1.TAG00002";
+            this.hmiLedSingle2.PLCAddressValue = "CH2.PLC1.DataBlock1.TAG00002";
             this.hmiLedSingle2.PLCAddressVisible = "";
             this.hmiLedSingle2.RoundRadius = 30;
             this.hmiLedSingle2.Shape = AdvancedScada.Controls.Enum.DAS_ShapeStyle.SS_Circle;
@@ -4169,9 +4169,9 @@ namespace AdvancedScada.HMI.MainForm
             this.hmiLedSingle4.OuterBorderLength = 2;
             this.hmiLedSingle4.OuterBorderLightColor = System.Drawing.Color.White;
             this.hmiLedSingle4.OutputType = AdvancedScada.Controls.Motor.OutputType.ValveWeiCtriDialog;
-            this.hmiLedSingle4.PLCAddressClick = "CH1.PLC1.DataBlock1.TAG00003";
+            this.hmiLedSingle4.PLCAddressClick = "CH2.PLC1.DataBlock1.TAG00003";
             this.hmiLedSingle4.PLCAddressText = "";
-            this.hmiLedSingle4.PLCAddressValue = "CH1.PLC1.DataBlock1.TAG00003";
+            this.hmiLedSingle4.PLCAddressValue = "CH2.PLC1.DataBlock1.TAG00003";
             this.hmiLedSingle4.PLCAddressVisible = "";
             this.hmiLedSingle4.RoundRadius = 30;
             this.hmiLedSingle4.Shape = AdvancedScada.Controls.Enum.DAS_ShapeStyle.SS_Circle;
@@ -4400,9 +4400,9 @@ namespace AdvancedScada.HMI.MainForm
             this.hmiDigitalPanelMeter2.Location = new System.Drawing.Point(539, 371);
             this.hmiDigitalPanelMeter2.Name = "hmiDigitalPanelMeter2";
             this.hmiDigitalPanelMeter2.NumberOfDigits = 5;
-            this.hmiDigitalPanelMeter2.PLCAddressKeypad = "CH1.PLC1.DataBlock2.TAG00073";
+            this.hmiDigitalPanelMeter2.PLCAddressKeypad = "CH3.PLC1.DataBlock2.TAG00019";
             this.hmiDigitalPanelMeter2.PLCAddressText = "";
-            this.hmiDigitalPanelMeter2.PLCAddressValue = "CH1.PLC1.DataBlock2.TAG00073";
+            this.hmiDigitalPanelMeter2.PLCAddressValue = "CH3.PLC1.DataBlock2.TAG00019";
             this.hmiDigitalPanelMeter2.PLCAddressVisible = "";
             this.hmiDigitalPanelMeter2.Resolution = new decimal(new int[] {
             1,

@@ -7,9 +7,7 @@ using System.IO.Ports;
 using System.Windows.Forms;
 
 namespace AdvancedScada.XLSIS.Core.Drivers.Cnet
-{/// <summary>
-/// 
-/// </summary>
+{   
     public class LS_CNET : IDriverAdapter
     {
         private SerialPort serialPort;

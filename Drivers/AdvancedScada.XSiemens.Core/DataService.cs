@@ -10,8 +10,6 @@ using System.Collections.Generic;
 using System.IO.Ports;
 using System.Net.Sockets;
 using System.Threading;
-using System.Threading.Tasks;
-using XSiemens.Core.Comm;
 
 namespace XSiemens.Core
 {/// <summary>
@@ -40,7 +38,7 @@ namespace XSiemens.Core
                     Channels.Add(ch);
 
                     if (Channels == null) return;
-                    IPLCS7Master ISiemens = null;
+                    IDriverAdapter ISiemens = null;
 
 
                    
@@ -99,7 +97,7 @@ namespace XSiemens.Core
                 {
                     threads[i] = new Thread((chParam) =>
                     {
-                        IPLCS7Master ISiemens = null;
+                        IDriverAdapter ISiemens = null;
                         Channel ch = (Channel)chParam;
                         switch (ch.ConnectionType)
                         {
@@ -146,7 +144,7 @@ namespace XSiemens.Core
         #endregion
 
 
-        private void SendPackage(IPLCS7Master ISiemens, Device dv, DataBlock db)
+        private void SendPackage(IDriverAdapter ISiemens, Device dv, DataBlock db)
         {
             try
             {
@@ -294,7 +292,7 @@ namespace XSiemens.Core
 
                         if (string.Format("{0}.{1}", ch.ChannelName, dv.DeviceName).Equals(tagDevice))
                         {
-                            IPLCS7Master ISiemens = null;
+                            IDriverAdapter ISiemens = null;
                             switch (ch.ConnectionType)
                             {
                                 case "SerialPort":

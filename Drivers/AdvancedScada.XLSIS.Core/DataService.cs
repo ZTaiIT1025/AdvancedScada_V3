@@ -1,9 +1,7 @@
 ﻿using AdvancedScada.DriverBase;
 using AdvancedScada.DriverBase.Comm;
-using AdvancedScada.DriverBase.Core.DataTypes;
 using AdvancedScada.DriverBase.Devices;
 using AdvancedScada.IBaseService;
-using AdvancedScada.XLSIS.Core.Comm;
 using AdvancedScada.XLSIS.Core.Drivers.Cnet;
 using AdvancedScada.XLSIS.Core.Drivers.FENET;
 using System;
@@ -12,7 +10,6 @@ using System.IO.Ports;
 using System.Net.Sockets;
 using System.ServiceModel;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace AdvancedScada.XLSIS.Core
 {
@@ -51,7 +48,7 @@ namespace AdvancedScada.XLSIS.Core
 
                     #region XGT.
 
-                    IReadWritePLC ILSIS = null;
+                    IDriverAdapter ILSIS = null;
                    
                     #endregion Initialize
 
@@ -103,7 +100,7 @@ namespace AdvancedScada.XLSIS.Core
                     {
                         threads[i] = new Thread((chParam) =>
                         {
-                            IReadWritePLC ILSIS = null;
+                            IDriverAdapter ILSIS = null;
                             var ch = (Channel)chParam;
                             switch (ch.ConnectionType)
                             {
@@ -160,7 +157,7 @@ namespace AdvancedScada.XLSIS.Core
         }
         #endregion
  
-        private void SendPackage(IReadWritePLC ILSIS, Channel ch, Device dv, DataBlock db)
+        private void SendPackage(IDriverAdapter ILSIS, Channel ch, Device dv, DataBlock db)
         {
             try
             {
@@ -309,7 +306,7 @@ namespace AdvancedScada.XLSIS.Core
 
                         if (string.Format("{0}.{1}", ch.ChannelName, dv.DeviceName).Equals(tagDevice))
                         {
-                            IReadWritePLC ILSIS = null;
+                            IDriverAdapter ILSIS = null;
                             switch (ch.ConnectionType)
                             {
                                 case "SerialPort":

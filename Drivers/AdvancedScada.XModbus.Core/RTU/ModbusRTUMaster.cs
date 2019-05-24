@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace AdvancedScada.XModbus.Core.RTU
 {
-    public class ModbusRTUMaster : IModbusMaster
+    public class ModbusRTUMaster : IDriverAdapter
     {
          private SerialPort serialPort;
 

@@ -7,12 +7,6 @@ namespace AdvancedScada.DriverBase
 {
     public static class TagCollection
     {
-        private static Dictionary<string, Tag> _Tags = new Dictionary<string, Tag>();
-
-        public static Dictionary<string, Tag> Tags
-        {
-            get { return _Tags; }
-            set { _Tags = value; }
-        }
+        public static Dictionary<string, Tag> Tags { get; set; } = new Dictionary<string, Tag>();
     }
 }

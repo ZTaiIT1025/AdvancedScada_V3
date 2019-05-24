@@ -11,23 +11,13 @@ namespace AdvancedScada.DriverBase.Devices
     [DataContract]
     public class DataBlock
     {
-        /// <summary>
-        ///     Hàm khởi tạo.
-        /// </summary>
+        
         public DataBlock()
         {
             Tags = new List<Tag>();
         }
 
-        /// <summary>
-        ///     Hàm khởi tạo.
-        /// </summary>
-        /// <param name="dbId">Mã gói dữ liệu</param>
-        /// <param name="dbName">Tên gói dữ liệu</param>
-        /// <param name="startAddr">Địa chỉ bắt đầu</param>
-        /// <param name="length">Chiều dài gói dữ liệu</param>
-        /// <param name="dType">Kiểu dữ liệu</param>
-        /// <param name="desp">Mô tả thêm thông tin</param>
+        
         public DataBlock(int chId, int dvId, int dbId, string dbName, string typeOfRead, ushort startAddr, ushort length, string dType, string desp)
             : this()
         {

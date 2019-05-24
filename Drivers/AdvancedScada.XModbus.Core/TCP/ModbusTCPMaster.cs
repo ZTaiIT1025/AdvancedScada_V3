@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Threading.Tasks;
 namespace AdvancedScada.XModbus.Core.TCP
 {
-    public class ModbusTCPMaster : IModbusMaster
+    public class ModbusTCPMaster : IDriverAdapter
     {
         public bool IsConnected { get; set; } = false;
         public byte Station { get; set; }

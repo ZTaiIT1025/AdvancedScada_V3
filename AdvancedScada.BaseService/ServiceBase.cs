@@ -150,10 +150,12 @@ namespace AdvancedScada.BaseService
                 },
                 MaxBufferSize = 1000000,
                 MaxBufferPoolSize = 1000000,
-                MaxReceivedMessageSize = 1000000,
-                OpenTimeout = TimeSpan.FromMinutes(2),
-                SendTimeout = TimeSpan.FromMinutes(2),
-                ReceiveTimeout = TimeSpan.FromMinutes(10)
+                MaxReceivedMessageSize = 2147483647L,
+                ReceiveTimeout = TimeSpan.FromMinutes(2.0),
+                SendTimeout = TimeSpan.FromMinutes(2.0),
+                OpenTimeout = TimeSpan.FromDays(15.0),
+                CloseTimeout = TimeSpan.FromDays(15.0)
+               
             };
             return b;
         }

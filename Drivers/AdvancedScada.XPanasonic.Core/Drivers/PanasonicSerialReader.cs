@@ -1,19 +1,13 @@
 ﻿using AdvancedScada.DriverBase;
-using AdvancedScada.DriverBase.Comm;
-using AdvancedScada.XPanasonic.Core.Comm;
 using HslCommunication;
 using HslCommunication.Profinet.Panasonic;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdvancedScada.XPanasonic.Core.Drivers
 {
-    public class PanasonicSerialReader : IPanasonic
+    public class PanasonicSerialReader : IDriverAdapter
     {
         
         private SerialPort serialPort;
@@ -171,6 +165,21 @@ namespace AdvancedScada.XPanasonic.Core.Drivers
             }
 
             throw new InvalidOperationException(string.Format("type '{0}' not supported.", typeof(TValue)));
+        }
+
+        public byte[] BuildReadByte(byte station, string address, ushort length)
+        {
+            throw new NotImplementedException();
+        }
+
+        public byte[] BuildWriteByte(byte station, string address, byte[] value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public OperateResult<bool[]> ReadDiscrete(string address, ushort length)
+        {
+            throw new NotImplementedException();
         }
     }
 }

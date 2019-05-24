@@ -8,6 +8,7 @@ using Microsoft.Win32;
 
 namespace AdvancedScada.BaseService.Client
 {
+    
     public class ServiceBaseClient
     {
         public const string CHANNEL = "Channel";

@@ -3,18 +3,13 @@ using AdvancedScada.DriverBase.Comm;
 using HslCommunication;
 using HslCommunication.Profinet.Siemens;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using XSiemens.Core.Comm;
 
 namespace AdvancedScada.XSiemens.Core.Profinet
 {
-  public   class SiemensNet: IPLCS7Master
+    public   class SiemensNet: IDriverAdapter
     {
         private SiemensS7Net siemensTcpNet = null;
         private SiemensPLCS siemensPLCSelected = SiemensPLCS.S1200;
@@ -219,6 +214,11 @@ namespace AdvancedScada.XSiemens.Core.Profinet
             }
 
             throw new InvalidOperationException(string.Format("type '{0}' not supported.", typeof(TValue)));
+        }
+
+        public OperateResult<bool[]> ReadDiscrete(string address, ushort length)
+        {
+            throw new NotImplementedException();
         }
     }
 }

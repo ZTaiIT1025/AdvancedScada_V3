@@ -40,9 +40,9 @@ namespace AdvancedScada.XModbus.Core
                     Channels.Add(ch);
 
                     if (Channels == null) return;
-                 
 
-                    IModbusMaster modbus = null;
+
+                    IDriverAdapter modbus = null;
                   
 
                
@@ -110,7 +110,7 @@ namespace AdvancedScada.XModbus.Core
                 {
                     threads[i] = new Thread((chParam) =>
                     {
-                        IModbusMaster modbus = null;
+                        IDriverAdapter modbus = null;
                         Channel ch = (Channel)chParam;
                         switch (ch.Mode)
                         {
@@ -160,7 +160,7 @@ namespace AdvancedScada.XModbus.Core
         #endregion
 
         public static CatchExceptionDelegate eventCatchExceptionDelegate = null;
-        private void SendPackage(IModbusMaster modbus, Device dv, DataBlock db)
+        private void SendPackage(IDriverAdapter modbus, Device dv, DataBlock db)
         {
             try
             {
@@ -309,7 +309,7 @@ namespace AdvancedScada.XModbus.Core
 
                         if (string.Format("{0}.{1}", ch.ChannelName, dv.DeviceName).Equals(tagDevice))
                         {
-                            IModbusMaster modbus = null;
+                            IDriverAdapter modbus = null;
                             switch (ch.Mode)
                             {
                                 case "RTU":

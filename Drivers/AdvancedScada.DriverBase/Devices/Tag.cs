@@ -32,9 +32,7 @@ namespace AdvancedScada.DriverBase.Devices
         private bool m_ValueSelect2;
         public EventValueChanged ValueChanged = null;
 
-        /// <summary>
-        ///     Hàm khởi tạo.
-        /// </summary>
+      
         public Tag()
         {
         }
@@ -80,9 +78,7 @@ namespace AdvancedScada.DriverBase.Devices
         [DataMember]
         public string DataType { get; set; }
 
-        /// <summary>
-        ///     Giá trị của Tag.
-        /// </summary>
+       
         [DataMember]
         public dynamic Value
         {
@@ -99,15 +95,11 @@ namespace AdvancedScada.DriverBase.Devices
         [DataMember]
         public string Address { get; set; }
 
-        /// <summary>
-        ///     Tên Tag.
-        /// </summary>
+       
         [DataMember]
         public string TagName { get; set; }
 
-        /// <summary>
-        ///     Mã Tag.
-        /// </summary>
+       
         [DataMember]
         public int TagId { get; set; }
 
@@ -167,54 +159,42 @@ namespace AdvancedScada.DriverBase.Devices
             if (ValueChanged != null) ValueChanged(Value);
         }
 
-        /// <summary>
-        /// Giá trị thực nhỏ nhất.
-        /// </summary>
+       
         public float RLmin
         {
             get { return _RLmin; }
             set { _RLmin = value; }
         }
 
-        /// <summary>
-        /// Giá trị thực lớn nhất.
-        /// </summary>
+       
         public float RLmax
         {
             get { return _RLmax; }
             set { _RLmax = value; }
         }
 
-        /// <summary>
-        /// Giá trị analog hiện tại.
-        /// </summary>
+       
         public ushort AIcurrent
         {
             get { return _AIcurrent; }
             set { _AIcurrent = value; }
         }
 
-        /// <summary>
-        /// Giá trị analog nhỏ nhất.
-        /// </summary>
+        
         public ushort AImin
         {
             get { return _AImin; }
             set { _AImin = value; }
         }
 
-        /// <summary>
-        /// Giá trị analog lớn nhất.
-        /// </summary>
+       
         public ushort AImax
         {
             get { return _AImax; }
             set { _AImax = value; }
         }
 
-        /// <summary>
-        /// Có được scale giá trị không?
-        /// </summary>
+       
         public bool IsScaled
         {
             get { return _IsScaled; }

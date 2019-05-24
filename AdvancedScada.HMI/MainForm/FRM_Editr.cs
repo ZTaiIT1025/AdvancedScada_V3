@@ -168,7 +168,7 @@ namespace AdvancedScada.HMI.MainForm
                 {
                     Write("TEST.PLC.MB.MB0", "1");
 
-                    Write("TEST.PLC.DW.DW7", $"{int.Parse(txt_thnk_set_1.Text) - int.Parse(txt_thnk_fol_1.Text)}");
+                    Write(txt_thnk_set_1.PLCAddressValueToWrite, $"{int.Parse(txt_thnk_set_1.Text) - int.Parse(txt_thnk_fol_1.Text)}");
 
                     Write("TEST.PLC.StartAddress22.StartAddress22:72", com_order_1.Text);
 
@@ -185,7 +185,7 @@ namespace AdvancedScada.HMI.MainForm
                 {
                     Write("TEST.PLC.MB.MB1", "1");
 
-                    Write("TEST.PLC.DW.DW9", $"{int.Parse(txt_thnk_set_2.Text) - int.Parse(txt_thnk_fol_2.Text)}");
+                    Write(txt_thnk_set_2.PLCAddressValueToWrite, $"{int.Parse(txt_thnk_set_2.Text) - int.Parse(txt_thnk_fol_2.Text)}");
 
                     Write("TEST.PLC.StartAddress22.StartAddress22:74", com_order_2.Text);
 
@@ -202,7 +202,7 @@ namespace AdvancedScada.HMI.MainForm
 
                     Write("TEST.PLC.MB.MB2", "1");
 
-                    Write("TEST.PLC.DW.DW11", $"{int.Parse(txt_thnk_set_3.Text) - int.Parse(txt_thnk_fol_3.Text)}");
+                    Write(txt_thnk_set_3.PLCAddressValueToWrite, $"{int.Parse(txt_thnk_set_3.Text) - int.Parse(txt_thnk_fol_3.Text)}");
 
                     Write("TEST.PLC.StartAddress22.StartAddress22:76", com_order_3.Text);
 
@@ -218,7 +218,7 @@ namespace AdvancedScada.HMI.MainForm
                 {
                     Write("TEST.PLC.MB.MB3", "1");
 
-                    Write("TEST.PLC.DW.DW13", $"{int.Parse(txt_thnk_set_4.Text) - int.Parse(txt_thnk_fol_4.Text)}");
+                    Write(txt_thnk_set_4.PLCAddressValueToWrite, $"{int.Parse(txt_thnk_set_4.Text) - int.Parse(txt_thnk_fol_4.Text)}");
 
                     Write("TEST.PLC.StartAddress22.StartAddress22:78", com_order_4.Text);
 
@@ -234,7 +234,7 @@ namespace AdvancedScada.HMI.MainForm
                 {
                     Write("TEST.PLC.MB.MB4", "1");
 
-                    Write("TEST.PLC.DW.DW15", $"{int.Parse(txt_thnk_set_5.Text) - int.Parse(txt_thnk_fol_5.Text)}");
+                    Write(txt_thnk_set_5.PLCAddressValueToWrite, $"{int.Parse(txt_thnk_set_5.Text) - int.Parse(txt_thnk_fol_5.Text)}");
 
                     Write("TEST.PLC.StartAddress22.StartAddress22:80", com_order_5.Text);
 
@@ -250,7 +250,7 @@ namespace AdvancedScada.HMI.MainForm
                 {
                     Write("TEST.PLC.MB.MB5", "1");
 
-                    Write("TEST.PLC.DW.DW17", $"{int.Parse(txt_thnk_set_6.Text) - int.Parse(txt_thnk_fol_6.Text)}");
+                    Write(txt_thnk_set_6.PLCAddressValueToWrite, $"{int.Parse(txt_thnk_set_6.Text) - int.Parse(txt_thnk_fol_6.Text)}");
 
                     Write("TEST.PLC.StartAddress22.StartAddress22:82", com_order_6.Text);
 
@@ -266,7 +266,7 @@ namespace AdvancedScada.HMI.MainForm
                 {
                     Write("TEST.PLC.MB.MB6", "1");
 
-                    Write("TEST.PLC.DW.DW19", $"{int.Parse(txt_thnk_set_7.Text) - int.Parse(txt_thnk_fol_7.Text)}");
+                    Write(txt_thnk_set_7.PLCAddressValueToWrite, $"{int.Parse(txt_thnk_set_7.Text) - int.Parse(txt_thnk_fol_7.Text)}");
 
                     Write("TEST.PLC.StartAddress22.StartAddress22:84", com_order_7.Text);
                 }
@@ -282,7 +282,7 @@ namespace AdvancedScada.HMI.MainForm
                 {
                     Write("TEST.PLC.MB.MB7", "1");
 
-                    Write("TEST.PLC.DW.DW21", $"{int.Parse(txt_thnk_set_8.Text) - int.Parse(txt_thnk_fol_8.Text)}");
+                    Write(txt_thnk_set_8.PLCAddressValueToWrite, $"{int.Parse(txt_thnk_set_8.Text) - int.Parse(txt_thnk_fol_8.Text)}");
 
                     Write("TEST.PLC.StartAddress22.StartAddress22:86", com_order_8.Text);
                 }

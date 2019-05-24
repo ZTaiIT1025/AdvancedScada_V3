@@ -7,22 +7,13 @@ using System.Runtime.Serialization;
 namespace AdvancedScada.DriverBase.Devices
 {
     public sealed class DISerialPort : Channel
-    {
-        /// <summary>
-        ///     Hàm khởi tạo.
-        /// </summary>
+    { 
         public DISerialPort()
         {
             ConnectionType = "SerialPort";
         }
 
-        /// <summary>
-        ///     Hàm khởi tạo.
-        /// </summary>
-        /// <param name="channelId">Mã kênh</param>
-        /// <param name="channelName">Tên kênh</param>
-        /// <param name="md">Chế độ của giao thức</param>
-        /// <param name="connType">Kiểu kết nối</param>
+         
         public DISerialPort(int channelId, string channelName, string md,
             string connType = "SerialPort")
         {

@@ -1,21 +1,16 @@
 
 using AdvancedScada.DriverBase;
 using AdvancedScada.DriverBase.Comm;
-using AdvancedScada.XLSIS.Core.Comm;
 using HslCommunication;
 using HslCommunication.Profinet.LSIS;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace AdvancedScada.XLSIS.Core.Drivers.FENET
 {
-    public class LS_FENET : IReadWritePLC
+    public class LS_FENET : IDriverAdapter
     {
         private XGBFastEnet fastEnet = null;
         RequestAndResponseMessage _RequestAndResponseMessage = null;
@@ -200,6 +195,10 @@ namespace AdvancedScada.XLSIS.Core.Drivers.FENET
 
             throw new InvalidOperationException(string.Format("type '{0}' not supported.", typeof(TValue)));
         }
-        
+
+        public OperateResult<bool[]> ReadDiscrete(string address, ushort length)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

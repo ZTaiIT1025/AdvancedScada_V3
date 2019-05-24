@@ -54,7 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comm\DataType.cs" />
-    <Compile Include="Comm\IPanasonic.cs" />
     <Compile Include="DataService.cs" />
     <Compile Include="Drivers\PanasonicSerialReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

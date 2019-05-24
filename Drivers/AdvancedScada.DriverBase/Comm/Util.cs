@@ -8,15 +8,7 @@ namespace AdvancedScada.DriverBase.Comm
 {
     public class Util
     {
-        /// <summary>
-        /// Hàm nội suy hai số.
-        /// </summary>
-        /// <param name="iaCurrent">Giá trị Analog hiện tại</param>
-        /// <param name="iaMin">Giá trị Analog nhỏ nhất</param>
-        /// <param name="iaMax">Giá trị Analog lớn nhất</param>
-        /// <param name="rlMin">Giá trị thực nhỏ nhất</param>
-        /// <param name="rlMax">Giá trị thực lớn nhất</param>
-        /// <returns>Giá trị đã được nội suy</returns>
+      
         public static float Interpolation(short iaCurrent, ushort iaMin, ushort iaMax, float rlMin, float rlMax)
         {
             float result = 0.0f;
@@ -25,15 +17,7 @@ namespace AdvancedScada.DriverBase.Comm
             //return result; // Math.Round(result, 1);
         }
 
-        /// <summary>
-        /// Hàm nội suy hai số.
-        /// </summary>
-        /// <param name="iaCurrent">Giá trị Analog hiện tại</param>
-        /// <param name="iaMin">Giá trị Analog nhỏ nhất</param>
-        /// <param name="iaMax">Giá trị Analog lớn nhất</param>
-        /// <param name="rlMin">Giá trị thực nhỏ nhất</param>
-        /// <param name="rlMax">Giá trị thực lớn nhất</param>
-        /// <returns>Giá trị đã được nội suy</returns>
+       
         public static float Interpolation(ushort iaCurrent, ushort iaMin, ushort iaMax, float rlMin, float rlMax)
         {
             float result = 0.0f;

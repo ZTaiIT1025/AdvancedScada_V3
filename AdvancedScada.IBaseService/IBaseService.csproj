@@ -37,10 +37,12 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseBinding.cs" />
     <Compile Include="Common\Functions.cs" />
     <Compile Include="IGetServiceBase.cs" />
     <Compile Include="IReadService.cs" />

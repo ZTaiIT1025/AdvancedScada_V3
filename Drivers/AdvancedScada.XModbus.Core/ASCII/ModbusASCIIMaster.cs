@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace AdvancedScada.XModbus.Core.ASCII
 {
-    public class ModbusASCIIMaster : IModbusMaster
+    public class ModbusASCIIMaster : IDriverAdapter
     {
           private SerialPort serialPort;
 

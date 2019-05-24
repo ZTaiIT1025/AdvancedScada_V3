@@ -60,7 +60,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comm\IReadWritePLC.cs" />
     <Compile Include="Drivers\Cnet\LS_CNET.cs" />
     <Compile Include="Drivers\FENET\LS_FENET.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
