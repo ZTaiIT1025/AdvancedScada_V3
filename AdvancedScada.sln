@@ -65,6 +65,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Panasonic", "Panasonic", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPanasonic.Core", "Drivers\AdvancedScada.XPanasonic.Core\XPanasonic.Core.csproj", "{128E840B-A7E6-4865-B2D2-C36031661BDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedScada.IODriver", "Drivers\AdvancedScada.IODriver\AdvancedScada.IODriver.csproj", "{09B71D40-9C34-44F8-BC1B-1B3380EAD582}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -143,6 +145,10 @@ Global
 		{128E840B-A7E6-4865-B2D2-C36031661BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{128E840B-A7E6-4865-B2D2-C36031661BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{128E840B-A7E6-4865-B2D2-C36031661BDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09B71D40-9C34-44F8-BC1B-1B3380EAD582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09B71D40-9C34-44F8-BC1B-1B3380EAD582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09B71D40-9C34-44F8-BC1B-1B3380EAD582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09B71D40-9C34-44F8-BC1B-1B3380EAD582}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -171,6 +177,7 @@ Global
 		{AD715268-01D4-4FBD-9082-C457C0986F9D} = {B1889252-6056-49EE-B977-E3BCE75E0427}
 		{1835E1A0-15D2-463B-B79F-7C50C992DB83} = {E346CF44-B588-4C83-86B3-DC93629F6BB3}
 		{128E840B-A7E6-4865-B2D2-C36031661BDF} = {1835E1A0-15D2-463B-B79F-7C50C992DB83}
+		{09B71D40-9C34-44F8-BC1B-1B3380EAD582} = {E346CF44-B588-4C83-86B3-DC93629F6BB3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C9F8F60-8BEB-4669-AAB0-02B189B54E22}
