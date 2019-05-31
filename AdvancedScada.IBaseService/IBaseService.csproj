@@ -44,10 +44,8 @@
   <ItemGroup>
     <Compile Include="BaseBinding.cs" />
     <Compile Include="Common\Functions.cs" />
-    <Compile Include="IGetServiceBase.cs" />
     <Compile Include="IReadService.cs" />
     <Compile Include="IServiceCallback.cs" />
-    <Compile Include="IServiceDriver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

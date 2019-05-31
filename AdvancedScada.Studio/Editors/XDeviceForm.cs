@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using AdvancedScada.DriverBase.Devices;
 using AdvancedScada.IBaseService.Common;
@@ -29,72 +30,74 @@ namespace AdvancedScada.Studio.Editors
         }
 
 
-        public void GetForm(string Path, string classname)
+
+        private void btnOK_Click(object sender, EventArgs e)
         {
-            var objFunctions = Functions.GetFunctions();
-            var context = objFunctions.ParseNamespace($@"\AdvancedScada.{Path}.Core.dll", classname);
-            var t = (Type)context;
-            Management.Editors.XDeviceForm newObject = null;
-            if (dv == null) newObject = (Management.Editors.XDeviceForm)objFunctions.CreateInstance(t, new object[] { ch, dv });
-            else newObject = (Management.Editors.XDeviceForm)objFunctions.CreateInstance(t, new object[] { ch, dv });
-
-            newObject.eventDeviceChanged += (dv, isNew) =>
-            {
-                eventDeviceChanged?.Invoke(dv, isNew);
-                DialogResult = DialogResult.OK;
-            };
-
-
             try
             {
-
-                if (newObject != null)
+                if (string.IsNullOrEmpty(txtDeviceName.Text)
+                               || string.IsNullOrWhiteSpace(txtDeviceName.Text))
+                    DxErrorProvider1.SetError(txtDeviceName, "The device name is empty");
+                else
                 {
+                    DxErrorProvider1.ClearErrors();
+                    if (dv == null)
+                    {
+                        Device dvNew = new Device();
+                        dvNew.DeviceId = ch.Devices.Count + 1;
+                        dvNew.SlaveId = (short)txtSlaveId.Value;
+                        dvNew.DeviceName = txtDeviceName.Text;
+                        dvNew.Description = txtDesp.Text;
+                        dvNew.DataBlocks = new List<DataBlock>();
 
-                    newObject.Dock = DockStyle.Fill;
-                    this.Width = newObject.Width;
-                    this.Height = newObject.Height;
-                    newObject.BringToFront();
-                    newObject.Click += NewObject_Click;
-                    Controls.Add(newObject);
-                    
+                        if (eventDeviceChanged != null) eventDeviceChanged(dvNew, true);
+
+                    }
+                    else
+                    {
+                        dv.SlaveId = (short)txtSlaveId.Value;
+                        dv.DeviceName = txtDeviceName.Text;
+                        dv.Description = txtDesp.Text;
+
+                        if (eventDeviceChanged != null) eventDeviceChanged(dv, false);
+                    }
                 }
-               
             }
-            catch
+            catch (Exception ex)
             {
+                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
             }
-
-            newObject.Show();
         }
-        private void NewObject_Click(object sender, EventArgs e)
+
+        private void XUserDeviceForm_Load(object sender, EventArgs e)
         {
-            Close();
-        }
-        private void XDeviceForm_Load(object sender, EventArgs e)
-        {
-
-            DriverTypes = $"{Registry.GetValue("HKEY_CURRENT_USER\\Software\\XSelectedDrivers", "DriverTypes", null)}";
-            var DriverTypes2 = ch.ChannelTypes.Insert(0, "X");
-
-            if (dv == null)
+            try
             {
+                txtChannelName.Text = ch.ChannelName;
+                txtChannelID.Text = ch.ChannelId.ToString();
 
-                GetForm(DriverTypes2, "XUserDeviceForm");
-
-                Text = DriverTypes + "   Add Device";
+                if (dv != null)
+                {
+                    this.Text = "Edit Device";
+                    txtSlaveId.Value = dv.SlaveId;
+                    txtDeviceName.Text = dv.DeviceName;
+                    txtDeviceId.Text = $"{dv.DeviceId}";
+                    txtDesp.Text = dv.Description;
+                }
+                else
+                {
+                    this.Text = "Add Device";
+                    txtDeviceId.Text = Convert.ToString(ch.Devices.Count + 1);
+                    txtDeviceName.Text = "PLC" + Convert.ToString(ch.Devices.Count + 1);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                GetForm(DriverTypes2, "XUserDeviceForm");
-
-                Text = ch.ChannelTypes + "   Edit Device";
+                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
             }
-
-
         }
 
-        private void DvFrm_FormClosing(object sender, FormClosingEventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
         }

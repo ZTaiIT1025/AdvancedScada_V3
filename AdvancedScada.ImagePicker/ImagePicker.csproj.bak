@@ -41,7 +41,7 @@
     <Reference Include="DevExpress.Data.v18.2" />
     <Reference Include="DevExpress.Utils.v18.2" />
     <Reference Include="DevExpress.Sparkline.v18.2.Core" />
-    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v18.2" />
     <Reference Include="DevExpress.Printing.v18.2.Core" />
     <Reference Include="PresentationCore" />
@@ -108,9 +108,9 @@
       <Project>{6892B89E-2CC0-4F7D-95D1-BEAA1A21C607}</Project>
       <Name>Utils</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Drivers\AdvancedScada.ErorrPLC\ErorrPLC.csproj">
-      <Project>{DCF54CF4-E611-46B1-8056-7F71AAE0D9F5}</Project>
-      <Name>ErorrPLC</Name>
+    <ProjectReference Include="..\Drivers\AdvancedScada.ErorrPLC\HMIException.csproj">
+      <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
+      <Name>HMIException</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

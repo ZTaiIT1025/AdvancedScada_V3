@@ -33,31 +33,31 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.BonusSkins.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.BonusSkins.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.Data.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraTreeList.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraTreeList.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -75,15 +75,6 @@
     <Compile Include="MonitorForm.designer.cs">
       <DependentUpon>MonitorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForms\ListViewMonitoring.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WinForms\TagCollectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WinForms\TagCollectionForm.designer.cs">
-      <DependentUpon>TagCollectionForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="WriteTagForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,9 +87,6 @@
     <EmbeddedResource Include="MonitorForm.resx">
       <DependentUpon>MonitorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForms\TagCollectionForm.resx">
-      <DependentUpon>TagCollectionForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WriteTagForm.resx">
       <DependentUpon>WriteTagForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,10 +96,6 @@
       <Project>{4BA1E9C3-F791-458C-B4F7-3B7943E8DE10}</Project>
       <Name>IBaseService</Name>
       <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\Drivers\AdvancedScada.ErorrPLC\ErorrPLC.csproj">
-      <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
-      <Name>ErorrPLC</Name>
     </ProjectReference>
     <ProjectReference Include="..\Drivers\AdvancedScada.DriverBase\DriverBase.csproj">
       <Project>{0c4043a0-522d-456f-82c3-d086bd07ee27}</Project>
@@ -124,6 +108,10 @@
     <ProjectReference Include="..\AdvancedScada.Utils\Utils.csproj">
       <Project>{6892b89e-2cc0-4f7d-95d1-beaa1a21c607}</Project>
       <Name>Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Drivers\AdvancedScada.ErorrPLC\HMIException.csproj">
+      <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
+      <Name>HMIException</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

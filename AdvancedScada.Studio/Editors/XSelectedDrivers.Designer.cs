@@ -66,27 +66,30 @@
             this.layoutControl1.Controls.Add(this.cboxSelectedDrivers);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(477, 363);
+            this.layoutControl1.Size = new System.Drawing.Size(636, 447);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // picSelectedDrivers
             // 
             this.picSelectedDrivers.Image = global::AdvancedScada.Studio.Properties.Resources.PLC_SIEMENS;
-            this.picSelectedDrivers.Location = new System.Drawing.Point(12, 76);
+            this.picSelectedDrivers.Location = new System.Drawing.Point(16, 79);
+            this.picSelectedDrivers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picSelectedDrivers.Name = "picSelectedDrivers";
-            this.picSelectedDrivers.Size = new System.Drawing.Size(453, 232);
+            this.picSelectedDrivers.Size = new System.Drawing.Size(604, 299);
             this.picSelectedDrivers.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picSelectedDrivers.TabIndex = 8;
             this.picSelectedDrivers.TabStop = false;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(50, 322);
+            this.btnCancel.Location = new System.Drawing.Point(67, 395);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(322, 29);
+            this.btnCancel.Size = new System.Drawing.Size(429, 38);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
@@ -94,9 +97,10 @@
             // 
             // BtnOK
             // 
-            this.BtnOK.Location = new System.Drawing.Point(376, 322);
+            this.BtnOK.Location = new System.Drawing.Point(502, 395);
+            this.BtnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnOK.Name = "BtnOK";
-            this.BtnOK.Size = new System.Drawing.Size(89, 29);
+            this.BtnOK.Size = new System.Drawing.Size(118, 38);
             this.BtnOK.StyleController = this.layoutControl1;
             this.BtnOK.TabIndex = 6;
             this.BtnOK.Text = "OK";
@@ -105,15 +109,17 @@
             // txtPath
             // 
             this.txtPath.Enabled = false;
-            this.txtPath.Location = new System.Drawing.Point(108, 36);
+            this.txtPath.Location = new System.Drawing.Point(113, 38);
+            this.txtPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(357, 20);
+            this.txtPath.Size = new System.Drawing.Size(507, 20);
             this.txtPath.StyleController = this.layoutControl1;
             this.txtPath.TabIndex = 5;
             // 
             // cboxSelectedDrivers
             // 
-            this.cboxSelectedDrivers.Location = new System.Drawing.Point(108, 12);
+            this.cboxSelectedDrivers.Location = new System.Drawing.Point(113, 14);
+            this.cboxSelectedDrivers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboxSelectedDrivers.Name = "cboxSelectedDrivers";
             this.cboxSelectedDrivers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -123,7 +129,7 @@
             "Modbus",
             "Panasonic",
             "OPC"});
-            this.cboxSelectedDrivers.Size = new System.Drawing.Size(357, 20);
+            this.cboxSelectedDrivers.Size = new System.Drawing.Size(507, 20);
             this.cboxSelectedDrivers.StyleController = this.layoutControl1;
             this.cboxSelectedDrivers.TabIndex = 4;
             this.cboxSelectedDrivers.SelectedIndexChanged += new System.EventHandler(this.cboxSelectedDrivers_SelectedIndexChanged);
@@ -141,7 +147,7 @@
             this.emptySpaceItem2,
             this.layoutControlItem5});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(477, 363);
+            this.Root.Size = new System.Drawing.Size(636, 447);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -149,7 +155,7 @@
             this.layoutControlItem1.Control = this.cboxSelectedDrivers;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(457, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(610, 24);
             this.layoutControlItem1.Text = "SelectedDrivers";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(93, 13);
             // 
@@ -158,17 +164,17 @@
             this.layoutControlItem2.Control = this.txtPath;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(457, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(610, 24);
             this.layoutControlItem2.Text = "Path:";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(93, 13);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.BtnOK;
-            this.layoutControlItem3.Location = new System.Drawing.Point(364, 310);
-            this.layoutControlItem3.MinSize = new System.Drawing.Size(80, 26);
+            this.layoutControlItem3.Location = new System.Drawing.Point(486, 381);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(107, 32);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(93, 33);
+            this.layoutControlItem3.Size = new System.Drawing.Size(124, 42);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
@@ -176,10 +182,10 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnCancel;
-            this.layoutControlItem4.Location = new System.Drawing.Point(38, 310);
-            this.layoutControlItem4.MinSize = new System.Drawing.Size(80, 26);
+            this.layoutControlItem4.Location = new System.Drawing.Point(51, 381);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(107, 32);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(326, 33);
+            this.layoutControlItem4.Size = new System.Drawing.Size(435, 42);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
@@ -187,17 +193,17 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 310);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 381);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(38, 33);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(51, 42);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 300);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 368);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(457, 10);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(610, 13);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
@@ -205,16 +211,17 @@
             this.layoutControlItem5.Control = this.picSelectedDrivers;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(457, 252);
+            this.layoutControlItem5.Size = new System.Drawing.Size(610, 320);
             this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(93, 13);
             // 
             // XSelectedDrivers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 363);
+            this.ClientSize = new System.Drawing.Size(636, 447);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "XSelectedDrivers";
@@ -247,7 +254,6 @@
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.SimpleButton BtnOK;
         private DevExpress.XtraEditors.TextEdit txtPath;
-        private DevExpress.XtraEditors.ComboBoxEdit cboxSelectedDrivers;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
@@ -256,5 +262,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private System.Windows.Forms.PictureBox picSelectedDrivers;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        public DevExpress.XtraEditors.ComboBoxEdit cboxSelectedDrivers;
     }
 }

@@ -27,15 +27,55 @@ namespace AdvancedScada.Studio.Editors
             ch = chParam;
             tg = tgParam;
         }
+        Management.Editors.XTagForm newObject = null;
         public void GetForm(string Path, string classname)
         {
-            var objFunctions = Functions.GetFunctions();
-            var context = objFunctions.ParseNamespace($@"\AdvancedScada.{Path}.Core.dll", classname);
-            var t = (Type)context;
-            Management.Editors.XTagForm newObject = null;
-            if (tg == null) newObject = (Management.Editors.XTagForm)objFunctions.CreateInstance(t, new object[] { ch, dv, db, null });
-            else newObject = (Management.Editors.XTagForm)objFunctions.CreateInstance(t, new object[] { ch, dv, db, tg });
+            if (tg == null)
+            {
+                switch (Path)
+                {
+                    case "LSIS":
+                        newObject = new XLSIS.Core.UserEditors.XUserTagForm(ch, dv, db, null);
 
+                        break;
+                    case "Modbus":
+                        newObject = new XModbus.Core.UserEditors.XUserTagForm(ch, dv, db, null);
+                        break;
+                    case "Panasonic":
+                        newObject = new XPanasonic.Core.UserEditors.XUserTagForm(ch, dv, db, null);
+                        break;
+                    case "Siemens":
+                        newObject = new XSiemens.Core.UserEditors.XUserTagForm(ch, dv, db, null);
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
+            else
+            {
+                switch (Path)
+                {
+                    case "LSIS":
+                        newObject = new XLSIS.Core.UserEditors.XUserTagForm(ch, dv, db, tg);
+
+                        break;
+                    case "Modbus":
+                        newObject = new XModbus.Core.UserEditors.XUserTagForm(ch, dv, db, tg);
+                        break;
+                    case "Panasonic":
+                        newObject = new XPanasonic.Core.UserEditors.XUserTagForm(ch, dv, db, tg);
+                        break;
+                    case "Siemens":
+                        newObject = new XSiemens.Core.UserEditors.XUserTagForm(ch, dv, db, tg);
+                        break;
+                    default:
+                        break;
+                }
+            }
+          
+           
             newObject.eventTagChanged += (tg, isNew) =>
             {
                 eventTagChanged?.Invoke(tg, isNew);
@@ -70,7 +110,7 @@ namespace AdvancedScada.Studio.Editors
         }
         private void XTagForm_Load(object sender, EventArgs e)
         {
-            var DriverTypes2 = ch.ChannelTypes.Insert(0, "X");
+            var DriverTypes2 = ch.ChannelTypes;
 
             if (tg == null)
             {

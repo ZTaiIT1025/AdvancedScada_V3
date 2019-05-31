@@ -17,10 +17,7 @@ namespace AdvancedScada.Controls
     public class WCFChannelFactory
     {
         private static IReadService client;
-        public const string Driver = "Driver";
-        public static ushort PORT = 8090;
-        public static string HOST = "localhost";
-        private static string ChannelTypes = string.Empty;
+      
         static object myLockRead = new object();
         
         public static void Write(string PLCAddressClick, dynamic Value)
@@ -29,11 +26,7 @@ namespace AdvancedScada.Controls
             {
                 lock (myLockRead)
                 {
-                    ChannelTypes =
-                        $"{Registry.GetValue("HKEY_CURRENT_USER\\Software\\FormConfiguration", "ChannelTypes", null)}";
-                    var frame = Functions.GetFunctions();
-                    IGetServiceBase iServiceDriver = frame.GetAssemblyService(@"\AdvancedScada.BaseService.dll", "AdvancedScada.BaseService.ServiceBase");
-                    if (iServiceDriver != null)
+                     
                         client = ServiceBaseClient.CreateChannelTools();
                     client.WriteTag(PLCAddressClick, Value);
                 }

@@ -12,7 +12,7 @@ namespace AdvancedScada.Studio.Editors
     public partial class XChannelForm : XtraForm
     {
         private readonly Channel ch;
-        private string DriverTypes;
+        private string _DriverTypes;
 
         public EventChannelChanged eventChannelChanged = null;
         private readonly ChannelManager objChannelManager;
@@ -22,22 +22,38 @@ namespace AdvancedScada.Studio.Editors
         {
             InitializeComponent();
         }
-        public XChannelForm(ChannelManager chm = null, Channel chCurrent = null)
+        public XChannelForm(string DriverTypes,  ChannelManager chm = null, Channel chCurrent = null)
         {
             InitializeComponent();
             objChannelManager = chm;
             ch = chCurrent;
+            _DriverTypes = DriverTypes;
 
         }
 
-       
+        Management.Editors.XChannelForm ctrl = null;
         public void GetForm(string Path, string classname)
         {
-            var objFunctions = Functions.GetFunctions();
-            var context = objFunctions.ParseNamespace($@"\AdvancedScada.{Path}.Core.dll", classname);
-            var t = (Type)context;
-            var ctrl = (Management.Editors.XChannelForm)objFunctions.CreateInstance(t, new object[] { objChannelManager, ch });
-            ctrl.eventChannelChanged += (ch, isNew) =>
+            switch (_DriverTypes )
+            {
+                case "LSIS":
+                    ctrl = new XLSIS.Core.UserEditors.XUserChannelForm(objChannelManager, ch);
+                 
+                    break;
+                case "Modbus":
+                    ctrl = new XModbus.Core.UserEditors.XUserChannelForm(objChannelManager, ch);
+                    break;
+                case "Panasonic":
+                    ctrl = new XPanasonic.Core.UserEditors.XUserChannelForm(objChannelManager, ch);
+                    break;
+                case "Siemens":
+                    ctrl = new XSiemens.Core.UserEditors.XUserChannelForm(objChannelManager, ch);
+                    break;
+                default:
+                    break;
+            }
+
+             ctrl.eventChannelChanged += (ch, isNew) =>
             {
                 eventChannelChanged?.Invoke(ch, isNew);
                 DialogResult = DialogResult.OK;
@@ -47,15 +63,15 @@ namespace AdvancedScada.Studio.Editors
                 if (ctrl != null)
                 {
                     ctrl.Dock = DockStyle.Fill;
-                    this.Width = ctrl.Width+25;
-                    this.Height = ctrl.Height+25;
+                    this.Width = ctrl.Width + 25;
+                    this.Height = ctrl.Height + 25;
                     ctrl.BringToFront();
                     ctrl.Click += Ctrl_Click;
-                   
+
                     Controls.Add(ctrl);
-                    
+
                 }
-                
+
             }
             catch
             {
@@ -71,17 +87,16 @@ namespace AdvancedScada.Studio.Editors
         private void XChannelForm_Load(object sender, EventArgs e)
         {
 
-            DriverTypes =
-                $"{Registry.GetValue("HKEY_CURRENT_USER\\Software\\FormConfiguration", "ChannelTypes", null)}".Insert(0, "X");
+            
             if (ch == null)
             {
-                GetForm(DriverTypes, "XUserChannelForm");
-                Text = DriverTypes + "   Add Channel";
+                GetForm(_DriverTypes, "XUserChannelForm");
+                Text = _DriverTypes + "   Add Channel";
             }
             else
             {
-                var DriverTypes2 = ch.ChannelTypes.Insert(0, "X");
-                GetForm(DriverTypes2, "XUserChannelForm");
+               
+                GetForm(_DriverTypes, "XUserChannelForm");
                 Text = ch.ChannelTypes + "   Edit Channel";
             }
 

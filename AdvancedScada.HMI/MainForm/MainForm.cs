@@ -21,7 +21,7 @@ namespace AdvancedScada.HMI.MainForm
         public double[] TankMixWeight;
         private double[] TankMixWeightFinel;
         #endregion
-        public IGetServiceBase iServiceDriver = null;
+       
         public IReadService client = null;
         public string GetDriverTypes()
         {
@@ -35,20 +35,12 @@ namespace AdvancedScada.HMI.MainForm
             {
                 var functions = Functions.GetFunctions();
 
-                iServiceDriver = functions.GetAssemblyService();
-                if (iServiceDriver != null)
-                {
-                    //iServiceDriver.GetStartService(false);
-
+                
                     ServiceBaseClient.GetStartClient();
                     client = ServiceBaseClient.CreateChannelTools();
                     client?.Connection();
 
-                }
-                else
-                {
-
-                }
+                
 
 
 

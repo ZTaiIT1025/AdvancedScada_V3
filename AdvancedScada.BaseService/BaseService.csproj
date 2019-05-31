@@ -64,6 +64,10 @@
       <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
       <Name>HMIException</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Drivers\AdvancedScada.IODriver\AdvancedScada.IODriver.csproj">
+      <Project>{09b71d40-9c34-44f8-bc1b-1b3380ead582}</Project>
+      <Name>AdvancedScada.IODriver</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />

@@ -1,6 +1,7 @@
 ﻿using AdvancedScada.DriverBase;
 using AdvancedScada.IBaseService;
 using AdvancedScada.IBaseService.Common;
+using AdvancedScada.IODriver;
 using AdvancedScada.Management.BLManager;
 using Microsoft.Win32;
 using System;
@@ -19,10 +20,10 @@ namespace AdvancedScada.BaseService
         private bool RUN_APPLICATION;
       
         public IServiceCallback EventDataChanged;
-        public IServiceDriver iServiceDriver = null;
+        DriverHelper driverHelper = new DriverHelper();
         readonly Functions frame = Functions.GetFunctions();
         private static object mutex = new object();
-        private static ReadService _instance;
+        
         object mutexStop = new object();
         object mutexUpdate = new object();
         object mutexStart = new object();
@@ -30,40 +31,13 @@ namespace AdvancedScada.BaseService
         object mutexWrite = new object();
         private ChannelManager objChannelManager;
 
-        public static ReadService GetReadService()
-        {
-            lock (mutex)
-            {
-                if (_instance == null)
-                {
-                    _instance = new ReadService();
-                }
-            }
-
-            return _instance;
-        }
+       
       
         public ReadService()
         {
            
             objChannelManager = ChannelManager.GetChannelManager();
             
-        }
-        public IServiceDriver GetAssemblyDrivers(string ChannelTypes)
-        {
-            try
-            {
-
-
-                iServiceDriver = frame.GetAssembly($@"\AdvancedScada.{ChannelTypes}.Core.dll",
-                    $"AdvancedScada.{ChannelTypes}.Core.DataService");
-            }
-            catch (System.Exception ex)
-            {
-
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
-            }
-            return iServiceDriver;
         }
        
         public void Connection()
@@ -139,27 +113,12 @@ namespace AdvancedScada.BaseService
         {
             try
             {
-                if (objChannelManager == null) return;
+               
                 lock (mutexWrite)
                 {
 
 
-                    var strArrays = tagName.Split('.');
-                    var str = $"{strArrays[0]}.{strArrays[1]}";
-                    foreach (var Channels in objChannelManager.Channels)
-                    {
-                        foreach (var dv in Channels.Devices)
-                        {
-                            var bEquals = $"{Channels.ChannelName}.{dv.DeviceName}".Equals(str);
-                            if (bEquals)
-                            {
-                                iServiceDriver = GetAssemblyDrivers(Channels.ChannelTypes.Insert(0, "X"));
-
-                                iServiceDriver?.WriteTag(tagName, value);
-
-                            }
-                        }
-                    }
+                    driverHelper?.WriteTag(tagName, value);
                 }
             }
             catch (System.Exception ex)

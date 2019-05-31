@@ -44,12 +44,12 @@
     <Reference Include="DevExpress.Sparkline.v18.2.Core" />
     <Reference Include="DevExpress.XtraEditors.v18.2" />
     <Reference Include="DevExpress.Printing.v18.2.Core" />
-    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraNavBar.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraTreeList.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraVerticalGrid.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EPPlus">
       <HintPath>..\Lib\Lib\EPPlus.dll</HintPath>
     </Reference>
@@ -82,6 +82,7 @@
       <HintPath>..\Lib\Lib\System.Data.SQLite.Core.1.0.105.2\lib\net46\System.Data.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
@@ -95,54 +96,101 @@
     <Compile Include="Config\FormConfiguration.Designer.cs">
       <DependentUpon>FormConfiguration.cs</DependentUpon>
     </Compile>
-    <Compile Include="DB\FormSQLServerUtils.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Editors\IODriver\LSIS\XUserChannelForm.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DB\FormSQLServerUtils.Designer.cs">
-      <DependentUpon>FormSQLServerUtils.cs</DependentUpon>
+    <Compile Include="Editors\IODriver\LSIS\XUserChannelForm.Designer.cs">
+      <DependentUpon>XUserChannelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DB\SQL\SQLFormCreate.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Editors\IODriver\LSIS\XUserDataBlockForm.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DB\SQL\SQLFormCreate.Designer.cs">
-      <DependentUpon>SQLFormCreate.cs</DependentUpon>
+    <Compile Include="Editors\IODriver\LSIS\XUserDataBlockForm.Designer.cs">
+      <DependentUpon>XUserDataBlockForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DB\SQLite\SQLiteFormCreate.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Editors\IODriver\LSIS\XUserDeviceForm.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DB\SQLite\SQLiteFormCreate.Designer.cs">
-      <DependentUpon>SQLiteFormCreate.cs</DependentUpon>
+    <Compile Include="Editors\IODriver\LSIS\XUserDeviceForm.Designer.cs">
+      <DependentUpon>XUserDeviceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DB\UtilsTableSQLite.cs" />
-    <Compile Include="DriverLinkToSQL\AddColumn.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Editors\IODriver\LSIS\XUserTagForm.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DriverLinkToSQL\AddColumn.Designer.cs">
-      <DependentUpon>AddColumn.cs</DependentUpon>
+    <Compile Include="Editors\IODriver\LSIS\XUserTagForm.Designer.cs">
+      <DependentUpon>XUserTagForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DriverLinkToSQL\AddDataBase.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Editors\IODriver\Modbus\XUserChannelForm.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DriverLinkToSQL\AddDataBase.Designer.cs">
-      <DependentUpon>AddDataBase.cs</DependentUpon>
+    <Compile Include="Editors\IODriver\Modbus\XUserChannelForm.Designer.cs">
+      <DependentUpon>XUserChannelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DriverLinkToSQL\AddServer.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Editors\IODriver\Modbus\XUserDataBlockForm.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DriverLinkToSQL\AddServer.Designer.cs">
-      <DependentUpon>AddServer.cs</DependentUpon>
+    <Compile Include="Editors\IODriver\Modbus\XUserDataBlockForm.Designer.cs">
+      <DependentUpon>XUserDataBlockForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DriverLinkToSQL\AddTable.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Editors\IODriver\Modbus\XUserDeviceForm.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DriverLinkToSQL\AddTable.Designer.cs">
-      <DependentUpon>AddTable.cs</DependentUpon>
+    <Compile Include="Editors\IODriver\Modbus\XUserDeviceForm.Designer.cs">
+      <DependentUpon>XUserDeviceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DriverLinkToSQL\SQLMaster.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Editors\IODriver\Modbus\XUserTagForm.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DriverLinkToSQL\SQLMaster.Designer.cs">
-      <DependentUpon>SQLMaster.cs</DependentUpon>
+    <Compile Include="Editors\IODriver\Modbus\XUserTagForm.Designer.cs">
+      <DependentUpon>XUserTagForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\Panasonic\XUserChannelForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\Panasonic\XUserChannelForm.Designer.cs">
+      <DependentUpon>XUserChannelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\Panasonic\XUserDataBlockForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\Panasonic\XUserDataBlockForm.Designer.cs">
+      <DependentUpon>XUserDataBlockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\Panasonic\XUserDeviceForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\Panasonic\XUserDeviceForm.Designer.cs">
+      <DependentUpon>XUserDeviceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\Panasonic\XUserTagForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\Panasonic\XUserTagForm.Designer.cs">
+      <DependentUpon>XUserTagForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\Siemens\XUserChannelForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\Siemens\XUserChannelForm.Designer.cs">
+      <DependentUpon>XUserChannelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\Siemens\XUserDataBlockForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\Siemens\XUserDataBlockForm.Designer.cs">
+      <DependentUpon>XUserDataBlockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\Siemens\XUserDeviceForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\Siemens\XUserDeviceForm.Designer.cs">
+      <DependentUpon>XUserDeviceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\Siemens\XUserTagForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\Siemens\XUserTagForm.Designer.cs">
+      <DependentUpon>XUserTagForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Editors\XChannelForm.cs">
       <SubType>Form</SubType>
@@ -204,19 +252,18 @@
     <Compile Include="IE\WaitForm1.Designer.cs">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Logging\Logger.cs" />
-    <Compile Include="Logging\XtraFormLogging.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Logging\XtraFormLogging.Designer.cs">
-      <DependentUpon>XtraFormLogging.cs</DependentUpon>
-    </Compile>
     <Compile Include="Message.cs" />
     <Compile Include="Monitor\PLC_MonitorForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Monitor\PLC_MonitorForm.designer.cs">
       <DependentUpon>PLC_MonitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Monitor\PLC_MonitorForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Monitor\PLC_MonitorForm2.Designer.cs">
+      <DependentUpon>PLC_MonitorForm2.cs</DependentUpon>
     </Compile>
     <Compile Include="Monitor\WriteTagForm.cs">
       <SubType>Form</SubType>
@@ -232,12 +279,6 @@
     <Compile Include="Service\FormFrameMonitor.Designer.cs">
       <DependentUpon>FormFrameMonitor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Service\FormPCControllercs.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Service\FormPCControllercs.Designer.cs">
-      <DependentUpon>FormPCControllercs.cs</DependentUpon>
-    </Compile>
     <Compile Include="Service\FormServerUtils.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,29 +290,53 @@
     <EmbeddedResource Include="Config\FormConfiguration.resx">
       <DependentUpon>FormConfiguration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DB\FormSQLServerUtils.resx">
-      <DependentUpon>FormSQLServerUtils.cs</DependentUpon>
+    <EmbeddedResource Include="Editors\IODriver\LSIS\XUserChannelForm.resx">
+      <DependentUpon>XUserChannelForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DB\SQL\SQLFormCreate.resx">
-      <DependentUpon>SQLFormCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Editors\IODriver\LSIS\XUserDataBlockForm.resx">
+      <DependentUpon>XUserDataBlockForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DB\SQLite\SQLiteFormCreate.resx">
-      <DependentUpon>SQLiteFormCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Editors\IODriver\LSIS\XUserDeviceForm.resx">
+      <DependentUpon>XUserDeviceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DriverLinkToSQL\AddColumn.resx">
-      <DependentUpon>AddColumn.cs</DependentUpon>
+    <EmbeddedResource Include="Editors\IODriver\LSIS\XUserTagForm.resx">
+      <DependentUpon>XUserTagForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DriverLinkToSQL\AddDataBase.resx">
-      <DependentUpon>AddDataBase.cs</DependentUpon>
+    <EmbeddedResource Include="Editors\IODriver\Modbus\XUserChannelForm.resx">
+      <DependentUpon>XUserChannelForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DriverLinkToSQL\AddServer.resx">
-      <DependentUpon>AddServer.cs</DependentUpon>
+    <EmbeddedResource Include="Editors\IODriver\Modbus\XUserDataBlockForm.resx">
+      <DependentUpon>XUserDataBlockForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DriverLinkToSQL\AddTable.resx">
-      <DependentUpon>AddTable.cs</DependentUpon>
+    <EmbeddedResource Include="Editors\IODriver\Modbus\XUserDeviceForm.resx">
+      <DependentUpon>XUserDeviceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DriverLinkToSQL\SQLMaster.resx">
-      <DependentUpon>SQLMaster.cs</DependentUpon>
+    <EmbeddedResource Include="Editors\IODriver\Modbus\XUserTagForm.resx">
+      <DependentUpon>XUserTagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\Panasonic\XUserChannelForm.resx">
+      <DependentUpon>XUserChannelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\Panasonic\XUserDataBlockForm.resx">
+      <DependentUpon>XUserDataBlockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\Panasonic\XUserDeviceForm.resx">
+      <DependentUpon>XUserDeviceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\Panasonic\XUserTagForm.resx">
+      <DependentUpon>XUserTagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\Siemens\XUserChannelForm.resx">
+      <DependentUpon>XUserChannelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\Siemens\XUserDataBlockForm.resx">
+      <DependentUpon>XUserDataBlockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\Siemens\XUserDeviceForm.resx">
+      <DependentUpon>XUserDeviceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\Siemens\XUserTagForm.resx">
+      <DependentUpon>XUserTagForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editors\XChannelForm.resx">
       <DependentUpon>XChannelForm.cs</DependentUpon>
@@ -303,11 +368,11 @@
     <EmbeddedResource Include="IE\WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Logging\XtraFormLogging.resx">
-      <DependentUpon>XtraFormLogging.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Monitor\PLC_MonitorForm.resx">
       <DependentUpon>PLC_MonitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monitor\PLC_MonitorForm2.resx">
+      <DependentUpon>PLC_MonitorForm2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Monitor\WriteTagForm.resx">
       <DependentUpon>WriteTagForm.cs</DependentUpon>
@@ -326,14 +391,10 @@
     <EmbeddedResource Include="Service\FormFrameMonitor.resx">
       <DependentUpon>FormFrameMonitor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Service\FormPCControllercs.resx">
-      <DependentUpon>FormPCControllercs.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Service\FormServerUtils.resx">
       <DependentUpon>FormServerUtils.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="DriverLinkToSQL\SQLMaster.resx.bak" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
@@ -369,10 +430,6 @@
       <Project>{5931d911-82c4-4c91-a32d-94d3dc870156}</Project>
       <Name>ImagePicker</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Drivers\AdvancedScada.ErorrPLC\ErorrPLC.csproj">
-      <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
-      <Name>ErorrPLC</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Drivers\AdvancedScada.DriverBase\DriverBase.csproj">
       <Project>{0c4043a0-522d-456f-82c3-d086bd07ee27}</Project>
       <Name>DriverBase</Name>
@@ -385,6 +442,10 @@
       <Project>{6892b89e-2cc0-4f7d-95d1-beaa1a21c607}</Project>
       <Name>Utils</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Drivers\AdvancedScada.ErorrPLC\HMIException.csproj">
+      <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
+      <Name>HMIException</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\0000157_xbc-dn32ua_500.png" />
@@ -396,6 +457,7 @@
     <None Include="Resources\pp_cimon_plc.png" />
     <None Include="Resources\OPC.png" />
     <None Include="Resources\Panasonic.jpg" />
+    <None Include="Resources\img-wemx-designer-5.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -410,6 +472,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

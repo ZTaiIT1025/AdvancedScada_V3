@@ -1,11 +1,30 @@
 ﻿
 using AdvancedScada.DriverBase.Devices;
-using AdvancedScada.XPanasonic.Core.Comm;
 using System;
 using System.Collections.Generic;
 
 namespace AdvancedScada.XPanasonic.Core.UserEditors
 {
+    public enum MemoryType
+    {
+        X,
+        Y,
+        R,
+        T,
+        C,
+        L,
+        DT,
+        LD,
+        FL,
+        SV,
+        EV,
+        IX,
+        IY,
+        WX,
+        WY,
+        WR,
+        WL
+    }
     public partial class XUserDataBlockForm : AdvancedScada.Management.Editors.XDataBlockForm
     {
         int TagsCount = 1;

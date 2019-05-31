@@ -35,11 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EPPlus">
-      <HintPath>..\Lib\Lib\EPPlus.dll</HintPath>
+      <HintPath>..\..\Scade\AdvancedScada\Lib\Lib\EPPlus.dll</HintPath>
     </Reference>
-    <Reference Include="Svg, Version=2.4.2.26702, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Lib\Lib\Svg.2.4.2\lib\Svg.dll</HintPath>
+    <Reference Include="Svg">
+      <HintPath>..\..\Scade\AdvancedScada\Lib\Lib\Svg.2.4.2\lib\Svg.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

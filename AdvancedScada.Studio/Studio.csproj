@@ -37,19 +37,19 @@
     <ApplicationIcon>Resources\38.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.BonusSkins.v18.2" />
-    <Reference Include="DevExpress.Data.v18.2" />
-    <Reference Include="DevExpress.Utils.v18.2" />
-    <Reference Include="DevExpress.XtraBars.v18.2" />
-    <Reference Include="DevExpress.Sparkline.v18.2.Core" />
-    <Reference Include="DevExpress.XtraEditors.v18.2" />
-    <Reference Include="DevExpress.Printing.v18.2.Core" />
-    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraNavBar.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraTreeList.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraVerticalGrid.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.BonusSkins.v19.1" />
+    <Reference Include="DevExpress.Data.v19.1" />
+    <Reference Include="DevExpress.Utils.v19.1" />
+    <Reference Include="DevExpress.XtraBars.v19.1" />
+    <Reference Include="DevExpress.Sparkline.v19.1.Core" />
+    <Reference Include="DevExpress.XtraEditors.v19.1" />
+    <Reference Include="DevExpress.Printing.v19.1.Core" />
+    <Reference Include="DevExpress.XtraGrid.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EPPlus">
       <HintPath>..\Lib\Lib\EPPlus.dll</HintPath>
     </Reference>
@@ -95,6 +95,78 @@
     </Compile>
     <Compile Include="Config\FormConfiguration.Designer.cs">
       <DependentUpon>FormConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\LSIS\LSISDataBlockForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\LSIS\LSISDataBlockForm.Designer.cs">
+      <DependentUpon>LSISDataBlockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\LSIS\LSISTagForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\LSIS\LSISTagForm.Designer.cs">
+      <DependentUpon>LSISTagForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\LSIS\XUserChannelForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\LSIS\XUserChannelForm.Designer.cs">
+      <DependentUpon>XUserChannelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\Modbus\ModbusChannelForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\Modbus\ModbusChannelForm.Designer.cs">
+      <DependentUpon>ModbusChannelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\Modbus\ModbusDataBlockForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\Modbus\ModbusDataBlockForm.Designer.cs">
+      <DependentUpon>ModbusDataBlockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\Modbus\ModbusTagForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\Modbus\ModbusTagForm.Designer.cs">
+      <DependentUpon>ModbusTagForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\Panasonic\PanasonicChannelForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\Panasonic\PanasonicChannelForm.Designer.cs">
+      <DependentUpon>PanasonicChannelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\Panasonic\PanasonicDataBlockForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\Panasonic\PanasonicDataBlockForm.Designer.cs">
+      <DependentUpon>PanasonicDataBlockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\Panasonic\PanasonicTagForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\Panasonic\PanasonicTagForm.Designer.cs">
+      <DependentUpon>PanasonicTagForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\Siemens\SiemensChannelForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\Siemens\SiemensChannelForm.Designer.cs">
+      <DependentUpon>SiemensChannelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\Siemens\SiemensDataBlockForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\Siemens\SiemensDataBlockForm.Designer.cs">
+      <DependentUpon>SiemensDataBlockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\IODriver\Siemens\SiemensTagForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\IODriver\Siemens\SiemensTagForm.Designer.cs">
+      <DependentUpon>SiemensTagForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Editors\XChannelForm.cs">
       <SubType>Form</SubType>
@@ -194,6 +266,42 @@
     <EmbeddedResource Include="Config\FormConfiguration.resx">
       <DependentUpon>FormConfiguration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\LSIS\LSISDataBlockForm.resx">
+      <DependentUpon>LSISDataBlockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\LSIS\LSISTagForm.resx">
+      <DependentUpon>LSISTagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\LSIS\XUserChannelForm.resx">
+      <DependentUpon>XUserChannelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\Modbus\ModbusChannelForm.resx">
+      <DependentUpon>ModbusChannelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\Modbus\ModbusDataBlockForm.resx">
+      <DependentUpon>ModbusDataBlockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\Modbus\ModbusTagForm.resx">
+      <DependentUpon>ModbusTagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\Panasonic\PanasonicChannelForm.resx">
+      <DependentUpon>PanasonicChannelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\Panasonic\PanasonicDataBlockForm.resx">
+      <DependentUpon>PanasonicDataBlockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\Panasonic\PanasonicTagForm.resx">
+      <DependentUpon>PanasonicTagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\Siemens\SiemensChannelForm.resx">
+      <DependentUpon>SiemensChannelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\Siemens\SiemensDataBlockForm.resx">
+      <DependentUpon>SiemensDataBlockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\IODriver\Siemens\SiemensTagForm.resx">
+      <DependentUpon>SiemensTagForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editors\XChannelForm.resx">
       <DependentUpon>XChannelForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -278,6 +386,10 @@
     <None Include="Resources\windows_menubk_blue.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AdvancedScada.BaseService\BaseService.csproj">
+      <Project>{fe960c7a-e85b-48ed-9bca-9be1a6a1cb0b}</Project>
+      <Name>BaseService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AdvancedScada.IBaseService\IBaseService.csproj">
       <Project>{4ba1e9c3-f791-458c-b4f7-3b7943e8de10}</Project>
       <Name>IBaseService</Name>
@@ -328,6 +440,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

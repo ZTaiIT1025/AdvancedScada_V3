@@ -12,8 +12,8 @@ namespace AdvancedScada.Studio.Service
     public partial class FormServerUtils
     {
         public readonly List<ServerUtilsGrid> _ServerUtilsGrid = new List<ServerUtilsGrid>();
-        public IServiceDriver client;
-        IGetServiceBase iServiceDriverAll = null;
+       
+        AdvancedScada.BaseService.ServiceBase iServiceDriverAll = null;
         public bool close = true;
         public ServiceHost host;
         public FormServerUtils()
@@ -40,12 +40,12 @@ namespace AdvancedScada.Studio.Service
 
             try
             {
+                iServiceDriverAll = new BaseService.ServiceBase();
 
-
-                var frame = Functions.GetFunctions();
-                iServiceDriverAll = frame.GetAssemblyService(@"\AdvancedScada.BaseService.dll", "AdvancedScada.BaseService.ServiceBase");
+               
+              
                 if (iServiceDriverAll != null)
-                    client = iServiceDriverAll.GetStartService();
+                   iServiceDriverAll.GetStartService();
 
                 if (iServiceDriverAll != null)
                     host = iServiceDriverAll.GetServiceHostHttp();

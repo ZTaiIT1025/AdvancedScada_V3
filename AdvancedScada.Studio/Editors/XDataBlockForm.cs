@@ -27,19 +27,58 @@ namespace AdvancedScada.Studio.Editors
             dv = dvParam;
             db = dbParam;
         }
+        Management.Editors.XDataBlockForm newObject = null;
         public void GetForm(string Path, string classname)
         {
-            var objFunctions = Functions.GetFunctions();
-            var context = objFunctions.ParseNamespace($@"\AdvancedScada.{Path}.Core.dll", classname);
-            var t = (Type)context;
-            Management.Editors.XDataBlockForm newObject = null;
-            if (db == null) newObject = (Management.Editors.XDataBlockForm)objFunctions.CreateInstance(t, new object[] { ch, dv, null });
-            else newObject = (Management.Editors.XDataBlockForm)objFunctions.CreateInstance(t, new object[] { ch, dv, db });
-            newObject.eventDataBlockChanged += (db, isNew) =>
+            if (db == null)
             {
-                eventDataBlockChanged?.Invoke(db, isNew);
-                DialogResult = DialogResult.OK;
-            };
+                switch (Path)
+                {
+                    case "LSIS":
+                        newObject = new XLSIS.Core.UserEditors.XUserDataBlockForm(ch, dv, null);
+
+                        break;
+                    case "Modbus":
+                        newObject = new XModbus.Core.UserEditors.XUserDataBlockForm(ch, dv, null);
+                        break;
+                    case "Panasonic":
+                        newObject = new XPanasonic.Core.UserEditors.XUserDataBlockForm(ch, dv, null);
+                        break;
+                    case "Siemens":
+                        newObject = new XSiemens.Core.UserEditors.XUserDataBlockForm(ch, dv, null);
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
+            else
+            {
+                switch (Path)
+                {
+                    case "LSIS":
+                        newObject = new XLSIS.Core.UserEditors.XUserDataBlockForm(ch, dv, db);
+
+                        break;
+                    case "Modbus":
+                        newObject = new XModbus.Core.UserEditors.XUserDataBlockForm(ch, dv, db);
+                        break;
+                    case "Panasonic":
+                        newObject = new XPanasonic.Core.UserEditors.XUserDataBlockForm(ch, dv, db);
+                        break;
+                    case "Siemens":
+                        newObject = new XSiemens.Core.UserEditors.XUserDataBlockForm(ch, dv, db);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            newObject.eventDataBlockChanged += (db, isNew) =>
+           {
+               eventDataBlockChanged?.Invoke(db, isNew);
+               DialogResult = DialogResult.OK;
+           };
 
             try
             {
@@ -51,9 +90,9 @@ namespace AdvancedScada.Studio.Editors
                     newObject.BringToFront();
                     newObject.Click += NewObject_Click;
                     Controls.Add(newObject);
-                   
+
                 }
-                
+
             }
             catch
             {
@@ -68,7 +107,7 @@ namespace AdvancedScada.Studio.Editors
         private void XDataBlockForm_Load(object sender, EventArgs e)
         {
 
-            var DriverTypes2 = ch.ChannelTypes.Insert(0, "X");
+            var DriverTypes2 = ch.ChannelTypes;
 
             if (db == null)
             {

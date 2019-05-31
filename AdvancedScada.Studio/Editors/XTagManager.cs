@@ -272,7 +272,7 @@ namespace AdvancedScada.Studio.Editors
                     case 0:
                         chCurrent = objChannelManager.GetByChannelName(treeList1.FocusedNode.GetDisplayText(0));
 
-                        var chFrm = new XChannelForm(objChannelManager, chCurrent);
+                        var chFrm = new XChannelForm(chCurrent.ChannelTypes,  objChannelManager, chCurrent);
                         chFrm.eventChannelChanged += (ch, isNew) =>
                         {
                             if (!isNew) objChannelManager.Update(ch);
@@ -531,7 +531,7 @@ namespace AdvancedScada.Studio.Editors
                 if (DriverFrm.ShowDialog() == DialogResult.OK)
                 {
 
-                    var chFrm = new XChannelForm(objChannelManager, null);
+                    var chFrm = new XChannelForm(DriverFrm.cboxSelectedDrivers.Text, objChannelManager, null);
                     chFrm.eventChannelChanged += (ch, isNew) =>
                     {
                         try

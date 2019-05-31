@@ -6,122 +6,70 @@ using System.ServiceModel.Description;
 using AdvancedScada.DriverBase;
 using AdvancedScada.IBaseService;
 using AdvancedScada.IBaseService.Common;
+using AdvancedScada.IODriver;
 using AdvancedScada.Management.BLManager;
 using Microsoft.Win32;
 
 namespace AdvancedScada.BaseService
 {
-    public class ServiceBase : IGetServiceBase
+    public class ServiceBase  
     {
 
-        IServiceDriver iServiceDriverAll = null;
+        
         private static readonly object mutex = new object();
-        private ushort _SerialNo;
+        DriverHelper driverHelper = new DriverHelper();
         object mutexStop = new object();
         public ServiceBase()
         {
             objChannelManager = ChannelManager.GetChannelManager();
-            RequestsDriver = new Dictionary<string, IServiceDriver>(1024);
+            
         }
 
-        public Dictionary<string, IServiceDriver> RequestsDriver { get; set; }
+       
 
-        public IServiceDriver GetStartService()
+        public bool  GetStartService()
         {
            
             try
             {
-                HOST = $"{Registry.GetValue("HKEY_CURRENT_USER\\Software\\FormConfiguration", "IPAddress", null)}";
-                PORT = ushort.Parse(
-                    $"{Registry.GetValue("HKEY_CURRENT_USER\\Software\\FormConfiguration", "Port", null)}");
-
+ 
                 var xmlFile = objChannelManager.ReadKey(objChannelManager.XML_NAME_DEFAULT);
-                if (string.IsNullOrEmpty(xmlFile) || string.IsNullOrWhiteSpace(xmlFile))
-                    return null;
+                if (string.IsNullOrEmpty(xmlFile) || string.IsNullOrWhiteSpace(xmlFile)) return false;
+                   
                 lock (mutex)
                 {
-                    RequestsDriver.Clear();
+                   
                     objChannelManager.Channels.Clear();
                     TagCollection.Tags.Clear();
                     var channels = objChannelManager.GetChannels(xmlFile);
-                    var frame = Functions.GetFunctions();
-                    foreach (var item in channels)
-                    {
-                        iServiceDriverAll =
-                            frame.GetAssembly($@"\AdvancedScada.{item.ChannelTypes.Insert(0, "X")}.Core.dll",
-                                $"AdvancedScada.{item.ChannelTypes.Insert(0, "X")}.Core.DataService");
+                   
+                  
+                    driverHelper.InitializeService(channels);
+                    driverHelper.Connect();
 
-                        if (iServiceDriverAll != null)
-                            iServiceDriverAll.InitializeService(item);
+
+
+                        return true;
+
                     }
-
-                    foreach (var item in channels)
-                    {
-                        _SerialNo = (ushort) (_SerialNo++ % 255 + 1);
-                        iServiceDriverAll =
-                            frame.GetAssembly($@"\AdvancedScada.{item.ChannelTypes.Insert(0, "X")}.Core.dll",
-                                $"AdvancedScada.{item.ChannelTypes.Insert(0, "X")}.Core.DataService");
-
-                        if (RequestsDriver.ContainsKey(item.ChannelTypes))
-                        {
-                        }
-                        else
-                        {
-                            RequestsDriver.Add(item.ChannelTypes, iServiceDriverAll);
-                            if (iServiceDriverAll != null)
-                                iServiceDriverAll.Connect();
-                        }
-                    }
-                }
             }
             catch (Exception ex)
             {
                 var err = new HMIException.ScadaException(GetType().Name, ex.Message);
             }
 
-            return iServiceDriverAll;
+            return true;
         }
-        public IServiceDriver GetAssemblyDrivers(string ChannelTypes)
+       
+        public bool GetStopService()
         {
             try
             {
-
-                var frame = Functions.GetFunctions();
-                iServiceDriverAll = frame.GetAssembly($@"\AdvancedScada.{ChannelTypes}.Core.dll",
-                    $"AdvancedScada.{ChannelTypes}.Core.DataService");
-            }
-            catch (System.Exception ex)
-            {
-
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
-            }
-            return iServiceDriverAll;
-        }
-        public IServiceDriver GetStopService()
-        {
-            try
-            {
-                if (objChannelManager == null) return null;
+               
                 lock (mutexStop)
                 {
-                    RequestsDriver.Clear();
-                    var channels = objChannelManager.Channels;
-                    foreach (var Ch in channels)
-                    {
-                        iServiceDriverAll = GetAssemblyDrivers(Ch.ChannelTypes.Insert(0, "X"));
-                        if (RequestsDriver.ContainsKey(Ch.ChannelTypes))
-                        {
 
-                        }
-                        else
-                        {
-                            RequestsDriver.Add(Ch.ChannelTypes, iServiceDriverAll);
-
-                            iServiceDriverAll?.Disconnect();
-                        }
-
-                    }
-
+                    driverHelper.Disconnect();
 
                 }
             }
@@ -130,7 +78,7 @@ namespace AdvancedScada.BaseService
 
                 var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
             }
-            return iServiceDriverAll;
+            return true;
         }
 
         public NetTcpBinding GetNetTcpBinding()
@@ -150,7 +98,7 @@ namespace AdvancedScada.BaseService
                 },
                 MaxBufferSize = 1000000,
                 MaxBufferPoolSize = 1000000,
-                MaxReceivedMessageSize = 2147483647L,
+                MaxReceivedMessageSize = 1000000,
                 ReceiveTimeout = TimeSpan.FromMinutes(2.0),
                 SendTimeout = TimeSpan.FromMinutes(2.0),
                 OpenTimeout = TimeSpan.FromDays(15.0),

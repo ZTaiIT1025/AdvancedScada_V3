@@ -140,7 +140,11 @@ namespace AdvancedScada.IODriver.FENET
 
         public TValue[] Read<TValue>(string address, ushort length)
         {
-
+            if (typeof(TValue) == typeof(bool))
+            {
+                var b = ReadCoil(address, length);
+                return (TValue[])(object)b;
+            }
             if (typeof(TValue) == typeof(ushort))
             {
                 var b = fastEnet.ReadUInt16(address, length).Content;
@@ -192,6 +196,12 @@ namespace AdvancedScada.IODriver.FENET
             }
 
             throw new InvalidOperationException(string.Format("type '{0}' not supported.", typeof(TValue)));
+        }
+
+        private object ReadCoil(string address, ushort length)
+        {
+            var bitArys = DemoUtils.BulkReadRenderResult(fastEnet, address, length);
+            return  HslCommunication.BasicFramework.SoftBasic.ByteToBoolArray(bitArys);
         }
 
         public OperateResult<bool[]> ReadDiscrete(string address, ushort length)

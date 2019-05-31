@@ -88,7 +88,6 @@
             this.TabControlLSIS.Name = "TabControlLSIS";
             this.TabControlLSIS.PageImagePosition = DevExpress.XtraTab.TabPageImagePosition.Center;
             this.TabControlLSIS.SelectedTabPage = this.tabPageChannel;
-            this.TabControlLSIS.ShowTabHeader = DevExpress.Utils.DefaultBoolean.False;
             this.TabControlLSIS.Size = new System.Drawing.Size(440, 271);
             this.TabControlLSIS.TabIndex = 1;
             this.TabControlLSIS.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
@@ -100,7 +99,7 @@
             // 
             this.tabPageChannel.Controls.Add(this.groupBox1);
             this.tabPageChannel.Name = "tabPageChannel";
-            this.tabPageChannel.Size = new System.Drawing.Size(434, 265);
+            this.tabPageChannel.Size = new System.Drawing.Size(432, 241);
             this.tabPageChannel.Text = "Channel";
             // 
             // groupBox1
@@ -220,7 +219,7 @@
             // 
             this.tabPageEthernet.Controls.Add(this.gpDIEChannel);
             this.tabPageEthernet.Name = "tabPageEthernet";
-            this.tabPageEthernet.Size = new System.Drawing.Size(434, 243);
+            this.tabPageEthernet.Size = new System.Drawing.Size(432, 263);
             this.tabPageEthernet.Text = "Ethernet";
             // 
             // gpDIEChannel
@@ -321,7 +320,7 @@
             this.tabPageSerialPort.Controls.Add(this.label1);
             this.tabPageSerialPort.Controls.Add(this.groupBox2);
             this.tabPageSerialPort.Name = "tabPageSerialPort";
-            this.tabPageSerialPort.Size = new System.Drawing.Size(434, 243);
+            this.tabPageSerialPort.Size = new System.Drawing.Size(432, 263);
             this.tabPageSerialPort.Text = "SerialPort";
             // 
             // cboxModeSP

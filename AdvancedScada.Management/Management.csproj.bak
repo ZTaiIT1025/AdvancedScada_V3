@@ -30,16 +30,19 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AdvancedScada.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\AdvancedScadaCS\AdvancedScada.Utils.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Data.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1" />
     <Reference Include="Svg, Version=2.4.2.26702, Culture=neutral, PublicKeyToken=12a0bac221edeae2" />
     <Reference Include="System" />
@@ -95,13 +98,13 @@
     <Compile Include="SQLManager\TableManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Drivers\AdvancedScada.ErorrPLC\ErorrPLC.csproj">
-      <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
-      <Name>ErorrPLC</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Drivers\AdvancedScada.DriverBase\DriverBase.csproj">
       <Project>{0c4043a0-522d-456f-82c3-d086bd07ee27}</Project>
       <Name>DriverBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Drivers\AdvancedScada.ErorrPLC\HMIException.csproj">
+      <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
+      <Name>HMIException</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
