@@ -78,7 +78,7 @@ namespace AdvancedScada.IODriver.Siemens
                 }
                 catch (Exception ex)
                 {
-                    
+                    throw ex;
                 }
 
 
@@ -134,7 +134,7 @@ namespace AdvancedScada.IODriver.Siemens
             }
             catch (Exception ex)
             {
-                
+                throw ex;
             }
             return new byte[0];
         }

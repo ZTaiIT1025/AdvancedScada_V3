@@ -97,7 +97,7 @@ namespace AdvancedScada.IODriver.Cnet
             }
             catch (Exception ex)
             {
-               
+                throw ex;
             }
             return new byte[0];
         }

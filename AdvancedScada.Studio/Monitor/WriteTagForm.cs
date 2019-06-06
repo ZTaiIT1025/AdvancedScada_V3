@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
+using AdvancedScada.BaseService.Client;
 using AdvancedScada.DriverBase;
 using AdvancedScada.IBaseService;
 
@@ -64,8 +65,9 @@ namespace AdvancedScada.Studio.Monitor
         private void btnSend_Click(object sender, EventArgs e)
         {
 
-           
-                client.WriteTag(txtAddress.Text, NumValue.Text);
+         //   client = DriverHelper.GetInstance().GetReadService();
+            if (client != null)
+            client.WriteTag(txtAddress.Text, NumValue.Text);
 
             Thread.Sleep(50);
             

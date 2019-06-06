@@ -1,4 +1,5 @@
-﻿using AdvancedScada.BaseService.Client;
+﻿using AdvancedScada.BaseService;
+using AdvancedScada.BaseService.Client;
 using AdvancedScada.DataAccess;
 using AdvancedScada.HMI.Tools;
 using AdvancedScada.IBaseService;
@@ -23,28 +24,18 @@ namespace AdvancedScada.HMI.MainForm
         #endregion
        
         public IReadService client = null;
-        public string GetDriverTypes()
-        {
-            return $"{Registry.GetValue("HKEY_CURRENT_USER\\Software\\FormConfiguration", "ChannelTypes", null)}";
-
-        }
+        
 
         public MainForm()
         {
             try
             {
-                var functions = Functions.GetFunctions();
+               
+                ReadServiceCallbackClient.LoadTagCollection();
 
-                
-                    ServiceBaseClient.GetStartClient();
-                    client = ServiceBaseClient.CreateChannelTools();
-                    client?.Connection();
-
-                
-
-
-
-
+                client = DriverHelper.GetInstance().GetReadService();
+                client.Connection();
+               
             }
             catch (CommunicationException ex)
             {

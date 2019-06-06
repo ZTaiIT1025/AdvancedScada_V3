@@ -405,10 +405,12 @@ namespace AdvancedScada.IODriver
             catch (SocketException ex)
             {
                 Disconnect();
+                throw ex;
             }
             catch (Exception ex)
             {
                 Disconnect();
+                throw ex;
             }
         }
         private void SendPackageLSIS(IDriverAdapter ILSIS, Channel ch, Device dv, DataBlock db)

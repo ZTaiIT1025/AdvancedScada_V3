@@ -7,6 +7,7 @@ using System.Net.Security;
 using System.ServiceModel;
 using System.Threading;
 using System.Windows.Forms;
+using AdvancedScada.BaseService.Client;
 using AdvancedScada.DriverBase.Devices;
 using AdvancedScada.IBaseService;
 using AdvancedScada.Management.BLManager;
@@ -23,9 +24,7 @@ namespace AdvancedScada.Studio.Monitor
     [CallbackBehavior(UseSynchronizationContext = true)]
     public partial class PLC_MonitorForm : IServiceCallback
     {
-        public const string Driver = "Driver";
-        public static ushort PORT = 8090;
-        public static string HOST = "localhost";
+        
         private List<string> _SelectedTag;
         private List<Channel> bChannelEthernet;
         private List<DIEthernet> bDIEthernet;
@@ -393,18 +392,15 @@ namespace AdvancedScada.Studio.Monitor
 
                 try
                 {
-                    
+                     if(client!=null)
+                    client.Disconnection();
+                    IsConnected = false;
                 }
                 catch (Exception ex)
                 {
                     var err = new HMIException.ScadaException(GetType().Name, ex.Message);
                 }
-                if (client != null)
-                {
-                    IsConnected = false;
-                    client.Disconnection();
-
-                }
+                
 
             }
             catch (Exception ex)
@@ -432,30 +428,11 @@ namespace AdvancedScada.Studio.Monitor
             {
 
 
-
-                HOST =
-                    $"{Registry.GetValue("HKEY_CURRENT_USER\\Software\\FormConfiguration", "IPAddress", null)}";
-                PORT = ushort.Parse(
-                    $"{Registry.GetValue("HKEY_CURRENT_USER\\Software\\FormConfiguration", "Port", null)}");
-
-
+ 
                 var ic = new InstanceContext(this);
-                // Create a channel factory.
-                var b = new NetTcpBinding();
-                b.Security.Mode = SecurityMode.Transport;
-                b.Security.Transport.ClientCredentialType = TcpClientCredentialType.Windows;
-                b.Security.Transport.ProtectionLevel = ProtectionLevel.EncryptAndSign;
-                b.MaxBufferSize = 1000000;
-                b.MaxBufferPoolSize = 1000000;
-                b.MaxReceivedMessageSize = 1000000;
-                b.OpenTimeout = TimeSpan.FromMinutes(2);
-                b.SendTimeout = TimeSpan.FromMinutes(2);
-                b.ReceiveTimeout = TimeSpan.FromMinutes(10);
-                var endPoint =
-                    new EndpointAddress(new Uri($"net.Tcp://{HOST}:{PORT}/AdvancedScada/{Driver}"));
-                var factory = new DuplexChannelFactory<IReadService>(ic, b, endPoint);
-                client = factory.CreateChannel();
+                client = DriverHelper.GetInstance().GetReadService(ic);
                 client.Connection();
+               
                 IsConnected = true;
             }
             catch (Exception ex)

@@ -87,7 +87,7 @@ namespace AdvancedScada.IODriver.ASCII
             }
             catch (Exception ex)
             {
-                
+                throw ex;
             }
             return new byte[0];
         }

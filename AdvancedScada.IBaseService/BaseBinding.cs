@@ -7,7 +7,7 @@ namespace AdvancedScada.IBaseService
     {
         protected ushort PORT = 8086;
 
-        protected string URI_S7DRIVER = "net.tcp://{0}:{1}/DriverService/{2}";
+        protected string URI_DRIVER = "net.tcp://{0}:{1}/DriverService/{2}";
 
         protected string URI_SYS_SERVICE = "net.tcp://{0}:{1}/SystemService/{2}";
 
@@ -21,13 +21,12 @@ namespace AdvancedScada.IBaseService
 
         protected string URI_SQL_INFO_SERVICE = "net.tcp://{0}:{1}/SQLInfoService/{2}";
 
-        protected string COPY_RIGHT = "© Hao Thien Co.,Ltd Company. All Rights Reserved.";
-
+ 
         protected const string LOGGING = "Logging";
 
         protected const string COLLECTION_SERVICE = "CollectionService";
 
-        protected const string S7DRIVER = "S7Driver";
+        protected const string DRIVER = "Driver";
 
         protected const string COLLECTION = "Collection";
 
@@ -69,7 +68,7 @@ namespace AdvancedScada.IBaseService
                 SendTimeout = TimeSpan.FromMinutes(2.0),
                 OpenTimeout = TimeSpan.FromDays(15.0),
                 CloseTimeout = TimeSpan.FromDays(15.0),
-                MaxReceivedMessageSize = 2147483647L
+                MaxReceivedMessageSize = int.MaxValue
             };
         }
 
@@ -81,7 +80,7 @@ namespace AdvancedScada.IBaseService
                 SendTimeout = TimeSpan.FromMinutes(2.0),
                 OpenTimeout = TimeSpan.FromDays(15.0),
                 CloseTimeout = TimeSpan.FromDays(15.0),
-                MaxReceivedMessageSize = 2147483647L
+                MaxReceivedMessageSize = int.MaxValue
             };
         }
 
@@ -93,7 +92,7 @@ namespace AdvancedScada.IBaseService
                 SendTimeout = TimeSpan.FromMinutes(2.0),
                 OpenTimeout = TimeSpan.FromDays(15.0),
                 CloseTimeout = TimeSpan.FromDays(15.0),
-                MaxReceivedMessageSize = 2147483647L
+                MaxReceivedMessageSize = int.MaxValue
             };
         }
 

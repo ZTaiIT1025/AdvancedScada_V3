@@ -4,6 +4,7 @@ using System.ServiceModel;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AdvancedScada.BaseService;
 using AdvancedScada.IBaseService;
 using AdvancedScada.IBaseService.Common;
 
@@ -12,8 +13,6 @@ namespace AdvancedScada.Studio.Service
     public partial class FormServerUtils
     {
         public readonly List<ServerUtilsGrid> _ServerUtilsGrid = new List<ServerUtilsGrid>();
-       
-        AdvancedScada.BaseService.ServiceBase iServiceDriverAll = null;
         public bool close = true;
         public ServiceHost host;
         public FormServerUtils()
@@ -40,15 +39,9 @@ namespace AdvancedScada.Studio.Service
 
             try
             {
-                iServiceDriverAll = new BaseService.ServiceBase();
 
-               
-              
-                if (iServiceDriverAll != null)
-                   iServiceDriverAll.GetStartService();
-
-                if (iServiceDriverAll != null)
-                    host = iServiceDriverAll.GetServiceHostHttp();
+                    new DriverService().GetStartService();
+                    host = new DriverService().InitializeReadService();
                 host.Opened += host_Opened;
                 host.Open();
 

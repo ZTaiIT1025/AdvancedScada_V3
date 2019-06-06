@@ -66,7 +66,7 @@ namespace AdvancedScada.IODriver.FENET
                 }
                 catch (Exception ex)
                 {
-                    
+                    throw ex;
                 }
                 var err = new HMIException.ScadaException(IsConnected);
                
@@ -118,7 +118,7 @@ namespace AdvancedScada.IODriver.FENET
             }
             catch (Exception ex)
             {
-               
+                throw ex;
             }
             return new byte[0];
         }

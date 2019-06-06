@@ -26,8 +26,8 @@ namespace AdvancedScada.Controls
             {
                 lock (myLockRead)
                 {
-                     
-                        client = ServiceBaseClient.CreateChannelTools();
+                    client= DriverHelper.GetInstance().GetReadService();
+                    if(client != null)
                     client.WriteTag(PLCAddressClick, Value);
                 }
 

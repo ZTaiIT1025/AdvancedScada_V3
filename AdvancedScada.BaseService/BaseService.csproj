@@ -41,10 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client\ServiceBaseClient.cs" />
+    <Compile Include="Client\DriverHelper.cs" />
+    <Compile Include="DriverService.cs" />
     <Compile Include="ReadService.cs" />
     <Compile Include="ReadServiceCallbackClient.cs" />
-    <Compile Include="ServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

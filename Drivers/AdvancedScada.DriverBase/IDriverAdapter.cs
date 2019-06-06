@@ -84,7 +84,7 @@ namespace AdvancedScada.DriverBase
             }
             catch (Exception ex)
             {
-                
+                throw ex;
             }
         }
 
@@ -107,7 +107,7 @@ namespace AdvancedScada.DriverBase
             }
             catch (Exception ex)
             {
-                
+                throw ex;
             }
             return resultDate;
         }

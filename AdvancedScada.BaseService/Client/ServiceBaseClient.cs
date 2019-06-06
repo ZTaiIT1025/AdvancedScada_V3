@@ -37,7 +37,7 @@ namespace AdvancedScada.BaseService.Client
             return _instance;
         }
 
-        public static bool GetStartClient()
+        public static bool LoadTagCollection()
         {
             lock (mutexStartClient)
             {
@@ -45,10 +45,7 @@ namespace AdvancedScada.BaseService.Client
 
                 try
                 {
-                    HOST = $"{Registry.GetValue("HKEY_CURRENT_USER\\Software\\FormConfiguration", "IPAddress", null)}";
-                    PORT = ushort.Parse(
-                        $"{Registry.GetValue("HKEY_CURRENT_USER\\Software\\FormConfiguration", "Port", null)}");
-
+                  
                     var xmlFile = objChannelManager.ReadKey(objChannelManager.XML_NAME_DEFAULT);
                     if (string.IsNullOrEmpty(xmlFile) || string.IsNullOrWhiteSpace(xmlFile))
                     {

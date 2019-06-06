@@ -88,7 +88,7 @@ namespace AdvancedScada.IODriver.RTU
             }
             catch (Exception ex)
             {
-                
+                throw ex;
             }
             return new byte[0];
         }
