@@ -7,12 +7,9 @@ namespace AdvancedScada.Management.BLManager
 
 {
 
-    public class DeviceService
+    public class DeviceService : BaseBindingXML
     {
-        public const string DEVICE = "Device";
-        public const string DEVICE_ID = "DeviceId";
-        public const string DEVICE_NAME = "DeviceName";
-        public const string SLAVE_ID = "SlaveId";
+       
         private static readonly object mutex = new object();
         private static DeviceService _instance;
 

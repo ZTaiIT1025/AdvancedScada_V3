@@ -31,9 +31,10 @@ namespace AdvancedScada.Studio.Monitor
 		[System.Diagnostics.DebuggerStepThrough()]
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PLC_MonitorForm));
-            this.DockManager1 = new DevExpress.XtraBars.Docking.DockManager();
-            this.BarManager1 = new DevExpress.XtraBars.BarManager();
+            this.DockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.BarManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.Bar3 = new DevExpress.XtraBars.Bar();
             this.BarTagName = new DevExpress.XtraBars.BarStaticItem();
             this.lblSelectedTag = new DevExpress.XtraBars.BarStaticItem();
@@ -41,17 +42,17 @@ namespace AdvancedScada.Studio.Monitor
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.imageCollection1 = new DevExpress.Utils.ImageCollection();
+            this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.BarStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.mWriteTagValue = new DevExpress.XtraBars.BarButtonItem();
             this.mSetON = new DevExpress.XtraBars.BarButtonItem();
             this.mSetOFF = new DevExpress.XtraBars.BarButtonItem();
-            this.PopupMenu1 = new DevExpress.XtraBars.PopupMenu();
+            this.PopupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.DockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.DockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.TreeList1 = new DevExpress.XtraTreeList.TreeList();
             this.ChannelName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.imageList1 = new System.Windows.Forms.ImageList();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.dockPanel4 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel4_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.vGridDataBlock = new DevExpress.XtraVerticalGrid.VGridControl();
@@ -180,15 +181,15 @@ namespace AdvancedScada.Studio.Monitor
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.BarManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1272, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1276, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 593);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 590);
             this.barDockControlBottom.Manager = this.BarManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1272, 25);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1276, 28);
             // 
             // barDockControlLeft
             // 
@@ -196,15 +197,15 @@ namespace AdvancedScada.Studio.Monitor
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.BarManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 593);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 590);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1272, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(1276, 0);
             this.barDockControlRight.Manager = this.BarManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 593);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 590);
             // 
             // imageCollection1
             // 
@@ -261,15 +262,15 @@ namespace AdvancedScada.Studio.Monitor
             this.DockPanel2.Location = new System.Drawing.Point(0, 0);
             this.DockPanel2.Name = "DockPanel2";
             this.DockPanel2.OriginalSize = new System.Drawing.Size(200, 200);
-            this.DockPanel2.Size = new System.Drawing.Size(200, 593);
+            this.DockPanel2.Size = new System.Drawing.Size(200, 590);
             this.DockPanel2.Text = "ChannelList";
             // 
             // DockPanel2_Container
             // 
             this.DockPanel2_Container.Controls.Add(this.TreeList1);
-            this.DockPanel2_Container.Location = new System.Drawing.Point(4, 23);
+            this.DockPanel2_Container.Location = new System.Drawing.Point(3, 24);
             this.DockPanel2_Container.Name = "DockPanel2_Container";
-            this.DockPanel2_Container.Size = new System.Drawing.Size(191, 566);
+            this.DockPanel2_Container.Size = new System.Drawing.Size(193, 563);
             this.DockPanel2_Container.TabIndex = 0;
             // 
             // TreeList1
@@ -280,7 +281,7 @@ namespace AdvancedScada.Studio.Monitor
             this.TreeList1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TreeList1.Location = new System.Drawing.Point(0, 0);
             this.TreeList1.Name = "TreeList1";
-            this.TreeList1.Size = new System.Drawing.Size(191, 566);
+            this.TreeList1.Size = new System.Drawing.Size(193, 563);
             this.TreeList1.StateImageList = this.imageList1;
             this.TreeList1.TabIndex = 0;
             this.TreeList1.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.TreeList1_FocusedNodeChanged);
@@ -310,10 +311,10 @@ namespace AdvancedScada.Studio.Monitor
             this.dockPanel4.Controls.Add(this.dockPanel4_Container);
             this.dockPanel4.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.dockPanel4.ID = new System.Guid("312e91b5-f979-4dce-9bf1-458563cefc59");
-            this.dockPanel4.Location = new System.Drawing.Point(1057, 0);
+            this.dockPanel4.Location = new System.Drawing.Point(1061, 0);
             this.dockPanel4.Name = "dockPanel4";
             this.dockPanel4.OriginalSize = new System.Drawing.Size(215, 200);
-            this.dockPanel4.Size = new System.Drawing.Size(215, 593);
+            this.dockPanel4.Size = new System.Drawing.Size(215, 590);
             this.dockPanel4.TabsPosition = DevExpress.XtraBars.Docking.TabsPosition.Right;
             this.dockPanel4.Text = "Properties";
             // 
@@ -324,9 +325,9 @@ namespace AdvancedScada.Studio.Monitor
             this.dockPanel4_Container.Controls.Add(this.vGridChannel);
             this.dockPanel4_Container.Controls.Add(this.vGridSerialPort);
             this.dockPanel4_Container.Controls.Add(this.vGridEthernet);
-            this.dockPanel4_Container.Location = new System.Drawing.Point(5, 23);
+            this.dockPanel4_Container.Location = new System.Drawing.Point(4, 24);
             this.dockPanel4_Container.Name = "dockPanel4_Container";
-            this.dockPanel4_Container.Size = new System.Drawing.Size(206, 566);
+            this.dockPanel4_Container.Size = new System.Drawing.Size(208, 563);
             this.dockPanel4_Container.TabIndex = 0;
             // 
             // vGridDataBlock
@@ -344,7 +345,7 @@ namespace AdvancedScada.Studio.Monitor
             this.row3,
             this.row4,
             this.row5});
-            this.vGridDataBlock.Size = new System.Drawing.Size(206, 134);
+            this.vGridDataBlock.Size = new System.Drawing.Size(208, 134);
             this.vGridDataBlock.TabIndex = 39;
             this.vGridDataBlock.TreeButtonStyle = DevExpress.XtraVerticalGrid.TreeButtonStyle.ExplorerBar;
             // 
@@ -415,7 +416,7 @@ namespace AdvancedScada.Studio.Monitor
             this.colDeviceName,
             this.colSlaveId,
             this.colDeviceDesp});
-            this.vGridDevice.Size = new System.Drawing.Size(206, 81);
+            this.vGridDevice.Size = new System.Drawing.Size(208, 81);
             this.vGridDevice.TabIndex = 39;
             // 
             // catDevice
@@ -460,7 +461,7 @@ namespace AdvancedScada.Studio.Monitor
             this.colConnectionType,
             this.colChannelName,
             this.colDescription2});
-            this.vGridChannel.Size = new System.Drawing.Size(206, 103);
+            this.vGridChannel.Size = new System.Drawing.Size(208, 103);
             this.vGridChannel.TabIndex = 39;
             // 
             // catChannel
@@ -505,7 +506,7 @@ namespace AdvancedScada.Studio.Monitor
             this.colDataBits,
             this.colStopBits,
             this.colDescription3});
-            this.vGridSerialPort.Size = new System.Drawing.Size(206, 136);
+            this.vGridSerialPort.Size = new System.Drawing.Size(208, 136);
             this.vGridSerialPort.TabIndex = 37;
             // 
             // catSerialPort
@@ -564,7 +565,7 @@ namespace AdvancedScada.Studio.Monitor
             this.catEthernet,
             this.colIPAddress,
             this.colPort});
-            this.vGridEthernet.Size = new System.Drawing.Size(206, 93);
+            this.vGridEthernet.Size = new System.Drawing.Size(208, 93);
             this.vGridEthernet.TabIndex = 37;
             // 
             // catEthernet
@@ -602,7 +603,7 @@ namespace AdvancedScada.Studio.Monitor
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.MenuManager = this.BarManager1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(857, 593);
+            this.gridControl1.Size = new System.Drawing.Size(861, 590);
             this.gridControl1.TabIndex = 8;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -733,7 +734,7 @@ namespace AdvancedScada.Studio.Monitor
             this.colDescription.AppearanceHeader.Options.UseTextOptions = true;
             this.colDescription.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colDescription.Caption = "Description";
-            this.colDescription.FieldName = "Desp";
+            this.colDescription.FieldName = "Description";
             this.colDescription.FilterMode = DevExpress.XtraGrid.ColumnFilterMode.DisplayText;
             this.colDescription.Name = "colDescription";
             this.colDescription.OptionsColumn.AllowEdit = false;
@@ -753,7 +754,7 @@ namespace AdvancedScada.Studio.Monitor
             this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelControl1.Location = new System.Drawing.Point(200, 0);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(857, 35);
+            this.labelControl1.Size = new System.Drawing.Size(861, 35);
             this.labelControl1.TabIndex = 29;
             this.labelControl1.Text = "TagList";
             // 
@@ -761,11 +762,11 @@ namespace AdvancedScada.Studio.Monitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1272, 618);
+            this.ClientSize = new System.Drawing.Size(1276, 618);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.gridControl1);
-            this.Controls.Add(this.DockPanel2);
             this.Controls.Add(this.dockPanel4);
+            this.Controls.Add(this.DockPanel2);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);

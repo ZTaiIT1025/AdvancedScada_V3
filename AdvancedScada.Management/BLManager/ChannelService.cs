@@ -3,50 +3,26 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.IO.Ports;
-using System.ServiceModel;
 using System.Xml;
 using System.Xml.Linq;
 using AdvancedScada.DriverBase;
 using AdvancedScada.DriverBase.Devices;
-using AdvancedScada.IBaseService;
 using Microsoft.Win32;
 
 namespace AdvancedScada.Management.BLManager
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Single)]
-    public class ChannelService : IChannelService
+
+    public class ChannelService : BaseBindingXML
     {
 
-        public const string ROOT = "Root";
-        public const string CHANNEL = "Channel";
-        public const string CHANNEL_ID = "ChannelId";
-        public const string CHANNEL_NAME = "ChannelName";
-        public const string CHANNEL_Types = "ChannelTypes";
-        private const string RACK = "Rack";
-        private const string SLOT = "Slot";
-        private const string MODEL = "Model";
-        public const string DESCRIPTION = "Description";
-
-        public const string DEVICE = "Device";
-        public const string IP_ADDRESS = "IPAddress";
-        public const string PORT = "Port";
-
-        public const string PORT_NAME = "PortName";
-        public const string BAUDRATE = "BaudRate";
-        public const string DATABITS = "DataBits";
-        public const string STOPBITS = "StopBits";
-        public const string PARITY = "Parity";
-        public const string HANDSHAKE = "Handshake";
-
-        public const string MODE = "Mode";
-        public const string Connection_Type = "ConnectionType";
+       
 
         public static List<Channel> _Channels;
 
         private static readonly object mutex = new object();
         private static ChannelService _instance;
 
-        private readonly DeviceManager objDeviceManager = new DeviceManager();
+        private readonly DeviceService objDeviceManager = new DeviceService();
 
         public string XML_NAME_DEFAULT = "TagCollection";
 
@@ -501,41 +477,41 @@ namespace AdvancedScada.Management.BLManager
                     // List Devices.
                     foreach (var dv in ch.Devices)
                     {
-                        var dvElement = xmlDoc.CreateElement(DeviceManager.DEVICE);
-                        dvElement.SetAttribute(DeviceManager.DEVICE_ID, $"{dv.DeviceId}");
-                        dvElement.SetAttribute(DeviceManager.DEVICE_NAME, dv.DeviceName);
-                        dvElement.SetAttribute(DeviceManager.SLAVE_ID, $"{dv.SlaveId}");
+                        var dvElement = xmlDoc.CreateElement(DeviceService.DEVICE);
+                        dvElement.SetAttribute(DeviceService.DEVICE_ID, $"{dv.DeviceId}");
+                        dvElement.SetAttribute(DeviceService.DEVICE_NAME, dv.DeviceName);
+                        dvElement.SetAttribute(DeviceService.SLAVE_ID, $"{dv.SlaveId}");
                         dvElement.SetAttribute(DESCRIPTION, dv.Description);
                         chElement.AppendChild(dvElement);
                         if (dv.DataBlocks.Count == 0) continue;
                         // List DataBlock.
                         foreach (var db in dv.DataBlocks)
                         {
-                            var dbElement = xmlDoc.CreateElement(DataBlockManager.DATABLOCK);
-                            dbElement.SetAttribute(DataBlockManager.CHANNEL_ID, $"{db.ChannelId}");
-                            dbElement.SetAttribute(DataBlockManager.DEVICE_ID, $"{db.DeviceId}");
-                            dbElement.SetAttribute(DataBlockManager.DATABLOCK_ID, $"{db.DataBlockId}");
-                            dbElement.SetAttribute(DataBlockManager.DATABLOCK_NAME, db.DataBlockName);
-                            dbElement.SetAttribute(DataBlockManager.TypeOfRead, $"{db.TypeOfRead}");
-                            dbElement.SetAttribute(DataBlockManager.START_ADDRESS, $"{db.StartAddress}");
-                            dbElement.SetAttribute(DataBlockManager.LENGTH, $"{db.Length}");
-                            dbElement.SetAttribute(DataBlockManager.DATA_TYPE, $"{db.DataType}");
-                            dbElement.SetAttribute(DataBlockManager.MemoryType, $"{db.MemoryType}");
+                            var dbElement = xmlDoc.CreateElement(DataBlockService.DATABLOCK);
+                            dbElement.SetAttribute(DataBlockService.CHANNEL_ID, $"{db.ChannelId}");
+                            dbElement.SetAttribute(DataBlockService.DEVICE_ID, $"{db.DeviceId}");
+                            dbElement.SetAttribute(DataBlockService.DATABLOCK_ID, $"{db.DataBlockId}");
+                            dbElement.SetAttribute(DataBlockService.DATABLOCK_NAME, db.DataBlockName);
+                            dbElement.SetAttribute(DataBlockService.TypeOfRead, $"{db.TypeOfRead}");
+                            dbElement.SetAttribute(DataBlockService.START_ADDRESS, $"{db.StartAddress}");
+                            dbElement.SetAttribute(DataBlockService.LENGTH, $"{db.Length}");
+                            dbElement.SetAttribute(DataBlockService.DATA_TYPE, $"{db.DataType}");
+                            dbElement.SetAttribute(DataBlockService.MemoryType, $"{db.MemoryType}");
                             dbElement.SetAttribute(DESCRIPTION, db.Description);
                             dvElement.AppendChild(dbElement);
 
                             // List Tags.
                             foreach (var tg in db.Tags)
                             {
-                                var tgElement = xmlDoc.CreateElement(TagManagerXML.TAG);
-                                tgElement.SetAttribute(DataBlockManager.CHANNEL_ID, $"{db.ChannelId}");
-                                tgElement.SetAttribute(DataBlockManager.DEVICE_ID, $"{db.DeviceId}");
-                                tgElement.SetAttribute(DataBlockManager.DATABLOCK_ID, $"{db.DataBlockId}");
-                                tgElement.SetAttribute(TagManagerXML.TAG_ID, $"{tg.TagId}");
-                                tgElement.SetAttribute(TagManagerXML.TAG_NAME, tg.TagName);
-                                tgElement.SetAttribute(TagManagerXML.ADDRESS, $"{tg.Address}");
-                                tgElement.SetAttribute(TagManagerXML.DATA_TYPE, $"{tg.DataType}");
-                                tgElement.SetAttribute(DESCRIPTION, tg.Desp);
+                                var tgElement = xmlDoc.CreateElement(TagService.TAG);
+                                tgElement.SetAttribute(DataBlockService.CHANNEL_ID, $"{db.ChannelId}");
+                                tgElement.SetAttribute(DataBlockService.DEVICE_ID, $"{db.DeviceId}");
+                                tgElement.SetAttribute(DataBlockService.DATABLOCK_ID, $"{db.DataBlockId}");
+                                tgElement.SetAttribute(TagService.TAG_ID, $"{tg.TagId}");
+                                tgElement.SetAttribute(TagService.TAG_NAME, tg.TagName);
+                                tgElement.SetAttribute(TagService.ADDRESS, $"{tg.Address}");
+                                tgElement.SetAttribute(TagService.DATA_TYPE, $"{tg.DataType}");
+                                tgElement.SetAttribute(DESCRIPTION, tg.Description);
                                 dbElement.AppendChild(tgElement);
                             }
                         }
@@ -548,70 +524,6 @@ namespace AdvancedScada.Management.BLManager
             {
                 var err = new HMIException.ScadaException(GetType().Name, ex.Message);
             }
-        }
-
-        public List<Channel> GetChannelsWcf()
-        {
-            try
-            {
-                var xmlDoc = new XmlDocument();
-                if (string.IsNullOrEmpty(XmlPath) || string.IsNullOrWhiteSpace(XmlPath))
-                    XmlPath = ReadKey(XML_NAME_DEFAULT);
-                xmlDoc.Load(XmlPath);
-                var nodes = xmlDoc.SelectNodes(ROOT);
-                foreach (XmlNode rootNode in nodes)
-                {
-                    var channelNodeList = rootNode.SelectNodes(CHANNEL);
-                    foreach (XmlNode chNode in channelNodeList)
-                    {
-                        Channel newChannel = null;
-                        var connType = chNode.Attributes[Connection_Type].Value;
-
-                        switch (connType)
-                        {
-                            case "SerialPort":
-                                newChannel = new DISerialPort();
-                                var dis = (DISerialPort)newChannel;
-                                dis.PortName = chNode.Attributes[PORT_NAME].Value;
-                                dis.BaudRate = int.Parse(chNode.Attributes[BAUDRATE].Value);
-                                dis.DataBits = int.Parse(chNode.Attributes[DATABITS].Value);
-                                dis.Parity = (Parity)Enum.Parse(typeof(Parity), chNode.Attributes[PARITY].Value);
-                                dis.StopBits =
-                                    (StopBits)Enum.Parse(typeof(StopBits), chNode.Attributes[STOPBITS].Value);
-                                dis.Handshake = (Handshake)Enum.Parse(typeof(Handshake),
-                                    chNode.Attributes[HANDSHAKE].Value);
-                                break;
-                            case "Ethernet":
-                                newChannel = new DIEthernet();
-                                var die = (DIEthernet)newChannel;
-                                die.IPAddress = chNode.Attributes[IP_ADDRESS].Value;
-                                die.Port = short.Parse(chNode.Attributes[PORT].Value);
-                                break;
-                        }
-
-                        if (newChannel != null)
-                        {
-                            newChannel.ChannelId = int.Parse(chNode.Attributes[CHANNEL_ID].Value);
-                            newChannel.ChannelName = chNode.Attributes[CHANNEL_NAME].Value;
-                            newChannel.ConnectionType = connType;
-                            newChannel.ChannelTypes = chNode.Attributes[CHANNEL_Types].Value;
-                            newChannel.CPU = chNode.Attributes[MODEL].Value;
-                            newChannel.Rack = short.Parse(chNode.Attributes[RACK].Value);
-                            newChannel.Slot = short.Parse(chNode.Attributes[SLOT].Value);
-                            newChannel.Mode = chNode.Attributes[MODE].Value;
-                            newChannel.Description = chNode.Attributes[DESCRIPTION].Value;
-                            newChannel.Devices = objDeviceManager.GetDevices(chNode);
-                           _Channels.Add(newChannel);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
-            }
-
-            return _Channels;
         }
 
         #endregion

@@ -6,16 +6,9 @@ using AdvancedScada.DriverBase.Devices;
 namespace AdvancedScada.Management.BLManager
 {
 
-    public class TagService
+    public class TagService: BaseBindingXML
     {
-        public const string TAG = "Tag";
-        public const string CHANNEL_ID = "ChannelId";
-        public const string DEVICE_ID = "DeviceId";
-        public const string DATABLOCK_ID = "DataBlockId";
-        public const string TAG_ID = "TagId";
-        public const string TAG_NAME = "TagName";
-        public const string ADDRESS = "Address";
-        public const string DATA_TYPE = "DataType";
+      
 
         private static readonly object mutex = new object();
         private static TagService _instance;

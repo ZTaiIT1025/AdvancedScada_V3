@@ -66,11 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLManager\ChannelManager.cs" />
-    <Compile Include="BLManager\DataBlockManager.cs" />
-    <Compile Include="BLManager\DeviceManager.cs" />
+    <Compile Include="BaseBindingXML.cs" />
+    <Compile Include="BLManager\ChannelService.cs" />
+    <Compile Include="BLManager\DataBlockService.cs" />
+    <Compile Include="BLManager\DeviceService.cs" />
     <Compile Include="BLManager\Extensions.cs" />
-    <Compile Include="BLManager\TagManager.cs" />
+    <Compile Include="BLManager\TagService.cs" />
     <Compile Include="BLManager\Utils.cs" />
     <Compile Include="DelegateForm.cs" />
     <Compile Include="Editors\XChannelForm.cs">

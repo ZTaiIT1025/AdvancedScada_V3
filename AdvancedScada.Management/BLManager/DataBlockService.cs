@@ -6,18 +6,9 @@ using AdvancedScada.DriverBase.Devices;
 namespace AdvancedScada.Management.BLManager
 {
 
-    public class DataBlockService
+    public class DataBlockService : BaseBindingXML
     {
-        public const string DATABLOCK = "DataBlock";
-        public const string CHANNEL_ID = "ChannelId";
-        public const string DEVICE_ID = "DeviceId";
-        public const string DATABLOCK_ID = "DataBlockId";
-        public const string DATABLOCK_NAME = "DataBlockName";
-        public const string TypeOfRead = "TypeOfRead";
-        public const string START_ADDRESS = "StartAddress";
-        public const string MemoryType = "MemoryType";
-        public const string LENGTH = "Length";
-        public const string DATA_TYPE = "DataType";
+       
         private static readonly object mutex = new object();
         private static DataBlockService _instance;
 

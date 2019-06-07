@@ -579,7 +579,7 @@
             this.colDescription.AppearanceHeader.Options.UseTextOptions = true;
             this.colDescription.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colDescription.Caption = "Description";
-            this.colDescription.FieldName = "Desp";
+            this.colDescription.FieldName = "Description";
             this.colDescription.FilterMode = DevExpress.XtraGrid.ColumnFilterMode.DisplayText;
             this.colDescription.Name = "colDescription";
             this.colDescription.OptionsColumn.AllowEdit = false;
