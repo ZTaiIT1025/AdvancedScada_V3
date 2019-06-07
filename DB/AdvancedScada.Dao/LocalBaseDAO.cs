@@ -9,8 +9,7 @@ namespace AdvancedScada.Dao
 {
 	public class LocalBaseDAO
 	{
-		public const string ConnectionFormatString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={0};Integrated Security=True";
-
+ 
 		private static string _ConnectionString;
 
 		public static string ConnectionString
@@ -29,11 +28,12 @@ namespace AdvancedScada.Dao
             try
             {
                 if (File.Exists(pathXml)) File.Delete(pathXml);
-                
+
                 // To create a new SQLite data base using existing.sql file (DDL script):-
 
                 string strConnection = string.Format("Data Source={0}", pathXml);
-            string strCommand = Properties.Resources.TagCollection; // .sql file path
+                _ConnectionString = strConnection;
+                string strCommand = Properties.Resources.TagCollection; // .sql file path
 
                 using (SQLiteConnection objConnection = new SQLiteConnection(strConnection))
                 {
@@ -57,9 +57,9 @@ namespace AdvancedScada.Dao
             autoID = 0;
 			try
 			{
-				using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
+				using (SQLiteConnection sqlConnection = new SQLiteConnection(ConnectionString))
 				{
-					SqlCommand sqlCommand = new SqlCommand();
+                    SQLiteCommand sqlCommand = new SQLiteCommand();
 					sqlCommand.Connection = sqlConnection;
 					sqlCommand.CommandType = CommandType.Text;
 					string text = "Insert into " + tableName + "(";
@@ -84,7 +84,7 @@ namespace AdvancedScada.Dao
 							sqlCommand.Parameters.AddWithValue(columnNames[j], values[j]);
 						}
 					}
-					SqlParameter sqlParameter = new SqlParameter("@AutoID", SqlDbType.Int);
+                    SQLiteParameter sqlParameter = new SQLiteParameter("@AutoID", DbType.Int32);
 					sqlParameter.Direction = ParameterDirection.Output;
 					sqlCommand.Parameters.Add(sqlParameter);
 					sqlConnection.Open();
@@ -115,9 +115,9 @@ namespace AdvancedScada.Dao
 			 
 			try
 			{
-				using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
+				using (SQLiteConnection sqlConnection = new SQLiteConnection(ConnectionString))
 				{
-					SqlCommand sqlCommand = new SqlCommand();
+                    SQLiteCommand sqlCommand = new SQLiteCommand();
 					sqlCommand.Connection = sqlConnection;
 					sqlCommand.CommandType = CommandType.Text;
 					string text = "Insert into " + tableName + "(";
@@ -156,9 +156,9 @@ namespace AdvancedScada.Dao
 			 
 			try
 			{
-				using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
+				using (SQLiteConnection sqlConnection = new SQLiteConnection(ConnectionString))
 				{
-					SqlCommand sqlCommand = new SqlCommand();
+                    SQLiteCommand sqlCommand = new SQLiteCommand();
 					sqlCommand.Connection = sqlConnection;
 					sqlCommand.CommandType = CommandType.Text;
 					string text = "Update " + tableName + " set ";
@@ -204,9 +204,9 @@ namespace AdvancedScada.Dao
 			 
 			try
 			{
-				using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
+				using (SQLiteConnection sqlConnection = new SQLiteConnection(ConnectionString))
 				{
-					SqlCommand sqlCommand = new SqlCommand();
+                    SQLiteCommand sqlCommand = new SQLiteCommand();
 					sqlCommand.Connection = sqlConnection;
 					sqlCommand.CommandType = CommandType.Text;
 					string str = "Delete " + tableName;
@@ -238,14 +238,14 @@ namespace AdvancedScada.Dao
 				int result = 0;
 				try
 				{
-					using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
+					using (SQLiteConnection sqlConnection = new SQLiteConnection(ConnectionString))
 					{
 						if (value.GetType().ToString().Equals("System.String"))
 						{
 							value = "'" + value + "'";
 						}
-						SqlCommand sqlCommand = new SqlCommand
-						{
+                        SQLiteCommand sqlCommand = new SQLiteCommand
+                        {
 							Connection = sqlConnection,
 							CommandType = CommandType.Text,
 							CommandText = $"Select count(*) from {tableName} where {primaryColumnName}={value}"
@@ -274,16 +274,16 @@ namespace AdvancedScada.Dao
 				
 				try
 				{
-					using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
+					using (SQLiteConnection sqlConnection = new SQLiteConnection(ConnectionString))
 					{
-						SqlCommand sqlCommand = new SqlCommand
-						{
+                        SQLiteCommand sqlCommand = new SQLiteCommand
+                        {
 							Connection = sqlConnection,
 							CommandType = CommandType.Text,
 							CommandText = $"SELECT MAX({columnName}) FROM {tableName}"
 						};
 						sqlConnection.Open();
-						SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                        SQLiteDataReader sqlDataReader = sqlCommand.ExecuteReader();
 						while (sqlDataReader.Read())
 						{
 							try
@@ -318,14 +318,14 @@ namespace AdvancedScada.Dao
 				
 				try
 				{
-					using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
+					using (SQLiteConnection sqlConnection = new SQLiteConnection(ConnectionString))
 					{
-						SqlCommand sqlCommand = new SqlCommand();
+                        SQLiteCommand sqlCommand = new SQLiteCommand();
 						sqlCommand.Connection = sqlConnection;
 						sqlCommand.CommandType = CommandType.Text;
 						sqlCommand.CommandText = $"SELECT MAX({colId}) FROM {tableName} WHERE {parentId} = {value}";
 						sqlConnection.Open();
-						SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                        SQLiteDataReader sqlDataReader = sqlCommand.ExecuteReader();
 						while (sqlDataReader.Read())
 						{
 							try
@@ -352,17 +352,17 @@ namespace AdvancedScada.Dao
 			}
 		}
 
-		protected static List<T> SelectCollection<T>(string[] collectionNames, string[] columnNames, SqlCommand cmd) where T : new()
+		protected static List<T> SelectCollection<T>(string[] collectionNames, string[] columnNames, SQLiteCommand cmd) where T : new()
 		{
 			List<T> list = new List<T>();
            
             try
 			{
-				using (SqlConnection connection = new SqlConnection(ConnectionString))
+				using (SQLiteConnection connection = new SQLiteConnection(ConnectionString))
 				{
 					cmd.Connection = connection;
 					DataTable dataTable = new DataTable();
-					new SqlDataAdapter(cmd).Fill(dataTable);
+					new SQLiteDataAdapter(cmd).Fill(dataTable);
 					foreach (DataRow row in dataTable.Rows)
 					{
 						T val = new T();
@@ -386,16 +386,16 @@ namespace AdvancedScada.Dao
 			}
 		}
 
-		protected static DataTable SelectCollection(string tableName, SqlCommand cmd)
+		protected static DataTable SelectCollection(string tableName, SQLiteCommand cmd)
 		{
 			try
 			{
 				DataTable dataTable = new DataTable(tableName);
-				using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
+				using (SQLiteConnection sqlConnection = new SQLiteConnection(ConnectionString))
 				{
 					cmd.Connection = sqlConnection;
 					sqlConnection.Open();
-					new SqlDataAdapter(cmd).Fill(dataTable);
+					new SQLiteDataAdapter(cmd).Fill(dataTable);
 				}
 				return dataTable;
 			}

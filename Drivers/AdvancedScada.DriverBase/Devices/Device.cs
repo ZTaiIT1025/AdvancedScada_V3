@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 
 namespace AdvancedScada.DriverBase.Devices
 {
+    [Serializable]
     [DataContract]
     public class Device
     {

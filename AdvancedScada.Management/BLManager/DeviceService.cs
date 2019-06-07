@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Transactions;
 using System.Xml;
+using AdvancedScada.DriverBase;
 using AdvancedScada.DriverBase.Devices;
 
 namespace AdvancedScada.Management.BLManager
@@ -243,6 +246,72 @@ namespace AdvancedScada.Management.BLManager
             }
 
             return dvList;
+        }
+
+        public Device Copy(Device source, Channel target)
+        {
+            try
+            {
+                Device device = source.CopyObject<Device>();
+                if (device != null)
+                {
+                    using (TransactionScope transactionScope = new TransactionScope())
+                    {
+                        DataBlockService dataBlockService = new DataBlockService();
+                        device.DataBlocks = device.DataBlocks;
+                        device.ChannelId = target.ChannelId;
+                        device.DeviceId = GetNewId(target);
+                        //{
+                        //    ChannelId = target.ChannelId
+                        //});
+                        //   device.IPAddress = GetNewIPAddress();
+                        device.DeviceName = $"{device.DeviceName}{device.DeviceId}";
+                       
+                        TagService tagService = new TagService();
+                        if (device.DataBlocks != null)
+                        {
+                            foreach (DataBlock dataBlock in device.DataBlocks)
+                            {
+                                dataBlock.Tags = dataBlock.Tags;
+                                dataBlock.ChannelId =(int) device.ChannelId;
+                                dataBlock.DeviceId = device.DeviceId;
+                             
+                                foreach (Tag tag in dataBlock.Tags)
+                                {
+                                    tag.ChannelId = dataBlock.ChannelId;
+                                    tag.DeviceId = dataBlock.DeviceId;
+                                    tag.DataBlockId = dataBlock.DataBlockId;
+                                     
+                                }
+                            }
+                        }
+                        transactionScope.Complete();
+                    }
+                }
+                return device;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private int GetNewId(Channel channel)
+        {
+            try
+            {
+               
+                short GetInt = 0;
+
+                int max = channel.Devices.Max(r => r.DeviceId);
+                GetInt = (short)(max + 1);
+                return GetInt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }

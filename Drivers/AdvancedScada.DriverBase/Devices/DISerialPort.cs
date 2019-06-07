@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 
 namespace AdvancedScada.DriverBase.Devices
 {
+    [Serializable]
     public sealed class DISerialPort : Channel
     { 
         public DISerialPort()

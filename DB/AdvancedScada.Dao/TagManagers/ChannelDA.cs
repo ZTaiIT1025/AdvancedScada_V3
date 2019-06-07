@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace AdvancedScada.Dao.TagManagers
 {
@@ -153,7 +154,7 @@ namespace AdvancedScada.Dao.TagManagers
 			 
 			try
 			{
-				SqlCommand sqlCommand = new SqlCommand();
+                SQLiteCommand sqlCommand = new SQLiteCommand();
 				sqlCommand.CommandType = CommandType.Text;
 				sqlCommand.CommandText = string.Format("SELECT * FROM {0}", "[Channel]");
 				string[] collectionNames = new string[3]
@@ -181,10 +182,10 @@ namespace AdvancedScada.Dao.TagManagers
 			List<Channel> list = new List<Channel>();
 			try
 			{
-				SqlCommand sqlCommand = new SqlCommand();
+                SQLiteCommand sqlCommand = new SQLiteCommand();
 				sqlCommand.CommandType = CommandType.Text;
 				sqlCommand.CommandText = string.Format("SELECT * FROM {0} WHERE {1} = @{2}", "[Channel]", "ChannelId", "ChannelId");
-				sqlCommand.Parameters.Add(string.Format("@{0}", "ChannelId"), SqlDbType.SmallInt).Value = id;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "ChannelId"), DbType.Int32).Value = id;
 				string[] array = new string[3]
 				{
 					"ChannelId",
@@ -204,10 +205,10 @@ namespace AdvancedScada.Dao.TagManagers
 			List<Channel> list = new List<Channel>();
 			try
 			{
-				SqlCommand sqlCommand = new SqlCommand();
+                SQLiteCommand sqlCommand = new SQLiteCommand();
 				sqlCommand.CommandType = CommandType.Text;
 				sqlCommand.CommandText = string.Format("SELECT * FROM {0} WHERE {1} = @{2}", "[Channel]", "ChannelName", "ChannelName");
-				sqlCommand.Parameters.Add(string.Format("@{0}", "ChannelName"), SqlDbType.NVarChar).Value = channelName;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "ChannelName"), DbType.String).Value = channelName;
 				string[] array = new string[3]
 				{
 					"ChannelId",

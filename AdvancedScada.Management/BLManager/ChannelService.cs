@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.IO.Ports;
+using System.Transactions;
 using System.Xml;
 using System.Xml.Linq;
 using AdvancedScada.DriverBase;
 using AdvancedScada.DriverBase.Devices;
 using Microsoft.Win32;
+using System.Linq;
 
 namespace AdvancedScada.Management.BLManager
 {
-
+    
     public class ChannelService : BaseBindingXML
     {
 
@@ -527,6 +529,123 @@ namespace AdvancedScada.Management.BLManager
         }
 
         #endregion
+        internal List<Device> GetByChannel(Channel channel)
+        {
+           List<Device> result = null;
+            try
+            {
+                foreach (var item in _Channels)
+                    if (item.ChannelName.Equals(channel.ChannelName))
+                    {
+                        result = item.Devices;
+                        break;
+                    }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
+            return result;
+        }
+
+        internal object GetNewIPAddress()
+        {
+            throw new NotImplementedException();
+        }
+        internal List<Tag> GetByListTag(DataBlock db)
+        {
+            List<Tag> result = null;
+            try
+            {
+                
+             result = db.Tags;
+            return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return result;
+        }
+        internal List<DataBlock> GetByListDataBlock(Device dv)
+        {
+            List<DataBlock> result = null;
+            try
+            {
+                
+           result = dv.DataBlocks;
+                    
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return result;
+        }
+        public Channel Copy(Channel source)
+        {
+            try
+            {
+                Channel ch = source.CopyObject<Channel>();
+                if (ch != null)
+                {
+                    using (TransactionScope transactionScope = new TransactionScope())
+                    {
+                        DeviceService deviceService = new DeviceService();
+                        ch.Devices = GetByChannel(ch);
+                        ch.ChannelId = GetNewId();
+                        ch.ChannelName = $"{ch.ChannelName}{ch.ChannelId}";
+                      
+                        if (ch.Devices != null)
+                        {
+                            DataBlockService dataBlockService = new DataBlockService();
+                            TagService tagService = new TagService();
+                            foreach (Device dv in ch.Devices.ToList())
+                            {
+                              //  dv.DataBlocks = new List<DataBlock>(dv.DataBlocks);
+                                dv.ChannelId = ch.ChannelId;
+                               // dv.IPAddress = GetNewIPAddress();
+                               
+                                if (dv.DataBlocks != null)
+                                {
+                                    foreach (DataBlock db in dv.DataBlocks.ToList())
+                                    {
+                                      //  db.Tags = new List<Tag>(db.Tags);//  GetByListTag(db);
+                                        db.ChannelId = ch.ChannelId;
+                                        db.DeviceId = dv.DeviceId;
+                                        
+                                        foreach (Tag tag in db.Tags.ToList())
+                                        {
+                                            tag.ChannelId = ch.ChannelId;
+                                            tag.DeviceId = dv.DeviceId;
+                                            tag.DataBlockId = db.DataBlockId;
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        transactionScope.Complete();
+                    }
+                }
+                return ch;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private int GetNewId()
+        {
+            short GetInt = 0;
+            
+            int max = _Channels.Max(r => r.ChannelId);
+            GetInt = (short)(max + 1);
+            return GetInt;
+        }
     }
 }

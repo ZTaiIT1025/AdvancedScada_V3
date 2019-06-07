@@ -616,6 +616,7 @@
             // 
             this.ItemAddChannel.Caption = "Channel";
             this.ItemAddChannel.Id = 3;
+            this.ItemAddChannel.ImageOptions.Image = global::AdvancedScada.Studio.Properties.Resources.AddChannel;
             this.ItemAddChannel.Name = "ItemAddChannel";
             this.ItemAddChannel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ItemAddChannel_ItemClick);
             // 
@@ -623,6 +624,7 @@
             // 
             this.ItemAddDevice.Caption = "Device";
             this.ItemAddDevice.Id = 4;
+            this.ItemAddDevice.ImageOptions.Image = global::AdvancedScada.Studio.Properties.Resources.AddDevice;
             this.ItemAddDevice.Name = "ItemAddDevice";
             this.ItemAddDevice.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ItemAddDevice_ItemClick);
             // 
@@ -630,6 +632,7 @@
             // 
             this.ItemAddDataBlock.Caption = "DataBlock";
             this.ItemAddDataBlock.Id = 1;
+            this.ItemAddDataBlock.ImageOptions.Image = global::AdvancedScada.Studio.Properties.Resources.AddGoup;
             this.ItemAddDataBlock.Name = "ItemAddDataBlock";
             this.ItemAddDataBlock.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ItemAddDataBlock_ItemClick);
             // 
@@ -637,6 +640,7 @@
             // 
             this.ItemAddTag.Caption = "Tag";
             this.ItemAddTag.Id = 0;
+            this.ItemAddTag.ImageOptions.Image = global::AdvancedScada.Studio.Properties.Resources.AddTag;
             this.ItemAddTag.Name = "ItemAddTag";
             this.ItemAddTag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ItemAddTag_ItemClick);
             // 
@@ -644,6 +648,8 @@
             // 
             this.ItemImport.Caption = "Import";
             this.ItemImport.Id = 5;
+            this.ItemImport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ItemImport.ImageOptions.Image")));
+            this.ItemImport.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("ItemImport.ImageOptions.LargeImage")));
             this.ItemImport.Name = "ItemImport";
             this.ItemImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ItemImport_ItemClick);
             // 
@@ -651,6 +657,8 @@
             // 
             this.ItemExport.Caption = "Export";
             this.ItemExport.Id = 6;
+            this.ItemExport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ItemExport.ImageOptions.Image")));
+            this.ItemExport.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("ItemExport.ImageOptions.LargeImage")));
             this.ItemExport.Name = "ItemExport";
             this.ItemExport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ItemExport_ItemClick);
             // 
@@ -658,6 +666,8 @@
             // 
             this.ItemCopy.Caption = "Copy";
             this.ItemCopy.Id = 8;
+            this.ItemCopy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ItemCopy.ImageOptions.Image")));
+            this.ItemCopy.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("ItemCopy.ImageOptions.LargeImage")));
             this.ItemCopy.Name = "ItemCopy";
             this.ItemCopy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ItemCopy_ItemClick);
             // 
@@ -665,6 +675,8 @@
             // 
             this.ItemPaste.Caption = "Paste";
             this.ItemPaste.Id = 9;
+            this.ItemPaste.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ItemPaste.ImageOptions.Image")));
+            this.ItemPaste.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("ItemPaste.ImageOptions.LargeImage")));
             this.ItemPaste.Name = "ItemPaste";
             this.ItemPaste.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ItemPaste_ItemClick);
             // 
@@ -672,6 +684,8 @@
             // 
             this.ItemDelete.Caption = "Delete";
             this.ItemDelete.Id = 7;
+            this.ItemDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ItemDelete.ImageOptions.Image")));
+            this.ItemDelete.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("ItemDelete.ImageOptions.LargeImage")));
             this.ItemDelete.Name = "ItemDelete";
             this.ItemDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ItemDelete_ItemClick);
             // 

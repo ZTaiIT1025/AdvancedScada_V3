@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ComponentModel.DataAnnotations;
 namespace AdvancedScada.DriverBase.Devices
 {
+    [Serializable]
     [DataContract]
     public class Channel
     {

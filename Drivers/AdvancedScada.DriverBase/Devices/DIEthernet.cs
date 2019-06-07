@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 
 namespace AdvancedScada.DriverBase.Devices
 {
+    [Serializable]
     public sealed class DIEthernet : Channel
     {
         private string _IPAddress = "127.0.0.1";

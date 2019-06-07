@@ -2,7 +2,7 @@ using AdvancedScada.DriverBase.Devices;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace AdvancedScada.Dao.TagManagers
 {
@@ -218,7 +218,7 @@ namespace AdvancedScada.Dao.TagManagers
 			 
 			try
 			{
-				SqlCommand sqlCommand = new SqlCommand();
+                SQLiteCommand sqlCommand = new SQLiteCommand();
 				sqlCommand.CommandType = CommandType.Text;
 				sqlCommand.CommandText = string.Format("SELECT * FROM {0}", "[Tag]");
 				string[] collectionNames = new string[10]
@@ -261,14 +261,14 @@ namespace AdvancedScada.Dao.TagManagers
 
             try
 			{
-				using (SqlConnection sqlConnection = new SqlConnection(LocalBaseDAO.ConnectionString))
+				using (SQLiteConnection sqlConnection = new SQLiteConnection(LocalBaseDAO.ConnectionString))
 				{
-					SqlCommand sqlCommand = new SqlCommand();
+                    SQLiteCommand sqlCommand = new SQLiteCommand();
 					sqlCommand.Connection = sqlConnection;
 					sqlCommand.CommandType = CommandType.Text;
 					sqlCommand.CommandText = string.Format("SELECT MAX(TagId) FROM {0} WHERE {1} = {2} AND {3} = {4} AND {5} = {6}", "[Tag]", "ChannelId", db.ChannelId, "DeviceId", db.DeviceId, "DataBlockId", db.DataBlockId);
 					sqlConnection.Open();
-					SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                    SQLiteDataReader sqlDataReader = sqlCommand.ExecuteReader();
 					while (sqlDataReader.Read())
 					{
 						try
@@ -294,12 +294,12 @@ namespace AdvancedScada.Dao.TagManagers
 		 
 			try
 			{
-				SqlCommand sqlCommand = new SqlCommand();
+                SQLiteCommand sqlCommand = new SQLiteCommand();
 				sqlCommand.CommandType = CommandType.Text;
 				sqlCommand.CommandText = string.Format("SELECT * FROM {0} WHERE {1} = @{2} AND {3} = @{4} AND {5} = @{6}", "[Tag]", "ChannelId", "ChannelId", "DeviceId", "DeviceId", "DataBlockId", "DataBlockId");
-				sqlCommand.Parameters.Add(string.Format("@{0}", "ChannelId"), SqlDbType.SmallInt).Value = db.ChannelId;
-				sqlCommand.Parameters.Add(string.Format("@{0}", "DeviceId"), SqlDbType.SmallInt).Value = db.DeviceId;
-				sqlCommand.Parameters.Add(string.Format("@{0}", "DataBlockId"), SqlDbType.SmallInt).Value = db.DataBlockId;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "ChannelId"), DbType.Int32).Value = db.ChannelId;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "DeviceId"), DbType.Int32).Value = db.DeviceId;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "DataBlockId"), DbType.Int32).Value = db.DataBlockId;
 				string[] array = new string[10]
 				{
 					"TagId",
@@ -326,13 +326,13 @@ namespace AdvancedScada.Dao.TagManagers
 			Tag result = null;
 			try
 			{
-				SqlCommand sqlCommand = new SqlCommand();
+                SQLiteCommand sqlCommand = new SQLiteCommand();
 				sqlCommand.CommandType = CommandType.Text;
 				sqlCommand.CommandText = string.Format("SELECT * FROM {0} WHERE {1} = @{2} AND {3} = @{4} AND {5} = @{6} AND {7} = @{8}", "[Tag]", "ChannelId", "ChannelId", "DeviceId", "DeviceId", "DataBlockId", "DataBlockId", "TagName", "TagName");
-				sqlCommand.Parameters.Add(string.Format("@{0}", "ChannelId"), SqlDbType.SmallInt).Value = objTag.ChannelId;
-				sqlCommand.Parameters.Add(string.Format("@{0}", "DeviceId"), SqlDbType.SmallInt).Value = objTag.DeviceId;
-				sqlCommand.Parameters.Add(string.Format("@{0}", "DataBlockId"), SqlDbType.SmallInt).Value = objTag.DataBlockId;
-				sqlCommand.Parameters.Add(string.Format("@{0}", "TagName"), SqlDbType.NVarChar).Value = objTag.TagName;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "ChannelId"), DbType.Int32).Value = objTag.ChannelId;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "DeviceId"), DbType.Int32).Value = objTag.DeviceId;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "DataBlockId"), DbType.Int32).Value = objTag.DataBlockId;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "TagName"), DbType.String).Value = objTag.TagName;
 				string[] array = new string[10]
 				{
 					"TagId",
@@ -364,14 +364,14 @@ namespace AdvancedScada.Dao.TagManagers
 			Tag result = null;
 			try
 			{
-				SqlCommand sqlCommand = new SqlCommand();
+                SQLiteCommand sqlCommand = new SQLiteCommand();
 				sqlCommand.CommandType = CommandType.Text;
 				sqlCommand.CommandText = string.Format("SELECT * FROM {0} WHERE {1} = @{2} AND {3} = @{4} AND {5} = @{6} AND {7} = @{8} AND {9} = @{10}", "[Tag]", "ChannelId", "ChannelId", "DeviceId", "DeviceId", "DataBlockId", "DataBlockId", "Address", "Address", "DataType", "DataType");
-				sqlCommand.Parameters.Add(string.Format("@{0}", "ChannelId"), SqlDbType.SmallInt).Value = objTag.ChannelId;
-				sqlCommand.Parameters.Add(string.Format("@{0}", "DeviceId"), SqlDbType.SmallInt).Value = objTag.DeviceId;
-				sqlCommand.Parameters.Add(string.Format("@{0}", "DataBlockId"), SqlDbType.SmallInt).Value = objTag.DataBlockId;
-				sqlCommand.Parameters.Add(string.Format("@{0}", "Address"), SqlDbType.NVarChar).Value = objTag.Address;
-				sqlCommand.Parameters.Add(string.Format("@{0}", "DataType"), SqlDbType.SmallInt).Value = objTag.DataType;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "ChannelId"), DbType.Int32).Value = objTag.ChannelId;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "DeviceId"), DbType.Int32).Value = objTag.DeviceId;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "DataBlockId"), DbType.Int32).Value = objTag.DataBlockId;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "Address"), DbType.String).Value = objTag.Address;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "DataType"), DbType.Int32).Value = objTag.DataType;
 				string[] array = new string[10]
 				{
 					"TagId",
@@ -403,14 +403,14 @@ namespace AdvancedScada.Dao.TagManagers
 			bool result = false;
 			try
 			{
-				SqlCommand sqlCommand = new SqlCommand();
+                SQLiteCommand sqlCommand = new SQLiteCommand();
 				sqlCommand.CommandType = CommandType.Text;
 				sqlCommand.CommandText = string.Format("SELECT * FROM {0} WHERE {1} = @{2} AND {3} = @{4} AND {5} = @{6} AND {7} = @{8} AND {9} = @{10}", "[Tag]", "ChannelId", "ChannelId", "DeviceId", "DeviceId", "DataBlockId", "DataBlockId", "TagId", "TagId", "DataType", "DataType");
-				sqlCommand.Parameters.Add(string.Format("@{0}", "ChannelId"), SqlDbType.SmallInt).Value = objTag.ChannelId;
-				sqlCommand.Parameters.Add(string.Format("@{0}", "DeviceId"), SqlDbType.SmallInt).Value = objTag.DeviceId;
-				sqlCommand.Parameters.Add(string.Format("@{0}", "DataBlockId"), SqlDbType.SmallInt).Value = objTag.DataBlockId;
-				sqlCommand.Parameters.Add(string.Format("@{0}", "TagId"), SqlDbType.SmallInt).Value = objTag.TagId;
-				sqlCommand.Parameters.Add(string.Format("@{0}", "DataType"), SqlDbType.SmallInt).Value = objTag.DataType;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "ChannelId"), DbType.Int32).Value = objTag.ChannelId;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "DeviceId"), DbType.Int32).Value = objTag.DeviceId;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "DataBlockId"), DbType.Int32).Value = objTag.DataBlockId;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "TagId"), DbType.Int32).Value = objTag.TagId;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "DataType"), DbType.Int32).Value = objTag.DataType;
 				string[] array = new string[10]
 				{
 					"TagId",
@@ -441,13 +441,13 @@ namespace AdvancedScada.Dao.TagManagers
 			Tag result = null;
 			try
 			{
-				SqlCommand sqlCommand = new SqlCommand();
+                SQLiteCommand sqlCommand = new SQLiteCommand();
 				sqlCommand.CommandType = CommandType.Text;
 				sqlCommand.CommandText = string.Format("SELECT * FROM {0} WHERE {1} = @{2} AND {3} = @{4} AND {5} = @{6} AND {7} = @{8}", "[Tag]", "ChannelId", "ChannelId", "DeviceId", "DeviceId", "DataBlockId", "DataBlockId", "TagId", "TagId");
-				sqlCommand.Parameters.Add(string.Format("@{0}", "ChannelId"), SqlDbType.SmallInt).Value = objTag.ChannelId;
-				sqlCommand.Parameters.Add(string.Format("@{0}", "DeviceId"), SqlDbType.SmallInt).Value = objTag.DeviceId;
-				sqlCommand.Parameters.Add(string.Format("@{0}", "DataBlockId"), SqlDbType.SmallInt).Value = objTag.DataBlockId;
-				sqlCommand.Parameters.Add(string.Format("@{0}", "TagId"), SqlDbType.SmallInt).Value = objTag.TagId;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "ChannelId"), DbType.Int32).Value = objTag.ChannelId;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "DeviceId"), DbType.Int32).Value = objTag.DeviceId;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "DataBlockId"), DbType.Int32).Value = objTag.DataBlockId;
+				sqlCommand.Parameters.Add(string.Format("@{0}", "TagId"), DbType.Int32).Value = objTag.TagId;
 				string[] array = new string[10]
 				{
 					"TagId",

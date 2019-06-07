@@ -90,17 +90,17 @@ namespace AdvancedScada.Studio
             Registry.SetValue("HKEY_CURRENT_USER\\Software\\FormConfiguration", "Port", "8080");
 
 
-            XCollection.eventLoggingMessage += ServiceBase_eventChannelCount;
-            foreach (Form form in Application.OpenForms)
-                if (form.GetType() == typeof(FormMain))
-                {
-                    form.Activate();
-                    return;
-                }
-            var child = new FormMain { Padding = new Padding(0), MdiParent = this };
+            //XCollection.eventLoggingMessage += ServiceBase_eventChannelCount;
+            //foreach (Form form in Application.OpenForms)
+            //    if (form.GetType() == typeof(FormMain))
+            //    {
+            //        form.Activate();
+            //        return;
+            //    }
+            //var child = new FormMain { Padding = new Padding(0), MdiParent = this };
 
-            child.Show();
-            Application.DoEvents();
+            //child.Show();
+            //Application.DoEvents();
             var objChannelManager = ChannelService.GetChannelManager();
 
             try
@@ -119,7 +119,7 @@ namespace AdvancedScada.Studio
             if (string.IsNullOrEmpty(xmlFile) || string.IsNullOrWhiteSpace(xmlFile)) return;
             var chList = objChannelManager.GetChannels(xmlFile);
             if (chList.Count < 1) return;
-            ServiceItem_LinkClicked(null, null);
+            //ServiceItem_LinkClicked(null, null);
         }
 
         private void ServiceBase_eventChannelCount(string message)

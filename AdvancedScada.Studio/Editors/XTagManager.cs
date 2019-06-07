@@ -25,7 +25,7 @@ namespace AdvancedScada.Studio.Editors
         private BindingList<Tag> bS7Tags;
         private List<DataBlock> bvDataBlock;
         private List<Device> bvDevice;
-         public bool IsDataChanged;
+        public bool IsDataChanged;
         private ChannelService objChannelManager;
         private DataBlockService objDataBlockManager;
         private DeviceService objDeviceManager;
@@ -468,8 +468,7 @@ namespace AdvancedScada.Studio.Editors
         private Device dvNewCopy;
         private DataBlock dbNewCopy;
         private Tag tgNewCopy;
-        private DISerialPort dis;
-        private DIEthernet die;
+        public string SelecteCopy_Paste;
         public TreeListNode node = null;
         public void OpenWaitForm()
         {
@@ -591,13 +590,7 @@ namespace AdvancedScada.Studio.Editors
                         chCurrent = objChannelManager.GetByChannelName(treeList1.FocusedNode.ParentNode.GetDisplayText(0));
                         break;
                 }
-                //switch (Level)
-                //{
-                //    case 0:
-                //    case 1:
-                //        chCurrent = objChannelManager.GetByChannelName(SelectebNodesHelpr[0]);
-                //        break;
-                //}
+              
 
                 dvFrm = new XDeviceForm(chCurrent);
                 dvFrm.eventDeviceChanged += (dv, isNew) =>
@@ -606,33 +599,33 @@ namespace AdvancedScada.Studio.Editors
                     {
                         if (isNew) objDeviceManager.Add(chCurrent, dv);
                         else objDeviceManager.Update(chCurrent, dv);
-                        //switch (Level)
-                        //{
-                        //    case 0:
-                        //        treeList1.FocusedNode = treeList1.AppendNode(new object[] { dv.DeviceName },
-                        //            treeList1.FocusedNode);
-                        //        treeList1.FocusedNode.StateImageIndex = 0;
-                        //        IsDataChanged = true;
-                        //        break;
-                        //    case 1:
-                        //        treeList1.FocusedNode = treeList1.AppendNode(new object[] { dv.DeviceName },
-                        //            treeList1.FocusedNode.ParentNode);
-                        //        IsDataChanged = true;
-                        //        break;
-                        //}
                         switch (Level)
                         {
                             case 0:
-                                treeList1.FocusedNode.Nodes.Add(new object[] { dv.DeviceName });
+                                treeList1.FocusedNode = treeList1.AppendNode(new object[] { dv.DeviceName },
+                                    treeList1.FocusedNode);
                                 treeList1.FocusedNode.StateImageIndex = 0;
                                 IsDataChanged = true;
                                 break;
                             case 1:
-                                treeList1.FocusedNode.ParentNode.Nodes.Add(new object[] { dv.DeviceName });
-                                treeList1.FocusedNode.StateImageIndex = 0;
+                                treeList1.FocusedNode = treeList1.AppendNode(new object[] { dv.DeviceName },
+                                    treeList1.FocusedNode.ParentNode);
                                 IsDataChanged = true;
                                 break;
                         }
+                        //switch (Level)
+                        //{
+                        //    case 0:
+                        //        treeList1.FocusedNode.Nodes.Add(new object[] { dv.DeviceName });
+                        //        treeList1.FocusedNode.StateImageIndex = 0;
+                        //        IsDataChanged = true;
+                        //        break;
+                        //    case 1:
+                        //        treeList1.FocusedNode.ParentNode.Nodes.Add(new object[] { dv.DeviceName });
+                        //        treeList1.FocusedNode.StateImageIndex = 0;
+                        //        IsDataChanged = true;
+                        //        break;
+                        //}
                     }
                     catch (Exception ex)
                     {
@@ -674,14 +667,7 @@ namespace AdvancedScada.Studio.Editors
                         dvCurrent = objDeviceManager.GetByDeviceName(chCurrent, treeList1.FocusedNode.ParentNode.GetDisplayText(0));
                         break;
                 }
-                //switch (Level)
-                //{
-                //    case 1:
-                //    case 2:
-                //        chCurrent = objChannelManager.GetByChannelName(SelectebNodesHelpr[0]);
-                //        dvCurrent = objDeviceManager.GetByDeviceName(chCurrent, SelectebNodesHelpr[1]);
-                //        break;
-                //}
+               
                 dbFrm = new XDataBlockForm(chCurrent, dvCurrent);
                 dbFrm.eventDataBlockChanged += (db, isNew) =>
                 {
@@ -689,35 +675,36 @@ namespace AdvancedScada.Studio.Editors
                     {
                         if (isNew) objDataBlockManager.Add(dvCurrent, db);
                         else objDataBlockManager.Update(dvCurrent, db);
-                        //switch (Level)
-                        //{
-                        //    case 1:
-                        //        treeList1.FocusedNode = treeList1.AppendNode(new object[] { db.DataBlockName },
-                        //            treeList1.FocusedNode);
-                        //        treeList1.FocusedNode.StateImageIndex = 7;
-                        //        gridControl1.RefreshDataSource();
-                        //        IsDataChanged = true;
-                        //        break;
-                        //    case 2:
-                        //        treeList1.FocusedNode = treeList1.AppendNode(new object[] { db.DataBlockName },
-                        //            treeList1.FocusedNode.ParentNode);
-                        //        treeList1.FocusedNode.StateImageIndex = 7;
-                        //        gridControl1.RefreshDataSource();
-                        //        IsDataChanged = true;
-                        //        break;
-                        //}
                         switch (Level)
                         {
                             case 1:
-                                treeList1.FocusedNode.Nodes.Add(new object[] { db.DataBlockName });
+                                treeList1.FocusedNode = treeList1.AppendNode(new object[] { db.DataBlockName },
+                                    treeList1.FocusedNode);
+                                treeList1.FocusedNode.StateImageIndex = 7;
+                              
                                 IsDataChanged = true;
                                 break;
                             case 2:
-                                treeList1.FocusedNode.ParentNode.Nodes.Add(new object[] { db.DataBlockName });
+                                treeList1.FocusedNode = treeList1.AppendNode(new object[] { db.DataBlockName },
+                                    treeList1.FocusedNode.ParentNode);
+                                treeList1.FocusedNode.StateImageIndex = 7;
+                              
                                 IsDataChanged = true;
                                 break;
                         }
                         gridControl1.RefreshDataSource();
+                        //switch (Level)
+                        //{
+                        //    case 1:
+                        //        treeList1.FocusedNode.Nodes.Add(new object[] { db.DataBlockName });
+                        //        IsDataChanged = true;
+                        //        break;
+                        //    case 2:
+                        //        treeList1.FocusedNode.ParentNode.Nodes.Add(new object[] { db.DataBlockName });
+                        //        IsDataChanged = true;
+                        //        break;
+                        //}
+                        //gridControl1.RefreshDataSource();
                     }
                     catch (Exception ex)
                     {
@@ -955,97 +942,33 @@ namespace AdvancedScada.Studio.Editors
                 var SelectebNodes = treeList1.Selection;
                 var Level = SelectebNodes[0].Level;
                 if (SelectebNodes[0] == null) return;
-
-
+                fChNew = null;
+                dvNewCopy = null;
+                dvNewCopy = null;
                 switch (Level)
                 {
                     case 0:
+                        
                         fChNew = new Channel();
                         fCh = objChannelManager.GetByChannelName(SelectebNodesHelpr[0]);
-                        var ChannelCount = fCh.ChannelId;
-                        var ChannelNameCopy = fCh.ChannelName;
-                        switch (fCh.ConnectionType)
-                        {
-                            case "SerialPort":
-                                dis = new DISerialPort();
-                                dis.ChannelId = ChannelCount + 1;
-                                dis.ChannelName = ChannelNameCopy += "1";
-                                dis.ConnectionType = fCh.ConnectionType;
-                                dis.CPU = fCh.CPU;
-                                dis.Description = fCh.Description;
-                                dis.Mode = fCh.Mode;
-                                dis.Devices = fCh.Devices;
-
-                                break;
-                            case "Ethernet":
-                                die = new DIEthernet();
-                                die.ChannelId = objChannelManager.Channels.Count + 1;
-                                die.ChannelName = fCh.ChannelName + "New";
-                                die.CPU = fCh.CPU;
-                                die.ConnectionType = fCh.ConnectionType;
-                                die.Description = fCh.Description;
-                                die.Mode = fCh.Mode;
-
-                                Device dv = null;
-                                foreach (var item in fCh.Devices)
-                                {
-                                    dv = new Device();
-                                    dv.DeviceId = item.DeviceId;
-                                    dv.DeviceName = item.DeviceName + "New";
-                                    dv.SlaveId = item.SlaveId;
-                                    foreach (var itemdb in item.DataBlocks)
-                                    {
-                                        var db = new DataBlock();
-                                        db.ChannelId = die.ChannelId;
-                                        db.DeviceId = itemdb.DeviceId;
-                                        db.DataBlockId = itemdb.DataBlockId;
-                                        db.DataBlockName = itemdb.DataBlockName + "New";
-                                        db.DataType = itemdb.DataType;
-                                        db.Length = itemdb.Length;
-                                        db.MemoryType = itemdb.MemoryType;
-                                        db.StartAddress = itemdb.StartAddress;
-                                        db.Description = itemdb.Description;
-                                        db.Tags = itemdb.Tags;
-                                        dv.DataBlocks.Add(db);
-
-                                    }
-                                }
-                                die.Devices.Add(dv);
-                                break;
-                        }
-
-
+                        fChNew = objChannelManager.Copy(fCh);
+                        SelecteCopy_Paste = "Channel";
                         break;
                     case 1:
                         dvNewCopy = new Device();
                         fCh = objChannelManager.GetByChannelName(SelectebNodesHelpr[0]);
                         result = objDeviceManager.GetByDeviceName(fCh, SelectebNodesHelpr[1]);
-                        var Count = fCh.Devices.Count;
-                        var DeviceNameCopy = result.DeviceName;
-                        dvNewCopy.DeviceId = Count + 1;
-                        dvNewCopy.SlaveId = (short)dvNewCopy.DeviceId;
-                        dvNewCopy.DeviceName = DeviceNameCopy += "1";
-                        dvNewCopy.Description = result.Description;
-                        dvNewCopy.DataBlocks = result.DataBlocks;
+                        dvNewCopy = objDeviceManager.Copy(result, fCh);
+                        SelecteCopy_Paste = "Device";
                         break;
                     case 2:
-
+                        dbNewCopy = new DataBlock();
                         fChNew = objChannelManager.GetByChannelName(SelectebNodesHelpr[0]);
                         dvNewCopy = objDeviceManager.GetByDeviceName(fChNew, SelectebNodesHelpr[1]);
                         var dbCurrent = objDataBlockManager.GetByDataBlockName(dvNewCopy, SelectebNodesHelpr[2]);
-                        dbNewCopy = new DataBlock();
-                        var DataBlockCount = dbCurrent.DataBlockId;
-                        var DataBlockNameCopy = dbCurrent.DataBlockName;
-                        dbNewCopy.ChannelId = fChNew.ChannelId;
-                        dbNewCopy.DeviceId = dvNewCopy.DeviceId;
-                        dbNewCopy.DataBlockId = dvNewCopy.DataBlocks.Count + 1;
-                        dbNewCopy.DataBlockName = DataBlockNameCopy + 1;
-                        dbNewCopy.StartAddress = dbCurrent.StartAddress;
-                        dbNewCopy.MemoryType = dbCurrent.MemoryType;
-                        dbNewCopy.Description = dbCurrent.Description;
-                        dbNewCopy.Length = dbCurrent.Length;
-                        dbNewCopy.DataType = dbCurrent.DataType;
-                        dbNewCopy.Tags = dbCurrent.Tags;
+                        dbNewCopy = objDataBlockManager.Copy(dbCurrent, dvNewCopy);
+                        SelecteCopy_Paste = "DataBlock";
+
                         break;
                 }
             }
@@ -1066,18 +989,19 @@ namespace AdvancedScada.Studio.Editors
                 if (SelectebNodes[0] == null) return;
 
 
-                switch (Level)
+                switch (SelecteCopy_Paste)
                 {
-                    case 0:
+                    case "Channel":
                         switch (fCh.ConnectionType)
                         {
                             case "SerialPort":
-                                objChannelManager.Add(dis);
+
+                                objChannelManager.Add((DISerialPort)fChNew);
                                 GettreeList();
                                 IsDataChanged = true;
                                 break;
                             case "Ethernet":
-                                objChannelManager.Add(die);
+                                objChannelManager.Add((DIEthernet)fChNew);
                                 GettreeList();
                                 IsDataChanged = true;
                                 break;
@@ -1085,13 +1009,13 @@ namespace AdvancedScada.Studio.Editors
 
 
                         break;
-                    case 1:
+                    case "Device":
                         fCh = objChannelManager.GetByChannelName(SelectebNodesHelpr[0]);
                         objDeviceManager.Add(fCh, dvNewCopy);
                         GettreeList();
                         IsDataChanged = true;
                         break;
-                    case 2:
+                    case "DataBlock":
                         fCh = objChannelManager.GetByChannelName(SelectebNodesHelpr[0]);
                         dvNewCopy = objDeviceManager.GetByDeviceName(fCh, SelectebNodesHelpr[1]);
                         objDataBlockManager.Add(dvNewCopy, dbNewCopy);

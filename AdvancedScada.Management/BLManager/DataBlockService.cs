@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Transactions;
 using System.Xml;
+using AdvancedScada.DriverBase;
 using AdvancedScada.DriverBase.Devices;
 
 namespace AdvancedScada.Management.BLManager
@@ -276,6 +279,60 @@ namespace AdvancedScada.Management.BLManager
             }
 
             return dbList;
+        }
+
+        public DataBlock Copy(DataBlock source, Device target)
+        {
+            try
+            {
+                DataBlock dataBlock = source.CopyObject<DataBlock>();
+                if (dataBlock != null)
+                {
+                    //dataBlock.ChannelId =(int) target.ChannelId;
+                    dataBlock.DeviceId = target.DeviceId;
+                    DataBlockService dataBlockService = new DataBlockService();
+                    using (TransactionScope transactionScope = new TransactionScope())
+                    {
+                        dataBlock.ChannelId = dataBlock.ChannelId;
+                        dataBlock.DeviceId = dataBlock.DeviceId;
+                        dataBlock.DataBlockId = GetNewIdByIds(dataBlock.ChannelId, target);
+                        dataBlock.DataBlockName = $"{dataBlock.DataBlockName}{dataBlock.DataBlockId}";
+                        
+                        TagService tagService = new TagService();
+                        dataBlock.Tags = source.Tags;
+                        foreach (Tag tag in dataBlock.Tags)
+                        {
+                            tag.ChannelId = dataBlock.ChannelId;
+                            tag.DeviceId = dataBlock.DeviceId;
+                            tag.DataBlockId = dataBlock.DataBlockId;
+                            
+                        }
+                        transactionScope.Complete();
+                    }
+                }
+                return dataBlock;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private int GetNewIdByIds(int channelId, Device dv)
+        {
+            try
+            {
+
+                short GetInt = 0;
+                 
+                int max = dv.DataBlocks.Max(r => r.DataBlockId);
+                GetInt = (short)(max + 1);
+                return GetInt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

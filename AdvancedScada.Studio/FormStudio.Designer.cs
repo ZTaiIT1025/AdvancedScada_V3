@@ -57,8 +57,6 @@ namespace AdvancedScada.Studio
             this.document1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
             this.documentGroup1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup(this.components);
             this.bar4 = new DevExpress.XtraBars.Bar();
-            this.gpLogging = new DevExpress.XtraEditors.GroupControl();
-            this.txtHistory = new System.Windows.Forms.TextBox();
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
             this.mailGroup = new DevExpress.XtraNavBar.NavBarGroup();
             this.ServiceItem = new DevExpress.XtraNavBar.NavBarItem();
@@ -81,14 +79,22 @@ namespace AdvancedScada.Studio
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.taskbarAssistant1 = new DevExpress.Utils.Taskbar.TaskbarAssistant();
+            this.LoggingDockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.gpLogging = new DevExpress.XtraEditors.GroupControl();
+            this.txtHistory = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.document1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gpLogging)).BeginInit();
-            this.gpLogging.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuNotifyIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoggingDockManager)).BeginInit();
+            this.dockPanel1.SuspendLayout();
+            this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gpLogging)).BeginInit();
+            this.gpLogging.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnMonioring
@@ -167,6 +173,7 @@ namespace AdvancedScada.Studio
             this.barStaticItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barStaticItem1.ImageOptions.Image")));
             this.barStaticItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem1.ImageOptions.LargeImage")));
             this.barStaticItem1.Name = "barStaticItem1";
+            this.barStaticItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // barItemClear
             // 
@@ -253,29 +260,6 @@ namespace AdvancedScada.Studio
             this.bar4.OptionsBar.UseWholeRow = true;
             this.bar4.Text = "Custom 5";
             // 
-            // gpLogging
-            // 
-            this.gpLogging.AppearanceCaption.Image = ((System.Drawing.Image)(resources.GetObject("gpLogging.AppearanceCaption.Image")));
-            this.gpLogging.AppearanceCaption.Options.UseImage = true;
-            this.gpLogging.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("gpLogging.CaptionImageOptions.Image")));
-            this.gpLogging.Controls.Add(this.txtHistory);
-            this.gpLogging.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gpLogging.Location = new System.Drawing.Point(0, 480);
-            this.gpLogging.Name = "gpLogging";
-            this.gpLogging.Size = new System.Drawing.Size(1116, 119);
-            this.gpLogging.TabIndex = 33;
-            this.gpLogging.Text = "Logging";
-            // 
-            // txtHistory
-            // 
-            this.txtHistory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtHistory.Location = new System.Drawing.Point(2, 23);
-            this.txtHistory.Multiline = true;
-            this.txtHistory.Name = "txtHistory";
-            this.txtHistory.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtHistory.Size = new System.Drawing.Size(1112, 94);
-            this.txtHistory.TabIndex = 33;
-            // 
             // navBarControl
             // 
             this.navBarControl.ActiveGroup = this.mailGroup;
@@ -294,7 +278,7 @@ namespace AdvancedScada.Studio
             this.navBarControl.Name = "navBarControl";
             this.navBarControl.OptionsNavPane.ExpandedWidth = 166;
             this.navBarControl.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navBarControl.Size = new System.Drawing.Size(166, 333);
+            this.navBarControl.Size = new System.Drawing.Size(166, 315);
             this.navBarControl.SmallImages = this.imageList1;
             this.navBarControl.StoreDefaultPaintStyleName = true;
             this.navBarControl.TabIndex = 34;
@@ -382,7 +366,8 @@ namespace AdvancedScada.Studio
             this.ItemView,
             this.ItemExit,
             this.barItemClear,
-            this.skinRibbonGalleryBarItem1});
+            this.skinRibbonGalleryBarItem1,
+            this.ribbonControl1.SearchEditItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 3;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -471,13 +456,74 @@ namespace AdvancedScada.Studio
             this.taskbarAssistant1.OverlayIcon = global::AdvancedScada.Studio.Properties.Resources._38;
             this.taskbarAssistant1.ParentControl = this;
             // 
+            // LoggingDockManager
+            // 
+            this.LoggingDockManager.Form = this;
+            this.LoggingDockManager.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
+            this.dockPanel1});
+            this.LoggingDockManager.TopZIndexControls.AddRange(new string[] {
+            "DevExpress.XtraBars.BarDockControl",
+            "DevExpress.XtraBars.StandaloneBarDockControl",
+            "System.Windows.Forms.StatusBar",
+            "System.Windows.Forms.MenuStrip",
+            "System.Windows.Forms.StatusStrip",
+            "DevExpress.XtraBars.Ribbon.RibbonStatusBar",
+            "DevExpress.XtraBars.Ribbon.RibbonControl",
+            "DevExpress.XtraBars.Navigation.OfficeNavigationBar",
+            "DevExpress.XtraBars.Navigation.TileNavPane",
+            "DevExpress.XtraBars.TabFormControl",
+            "DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl",
+            "DevExpress.XtraBars.ToolbarForm.ToolbarFormControl"});
+            // 
+            // dockPanel1
+            // 
+            this.dockPanel1.Controls.Add(this.dockPanel1_Container);
+            this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
+            this.dockPanel1.ID = new System.Guid("0cae9186-fd92-4e38-aac5-ba07b35bc93d");
+            this.dockPanel1.Location = new System.Drawing.Point(0, 462);
+            this.dockPanel1.Name = "dockPanel1";
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 137);
+            this.dockPanel1.Size = new System.Drawing.Size(1116, 137);
+            this.dockPanel1.Text = "Logging";
+            // 
+            // dockPanel1_Container
+            // 
+            this.dockPanel1_Container.Controls.Add(this.gpLogging);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(3, 30);
+            this.dockPanel1_Container.Name = "dockPanel1_Container";
+            this.dockPanel1_Container.Size = new System.Drawing.Size(1110, 104);
+            this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // gpLogging
+            // 
+            this.gpLogging.AppearanceCaption.Image = ((System.Drawing.Image)(resources.GetObject("gpLogging.AppearanceCaption.Image")));
+            this.gpLogging.AppearanceCaption.Options.UseImage = true;
+            this.gpLogging.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("gpLogging.CaptionImageOptions.Image")));
+            this.gpLogging.Controls.Add(this.txtHistory);
+            this.gpLogging.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpLogging.Location = new System.Drawing.Point(0, 0);
+            this.gpLogging.Name = "gpLogging";
+            this.gpLogging.Size = new System.Drawing.Size(1110, 104);
+            this.gpLogging.TabIndex = 38;
+            this.gpLogging.Text = "Logging";
+            // 
+            // txtHistory
+            // 
+            this.txtHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtHistory.Location = new System.Drawing.Point(2, 23);
+            this.txtHistory.Multiline = true;
+            this.txtHistory.Name = "txtHistory";
+            this.txtHistory.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtHistory.Size = new System.Drawing.Size(1106, 79);
+            this.txtHistory.TabIndex = 33;
+            // 
             // FormStudio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1116, 622);
             this.Controls.Add(this.navBarControl);
-            this.Controls.Add(this.gpLogging);
+            this.Controls.Add(this.dockPanel1);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -493,13 +539,16 @@ namespace AdvancedScada.Studio
             this.Resize += new System.EventHandler(this.FormStudio_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.document1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gpLogging)).EndInit();
-            this.gpLogging.ResumeLayout(false);
-            this.gpLogging.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuNotifyIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoggingDockManager)).EndInit();
+            this.dockPanel1.ResumeLayout(false);
+            this.dockPanel1_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gpLogging)).EndInit();
+            this.gpLogging.ResumeLayout(false);
+            this.gpLogging.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -522,8 +571,6 @@ namespace AdvancedScada.Studio
         private DevExpress.XtraNavBar.NavBarItem TagManagerItem;
         private DevExpress.XtraNavBar.NavBarItem SQLItem;
         private DevExpress.XtraNavBar.NavBarItem SQLiteItem;
-        private GroupControl gpLogging;
-        private TextBox txtHistory;
         private DevExpress.XtraBars.Bar bar4;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
         private DevExpress.XtraBars.BarSubItem barSubItem1;
@@ -547,6 +594,11 @@ namespace AdvancedScada.Studio
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
+        private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
+        private GroupControl gpLogging;
+        private TextBox txtHistory;
+        private DevExpress.XtraBars.Docking.DockManager LoggingDockManager;
 
         public IContainer Components
         {
