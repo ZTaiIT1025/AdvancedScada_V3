@@ -52,7 +52,7 @@ namespace AdvancedScada.XPanasonic.Core.UserEditors
                     txtAddress.Enabled = true;
                     cboxDataType.SelectedItem = $"{tg.DataType}";
                     txtTagName.Text = tg.TagName;
-                    txtDesc.Text = tg.Desp;
+                    txtDesc.Text = tg.Description;
                 }
             }
             catch (Exception ex)
@@ -74,7 +74,7 @@ namespace AdvancedScada.XPanasonic.Core.UserEditors
                     newTg.TagId = db.Tags.Count + 1;
                     newTg.TagName = txtTagName.Text;
                     newTg.Address = txtAddress.Text;
-                    newTg.Desp = txtDesc.Text;
+                    newTg.Description = txtDesc.Text;
                     newTg.DataType = $"{cboxDataType.SelectedItem}";
                     if (eventTagChanged != null) eventTagChanged(newTg, true);
                 }
@@ -85,7 +85,7 @@ namespace AdvancedScada.XPanasonic.Core.UserEditors
                     tg.DataBlockId = int.Parse(txtDataBlockId.Text);
                     tg.TagName = txtTagName.Text;
                     tg.Address = txtAddress.Text;
-                    tg.Desp = txtDesc.Text;
+                    tg.Description = txtDesc.Text;
                     tg.DataType = $"{cboxDataType.SelectedItem}";
                     if (eventTagChanged != null) eventTagChanged(tg, false);
 

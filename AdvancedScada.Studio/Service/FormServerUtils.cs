@@ -19,7 +19,7 @@ namespace AdvancedScada.Studio.Service
         {
 
             InitializeComponent();
-            
+
 
         }
 
@@ -40,8 +40,8 @@ namespace AdvancedScada.Studio.Service
             try
             {
 
-                    new DriverService().GetStartService();
-                    host = new DriverService().InitializeReadService();
+                new DriverService().GetStartService();
+                host = new DriverService().InitializeReadService();
                 host.Opened += host_Opened;
                 host.Open();
 
@@ -57,7 +57,7 @@ namespace AdvancedScada.Studio.Service
                 GridControl1.DataSource = _ServerUtilsGrid;
                 if (host.State == CommunicationState.Opened) txtStatus.Caption = "The Server is running";
 
-              
+
 
             }
             catch (Exception ex)
@@ -75,7 +75,7 @@ namespace AdvancedScada.Studio.Service
         private void FormServerUtils_Load(object sender, EventArgs e)
         {
 
-            
+
 
 
             try
@@ -83,7 +83,7 @@ namespace AdvancedScada.Studio.Service
 
 
 
-                Functions.EventChannelCount += ServiceBase_eventChannelCount;
+                XCollection.EventChannelCount += ServiceBase_eventChannelCount;
 
             }
             catch (Exception ex)
@@ -94,8 +94,8 @@ namespace AdvancedScada.Studio.Service
 
             try
             {
-                
-                    host = InitializeTags(true);
+
+                host = InitializeTags(true);
 
             }
             catch (Exception ex)

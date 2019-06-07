@@ -7,26 +7,26 @@ namespace AdvancedScada.Management.BLManager
 
 {
 
-    public class DeviceManager
+    public class DeviceService
     {
         public const string DEVICE = "Device";
         public const string DEVICE_ID = "DeviceId";
         public const string DEVICE_NAME = "DeviceName";
         public const string SLAVE_ID = "SlaveId";
         private static readonly object mutex = new object();
-        private static DeviceManager _instance;
+        private static DeviceService _instance;
 
-        private readonly DataBlockManager objDataBlockManager;
-        public DeviceManager()
+        private readonly DataBlockService objDataBlockManager;
+        public DeviceService()
         {
-            objDataBlockManager = new DataBlockManager();
+            objDataBlockManager = new DataBlockService();
         }
 
-        public static DeviceManager GetDeviceManager()
+        public static DeviceService GetDeviceManager()
         {
             lock (mutex)
             {
-                if (_instance == null) _instance = new DeviceManager();
+                if (_instance == null) _instance = new DeviceService();
             }
 
             return _instance;
@@ -235,7 +235,7 @@ namespace AdvancedScada.Management.BLManager
                     newDevice.DeviceId = int.Parse(dvNode.Attributes[DEVICE_ID].Value);
                     newDevice.DeviceName = dvNode.Attributes[DEVICE_NAME].Value;
                     newDevice.SlaveId = short.Parse(dvNode.Attributes[SLAVE_ID].Value);
-                    newDevice.Description = dvNode.Attributes[ChannelManager.DESCRIPTION].Value;
+                    newDevice.Description = dvNode.Attributes[ChannelService.DESCRIPTION].Value;
                     newDevice.DataBlocks = objDataBlockManager.GetDataBlocks(dvNode);
                     dvList.Add(newDevice);
                 }

@@ -54,7 +54,7 @@ namespace AdvancedScada.XLSIS.Core.UserEditors
                         TagName = $"TAG{i + TagsCount:d5}",
                         Address = $"{txtDomain.Text}{y}",
                         DataType = $"{cboxDataType.SelectedItem}",
-                        Desp = $"{txtDesc.Text} {i + 1}"
+                        Description = $"{txtDesc.Text} {i + 1}"
                     };
                     db.Tags.Add(tg);
                     y += 1;
@@ -95,7 +95,7 @@ namespace AdvancedScada.XLSIS.Core.UserEditors
                     tg.DataBlockId = int.Parse(txtDataBlockId.Text);
                     tg.TagName = $"TAG{TagsCount:d5}";
                     tg.Address = $"{txtDomain.Text}{hexaNumber}";
-                    tg.Desp = $"{txtDesc.Text} {i.ToString("X")}";
+                    tg.Description = $"{txtDesc.Text} {i.ToString("X")}";
                     tg.DataType = $"{cboxDataType.SelectedItem}";
                     db.Tags.Add(tg);
                     hex1 += 1;

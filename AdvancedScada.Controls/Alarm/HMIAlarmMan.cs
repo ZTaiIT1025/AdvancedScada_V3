@@ -1,8 +1,11 @@
-﻿using AdvancedScada.Controls.Alarm.Designers;
+﻿using AdvancedScada.BaseService.Client;
+using AdvancedScada.Controls.Alarm.Designers;
 using AdvancedScada.Controls.Properties;
+using AdvancedScada.DriverBase;
 using AdvancedScada.DriverBase.Core;
 using AdvancedScada.DriverBase.Devices;
 using AdvancedScada.IBaseService;
+using AdvancedScada.IBaseService.Common;
 using AdvancedScada.Utils;
 using Microsoft.Win32;
 using System;
@@ -11,6 +14,8 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.ServiceModel;
 using System.Windows.Forms;
 
@@ -117,26 +122,23 @@ namespace AdvancedScada.Controls.Alarm
 
         public void GetWCF()
         {
-            string UriService = string.Empty;
-            HOST =
-                $"{Microsoft.Win32.Registry.GetValue("HKEY_CURRENT_USER\\Software\\FormConfiguration", "IPAddress", null)}";
-            PORT = ushort.Parse(
-                $"{Microsoft.Win32.Registry.GetValue("HKEY_CURRENT_USER\\Software\\FormConfiguration", "Port", null)}");
-            ChannelTypes =
-                $"{Registry.GetValue("HKEY_CURRENT_USER\\Software\\FormConfiguration", "ChannelTypes", null)}";
-
-
-
-            UriService = $"{ChannelTypes}Service";
             var ic = new InstanceContext(this);
-            var binding = new NetTcpBinding(SecurityMode.None) { ReceiveTimeout = TimeSpan.FromMinutes(1) };
-
-
-            var endPoint =
-                new EndpointAddress(new Uri($"net.Tcp://{HOST}:{PORT}/{UriService}/{Driver}"));
-            var factory = new DuplexChannelFactory<IReadService>(ic, binding, endPoint);
-            client = factory.CreateChannel();
-            client.Connection();
+            XCollection.CURRENT_MACHINE = new Machine
+            {
+                MachineName = Environment.MachineName,
+                Description = "Free"
+            };
+            IPAddress[] hostAddresses = Dns.GetHostAddresses(Dns.GetHostName());
+            foreach (IPAddress iPAddress in hostAddresses)
+            {
+                if (iPAddress.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    XCollection.CURRENT_MACHINE.IPAddress = $"{iPAddress}";
+                    break;
+                }
+            }
+            client = DriverHelper.GetInstance().GetReadService(ic);
+            client.Connect(XCollection.CURRENT_MACHINE);
         }
 
         public static string path = string.Empty;

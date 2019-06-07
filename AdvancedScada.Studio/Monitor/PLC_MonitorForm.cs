@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Net.Security;
+using System.Net.Sockets;
 using System.ServiceModel;
 using System.Threading;
 using System.Windows.Forms;
 using AdvancedScada.BaseService.Client;
+using AdvancedScada.DriverBase;
 using AdvancedScada.DriverBase.Devices;
 using AdvancedScada.IBaseService;
+using AdvancedScada.IBaseService.Common;
 using AdvancedScada.Management.BLManager;
 using DevExpress.XtraBars;
 using DevExpress.XtraGrid.Views.Base;
@@ -34,10 +38,10 @@ namespace AdvancedScada.Studio.Monitor
         private List<Device> bvDevice;
         private bool IsConnected;
         public bool IsDataChanged = false;
-        private ChannelManager objChannelManager;
-        private DataBlockManager objDataBlockManager;
-        private DeviceManager objDeviceManager;
-        private TagManagerXML objTagManager;
+        private ChannelService objChannelManager;
+        private DataBlockService objDataBlockManager;
+        private DeviceService objDeviceManager;
+        private TagService objTagManager;
         private readonly string SelectedTag = string.Empty;
 
          public string[] sp;
@@ -171,10 +175,10 @@ namespace AdvancedScada.Studio.Monitor
             {
 
                 Text = "Monitor:AdvancedScada";
-                objChannelManager = ChannelManager.GetChannelManager();
-                objDeviceManager = DeviceManager.GetDeviceManager();
-                objDataBlockManager = DataBlockManager.GetDataBlockManager();
-                objTagManager = TagManagerXML.GetTagManager();
+                objChannelManager = ChannelService.GetChannelManager();
+                objDeviceManager = DeviceService.GetDeviceManager();
+                objDataBlockManager = DataBlockService.GetDataBlockManager();
+                objTagManager = TagService.GetTagManager();
 
                 var xmlFile = objChannelManager.ReadKey(objChannelManager.XML_NAME_DEFAULT);
                 if (string.IsNullOrEmpty(xmlFile) || string.IsNullOrWhiteSpace(xmlFile)) return;
@@ -393,7 +397,7 @@ namespace AdvancedScada.Studio.Monitor
                 try
                 {
                      if(client!=null)
-                    client.Disconnection();
+                    client.Disconnect(XCollection.CURRENT_MACHINE);
                     IsConnected = false;
                 }
                 catch (Exception ex)
@@ -430,8 +434,22 @@ namespace AdvancedScada.Studio.Monitor
 
  
                 var ic = new InstanceContext(this);
+                XCollection.CURRENT_MACHINE = new Machine
+                {
+                    MachineName = Environment.MachineName,
+                    Description = "Free"
+                };
+                IPAddress[] hostAddresses = Dns.GetHostAddresses(Dns.GetHostName());
+                foreach (IPAddress iPAddress in hostAddresses)
+                {
+                    if (iPAddress.AddressFamily == AddressFamily.InterNetwork)
+                    {
+                        XCollection.CURRENT_MACHINE.IPAddress = $"{iPAddress}";
+                        break;
+                    }
+                }
                 client = DriverHelper.GetInstance().GetReadService(ic);
-                client.Connection();
+                client.Connect(XCollection.CURRENT_MACHINE);
                
                 IsConnected = true;
             }

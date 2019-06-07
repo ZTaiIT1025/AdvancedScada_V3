@@ -26,10 +26,10 @@ namespace AdvancedScada.Studio.Editors
         private List<DataBlock> bvDataBlock;
         private List<Device> bvDevice;
          public bool IsDataChanged;
-        private ChannelManager objChannelManager;
-        private DataBlockManager objDataBlockManager;
-        private DeviceManager objDeviceManager;
-        private TagManagerXML objTagManager;
+        private ChannelService objChannelManager;
+        private DataBlockService objDataBlockManager;
+        private DeviceService objDeviceManager;
+        private TagService objTagManager;
         private string[] SelectebNodesHelpr;
 
 
@@ -451,10 +451,10 @@ namespace AdvancedScada.Studio.Editors
 
         private void XtraTagManager_Load(object sender, EventArgs e)
         {
-            objChannelManager = ChannelManager.GetChannelManager();
-            objDeviceManager = DeviceManager.GetDeviceManager();
-            objDataBlockManager = DataBlockManager.GetDataBlockManager();
-            objTagManager = TagManagerXML.GetTagManager();
+            objChannelManager = ChannelService.GetChannelManager();
+            objDeviceManager = DeviceService.GetDeviceManager();
+            objDataBlockManager = DataBlockService.GetDataBlockManager();
+            objTagManager = TagService.GetTagManager();
             var xmlFile = objChannelManager.ReadKey(objChannelManager.XML_NAME_DEFAULT);
             if (string.IsNullOrEmpty(xmlFile) || string.IsNullOrWhiteSpace(xmlFile)) return;
             InitializeData(xmlFile);
@@ -922,7 +922,7 @@ namespace AdvancedScada.Studio.Editors
                                 DataType.Value = tg.DataType;
                                 cellColumnIndex++;
                                 var Desp = ws.Cells[cellRowIndex, cellColumnIndex];
-                                Desp.Value = tg.Desp;
+                                Desp.Value = tg.Description;
                                 cellRowIndex++;
                             }
 
@@ -1326,7 +1326,7 @@ namespace AdvancedScada.Studio.Editors
                         tgNewCopy.DeviceId = tgCurrent.DeviceId;
                         tgNewCopy.DataBlockId = tgCurrent.DataBlockId;
                         tgNewCopy.DataType = tgCurrent.DataType;
-                        tgNewCopy.Desp = tgCurrent.Desp;
+                        tgNewCopy.Description = tgCurrent.Description;
                     }
                 }
             }

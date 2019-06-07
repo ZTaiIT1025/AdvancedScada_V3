@@ -6,7 +6,7 @@ using AdvancedScada.DriverBase.Devices;
 namespace AdvancedScada.Management.BLManager
 {
 
-    public class DataBlockManager
+    public class DataBlockService
     {
         public const string DATABLOCK = "DataBlock";
         public const string CHANNEL_ID = "ChannelId";
@@ -19,19 +19,19 @@ namespace AdvancedScada.Management.BLManager
         public const string LENGTH = "Length";
         public const string DATA_TYPE = "DataType";
         private static readonly object mutex = new object();
-        private static DataBlockManager _instance;
+        private static DataBlockService _instance;
 
-        private readonly TagManagerXML objTagManager;
-        public DataBlockManager()
+        private readonly TagService objTagManager;
+        public DataBlockService()
         {
-            objTagManager = new TagManagerXML();
+            objTagManager = new TagService();
         }
 
-        public static DataBlockManager GetDataBlockManager()
+        public static DataBlockService GetDataBlockManager()
         {
             lock (mutex)
             {
-                if (_instance == null) _instance = new DataBlockManager();
+                if (_instance == null) _instance = new DataBlockService();
             }
 
             return _instance;
@@ -274,7 +274,7 @@ namespace AdvancedScada.Management.BLManager
                     db.MemoryType = $"{dbNote.Attributes[MemoryType].Value}";
                     db.Length = ushort.Parse(dbNote.Attributes[LENGTH].Value);
                     db.DataType = dbNote.Attributes[DATA_TYPE].Value;
-                    db.Description = dbNote.Attributes[ChannelManager.DESCRIPTION].Value;
+                    db.Description = dbNote.Attributes[ChannelService.DESCRIPTION].Value;
                     db.Tags = objTagManager.GetTags(dbNote);
                     dbList.Add(db);
                 }

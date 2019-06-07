@@ -8,7 +8,7 @@ namespace AdvancedScada.Management.Editors
     {
         public Channel ch = null;
         public EventChannelChanged eventChannelChanged = null;
-        public ChannelManager objChannelManager = null;
+        public ChannelService objChannelManager = null;
         public XChannelForm()
         {
             InitializeComponent();

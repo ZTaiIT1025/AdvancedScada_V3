@@ -36,7 +36,7 @@ namespace AdvancedScada.BaseService
         }
         public bool GetStartService()
         {
-            var objChannelManager = ChannelManager.GetChannelManager();
+            var objChannelManager = ChannelService.GetChannelManager();
             try
             {
 

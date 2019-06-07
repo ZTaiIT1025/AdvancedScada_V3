@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseService", "AdvancedScada.BaseService\BaseService.csproj", "{FE960C7A-E85B-48ED-9BCA-9BE1A6A1CB0B}"
 EndProject
@@ -50,6 +50,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFATEK.Core", "Drivers\AdvancedScada.XFATEK.Core\XFATEK.Core.csproj", "{AD715268-01D4-4FBD-9082-C457C0986F9D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedScada.IODriver", "Drivers\AdvancedScada.IODriver\AdvancedScada.IODriver.csproj", "{09B71D40-9C34-44F8-BC1B-1B3380EAD582}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{3AF986B5-09BE-40B0-9768-A21FEAF01053}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedScada.Dao", "DB\AdvancedScada.Dao\AdvancedScada.Dao.csproj", "{F88CC8B5-D748-4EF6-B1C5-095733F43321}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +121,10 @@ Global
 		{09B71D40-9C34-44F8-BC1B-1B3380EAD582}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09B71D40-9C34-44F8-BC1B-1B3380EAD582}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09B71D40-9C34-44F8-BC1B-1B3380EAD582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F88CC8B5-D748-4EF6-B1C5-095733F43321}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F88CC8B5-D748-4EF6-B1C5-095733F43321}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F88CC8B5-D748-4EF6-B1C5-095733F43321}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F88CC8B5-D748-4EF6-B1C5-095733F43321}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -138,6 +146,7 @@ Global
 		{B1889252-6056-49EE-B977-E3BCE75E0427} = {E346CF44-B588-4C83-86B3-DC93629F6BB3}
 		{AD715268-01D4-4FBD-9082-C457C0986F9D} = {B1889252-6056-49EE-B977-E3BCE75E0427}
 		{09B71D40-9C34-44F8-BC1B-1B3380EAD582} = {E346CF44-B588-4C83-86B3-DC93629F6BB3}
+		{F88CC8B5-D748-4EF6-B1C5-095733F43321} = {3AF986B5-09BE-40B0-9768-A21FEAF01053}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C9F8F60-8BEB-4669-AAB0-02B189B54E22}

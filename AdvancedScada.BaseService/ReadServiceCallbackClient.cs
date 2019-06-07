@@ -14,7 +14,7 @@ namespace AdvancedScada.BaseService
         public static bool LoadTagCollection()
         {
             
-           var  objChannelManager = ChannelManager.GetChannelManager();
+           var  objChannelManager = ChannelService.GetChannelManager();
 
                 try
                 {

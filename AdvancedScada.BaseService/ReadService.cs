@@ -1,16 +1,11 @@
 ﻿using AdvancedScada.DriverBase;
 using AdvancedScada.IBaseService;
-using AdvancedScada.IBaseService.Common;
 using AdvancedScada.IODriver;
-using AdvancedScada.Management.BLManager;
-using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Threading;
-using System.Timers;
-using static AdvancedScada.IBaseService.Common.Functions;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.BaseService
 {
@@ -18,39 +13,21 @@ namespace AdvancedScada.BaseService
     public class ReadService : IReadService
     {
         private bool RUN_APPLICATION;
-      
-        public IServiceCallback EventDataChanged;
-        DriverHelper driverHelper = new DriverHelper();
-        readonly Functions frame = Functions.GetFunctions();
-        private static object mutex = new object();
-        
-        object mutexStop = new object();
-        object mutexUpdate = new object();
-        object mutexStart = new object();
-        object mutexDispose = new object();
-        object mutexWrite = new object();
-        private ChannelManager objChannelManager;
 
        
-      
-        public ReadService()
-        {
-           
-            objChannelManager = ChannelManager.GetChannelManager();
-            
-        }
-       
-        public void Connection()
+        DriverHelper driverHelper = new DriverHelper();
+
+        public void Connect(Machine mac)
         {
             try
             {
-                lock (mutexStart)
-                {
 
-                    EventDataChanged = OperationContext.Current.GetCallbackChannel<IServiceCallback>();
-                    EventChannelCount?.Invoke(1, true);
+
+                IServiceCallback EventDataChanged = OperationContext.Current.GetCallbackChannel<IServiceCallback>();
+                eventLoggingMessage?.Invoke(string.Format("Added Callback Channel: {0}, IP Address: {1}.", mac.MachineName, mac.IPAddress));
+                EventChannelCount?.Invoke(1, true);
                     RUN_APPLICATION = true;
-                }
+                 
                 ThreadPool.QueueUserWorkItem(delegate
                 {
                     while (RUN_APPLICATION)
@@ -79,6 +56,9 @@ namespace AdvancedScada.BaseService
                         catch (Exception ex)
                         {
                             RUN_APPLICATION = false;
+
+                            eventLoggingMessage?.Invoke(string.Format("Removed Callback Channel: {0}, IP Address: {1}| Message Exception: {2}.", mac.MachineName, mac.IPAddress, ex.Message));
+
                             var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
                         }
                     }
@@ -89,46 +69,47 @@ namespace AdvancedScada.BaseService
 
                 var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
             }
-
         }
 
-        public void Disconnection()
+        public void Disconnect(Machine mac)
         {
+            
             try
             {
                 RUN_APPLICATION = false;
-                EventDataChanged = null;
                 EventChannelCount?.Invoke(1, false);
-                
+                OperationContext.Current.GetCallbackChannel<IServiceCallback>();
+                eventLoggingMessage?.Invoke(string.Format("Removed Callback Channel: {0}, IP Address: {1}.", mac.MachineName, mac.IPAddress));
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-
+                Console.WriteLine("Disconnect-Removed Callback Channel: {0}", ex.Message);
                 var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
             }
-
+            finally
+            {
+                GC.SuppressFinalize(this);
+            }
         }
 
         public void WriteTag(string tagName, dynamic value)
         {
             try
             {
-               
-                lock (mutexWrite)
-                {
 
 
-                    driverHelper?.WriteTag(tagName, value);
-                }
+
+
+                driverHelper?.WriteTag(tagName, value);
+
             }
             catch (System.Exception ex)
             {
 
                 var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
             }
-
         }
-      
-       
     }
 }
+        
+     

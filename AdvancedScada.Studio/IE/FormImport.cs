@@ -68,7 +68,7 @@ namespace AdvancedScada.Studio.IE
                         Address =
                             $"{item["Address"]}",
                         DataType = $"{item["DataType"]}",
-                        Desp = $"{item["Description"]}"
+                        Description = $"{item["Description"]}"
                     };
                     tag.Add(newTag);
                     db.Tags.Add(newTag);

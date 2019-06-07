@@ -14,7 +14,7 @@ namespace AdvancedScada.XLSIS.Core.UserEditors
         {
             InitializeComponent();
         }
-        public XUserChannelForm(ChannelManager chm = null, Channel chCurrent = null)
+        public XUserChannelForm(ChannelService chm = null, Channel chCurrent = null)
         {
             InitializeComponent();
             this.objChannelManager = chm;

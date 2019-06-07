@@ -55,7 +55,7 @@ namespace XSiemens.Core.UserEditors
                     layoutStartAddress.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     cboxDataType.SelectedItem = string.Format("{0}", tg.DataType);
                     txtTagName.Text = tg.TagName;
-                    txtDesc.Text = tg.Desp;
+                    txtDesc.Text = tg.Description;
                 }
             }
             catch (Exception ex)
@@ -90,7 +90,7 @@ namespace XSiemens.Core.UserEditors
 
                     newTg.Address = string.Format("{0}{1}", txtAddress.Text, txtStartAddress.Text);
 
-                    newTg.Desp = txtDesc.Text;
+                    newTg.Description = txtDesc.Text;
 
                     newTg.DataType = string.Format("{0}", cboxDataType.SelectedItem);
 
@@ -107,7 +107,7 @@ namespace XSiemens.Core.UserEditors
 
                     tg.Address = txtAddress.Text;
 
-                    tg.Desp = txtDesc.Text;
+                    tg.Description = txtDesc.Text;
 
                     tg.DataType = string.Format("{0}", cboxDataType.SelectedItem);
 

@@ -71,6 +71,7 @@
     <Compile Include="Devices\DISerialPort.cs" />
     <Compile Include="Devices\Tag.cs" />
     <Compile Include="IDriverAdapter.cs" />
+    <Compile Include="Machine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TagCollection.cs" />
   </ItemGroup>

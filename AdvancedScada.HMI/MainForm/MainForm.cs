@@ -1,6 +1,7 @@
 ﻿using AdvancedScada.BaseService;
 using AdvancedScada.BaseService.Client;
 using AdvancedScada.DataAccess;
+using AdvancedScada.DriverBase;
 using AdvancedScada.HMI.Tools;
 using AdvancedScada.IBaseService;
 using AdvancedScada.IBaseService.Common;
@@ -9,6 +10,8 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Net;
+using System.Net.Sockets;
 using System.ServiceModel;
 using System.Windows.Forms;
 using static AdvancedScada.HMI.Tools.Tools;
@@ -32,9 +35,22 @@ namespace AdvancedScada.HMI.MainForm
             {
                
                 ReadServiceCallbackClient.LoadTagCollection();
-
+                XCollection.CURRENT_MACHINE = new Machine
+                {
+                    MachineName = Environment.MachineName,
+                    Description = "Free"
+                };
+                IPAddress[] hostAddresses = Dns.GetHostAddresses(Dns.GetHostName());
+                foreach (IPAddress iPAddress in hostAddresses)
+                {
+                    if (iPAddress.AddressFamily == AddressFamily.InterNetwork)
+                    {
+                        XCollection.CURRENT_MACHINE.IPAddress = $"{iPAddress}";
+                        break;
+                    }
+                }
                 client = DriverHelper.GetInstance().GetReadService();
-                client.Connection();
+                client.Connect(XCollection.CURRENT_MACHINE);
                
             }
             catch (CommunicationException ex)
@@ -100,7 +116,7 @@ namespace AdvancedScada.HMI.MainForm
         {
             try
             {
-                client?.Disconnection();
+                client?.Disconnect(XCollection.CURRENT_MACHINE);
                 // client?.Stop();
 
             }
@@ -133,7 +149,7 @@ namespace AdvancedScada.HMI.MainForm
                     Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\\Software\\TestApp", "LBL_Name_Silo7", LBL_Name_Silo7.Text);
                     Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\\Software\\TestApp", "LBL_Name_Silo8", LBL_Name_Silo8.Text);
 
-                    client?.Disconnection();
+                    client?.Disconnect(XCollection.CURRENT_MACHINE);
                     //client.Stop();
                     Application.ExitThread();
 

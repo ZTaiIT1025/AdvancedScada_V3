@@ -6,7 +6,7 @@ using AdvancedScada.DriverBase.Devices;
 namespace AdvancedScada.Management.BLManager
 {
 
-    public class TagManagerXML
+    public class TagService
     {
         public const string TAG = "Tag";
         public const string CHANNEL_ID = "ChannelId";
@@ -18,13 +18,13 @@ namespace AdvancedScada.Management.BLManager
         public const string DATA_TYPE = "DataType";
 
         private static readonly object mutex = new object();
-        private static TagManagerXML _instance;
+        private static TagService _instance;
 
-        public static TagManagerXML GetTagManager()
+        public static TagService GetTagManager()
         {
             lock (mutex)
             {
-                if (_instance == null) _instance = new TagManagerXML();
+                if (_instance == null) _instance = new TagService();
             }
 
             return _instance;
@@ -263,7 +263,7 @@ namespace AdvancedScada.Management.BLManager
                     tg.TagName = item.Attributes[TAG_NAME].Value;
                     tg.Address = item.Attributes[ADDRESS].Value;
                     tg.DataType = $"{item.Attributes[DATA_TYPE].Value}";
-                    tg.Desp = item.Attributes[ChannelManager.DESCRIPTION].Value;
+                    tg.Description = item.Attributes[ChannelService.DESCRIPTION].Value;
                     dbList.Add(tg);
                 }
             }

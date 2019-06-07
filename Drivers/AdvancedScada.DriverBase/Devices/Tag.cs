@@ -107,7 +107,7 @@ namespace AdvancedScada.DriverBase.Devices
         public DateTime Timestamp { get; set; }
 
         [DataMember]
-        public string Desp { get; set; }
+        public string Description { get; set; }
 
         [DataMember]
         public bool Checked
@@ -221,6 +221,10 @@ namespace AdvancedScada.DriverBase.Devices
                 OnPropertyChanged("Visible");
             }
         }
+
+        public object TagPrefix { get; set; }
+        public object Size { get; set; }
+
         public void Dispose()
         {
         }
@@ -327,7 +331,7 @@ namespace AdvancedScada.DriverBase.Devices
                 return result;
             }
 
-            result = Desp.CompareTo(other.Desp);
+            result = Description.CompareTo(other.Description);
             if (result != 0)
             {
                 return result;

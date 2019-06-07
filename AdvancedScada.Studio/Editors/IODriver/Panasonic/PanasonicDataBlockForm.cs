@@ -69,7 +69,7 @@ namespace AdvancedScada.XPanasonic.Core.UserEditors
                         TagName = $"TAG{i + TagsCount:d5}",
                         Address = $"{txtDomain.Text}{txtStartAddress.Value + i}",
                         DataType = $"{cboxDataType.SelectedItem}",
-                        Desp = $"{txtDesc.Text} {i + 1}"
+                        Description = $"{txtDesc.Text} {i + 1}"
                     };
                     db.Tags.Add(tg);
                 }

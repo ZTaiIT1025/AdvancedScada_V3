@@ -12,7 +12,7 @@ using Microsoft.Win32;
 namespace AdvancedScada.Management.BLManager
 {
 
-    public class ChannelManager : IDisposable
+    public class ChannelService : IDisposable
     {
 
         public const string ROOT = "Root";
@@ -42,19 +42,19 @@ namespace AdvancedScada.Management.BLManager
         public static List<Channel> _Channels;
 
         private static readonly object mutex = new object();
-        private static ChannelManager _instance;
+        private static ChannelService _instance;
 
-        private readonly DeviceManager objDeviceManager = new DeviceManager();
+        private readonly DeviceService objDeviceManager = new DeviceService();
 
         public string XML_NAME_DEFAULT = "TagCollection";
 
-        public ChannelManager()
+        public ChannelService()
         {
             _Channels = new List<Channel>();
 
         }
 
-        public ChannelManager(string xmlPath)
+        public ChannelService(string xmlPath)
             : this()
         {
             XmlPath = xmlPath;
@@ -104,11 +104,11 @@ namespace AdvancedScada.Management.BLManager
         {
         }
 
-        public static ChannelManager GetChannelManager()
+        public static ChannelService GetChannelManager()
         {
             lock (mutex)
             {
-                if (_instance == null) _instance = new ChannelManager();
+                if (_instance == null) _instance = new ChannelService();
             }
 
             return _instance;
@@ -499,41 +499,41 @@ namespace AdvancedScada.Management.BLManager
                     // List Devices.
                     foreach (var dv in ch.Devices)
                     {
-                        var dvElement = xmlDoc.CreateElement(DeviceManager.DEVICE);
-                        dvElement.SetAttribute(DeviceManager.DEVICE_ID, $"{dv.DeviceId}");
-                        dvElement.SetAttribute(DeviceManager.DEVICE_NAME, dv.DeviceName);
-                        dvElement.SetAttribute(DeviceManager.SLAVE_ID, $"{dv.SlaveId}");
+                        var dvElement = xmlDoc.CreateElement(DeviceService.DEVICE);
+                        dvElement.SetAttribute(DeviceService.DEVICE_ID, $"{dv.DeviceId}");
+                        dvElement.SetAttribute(DeviceService.DEVICE_NAME, dv.DeviceName);
+                        dvElement.SetAttribute(DeviceService.SLAVE_ID, $"{dv.SlaveId}");
                         dvElement.SetAttribute(DESCRIPTION, dv.Description);
                         chElement.AppendChild(dvElement);
                         if (dv.DataBlocks.Count == 0) continue;
                         // List DataBlock.
                         foreach (var db in dv.DataBlocks)
                         {
-                            var dbElement = xmlDoc.CreateElement(DataBlockManager.DATABLOCK);
-                            dbElement.SetAttribute(DataBlockManager.CHANNEL_ID, $"{db.ChannelId}");
-                            dbElement.SetAttribute(DataBlockManager.DEVICE_ID, $"{db.DeviceId}");
-                            dbElement.SetAttribute(DataBlockManager.DATABLOCK_ID, $"{db.DataBlockId}");
-                            dbElement.SetAttribute(DataBlockManager.DATABLOCK_NAME, db.DataBlockName);
-                            dbElement.SetAttribute(DataBlockManager.TypeOfRead, $"{db.TypeOfRead}");
-                            dbElement.SetAttribute(DataBlockManager.START_ADDRESS, $"{db.StartAddress}");
-                            dbElement.SetAttribute(DataBlockManager.LENGTH, $"{db.Length}");
-                            dbElement.SetAttribute(DataBlockManager.DATA_TYPE, $"{db.DataType}");
-                            dbElement.SetAttribute(DataBlockManager.MemoryType, $"{db.MemoryType}");
+                            var dbElement = xmlDoc.CreateElement(DataBlockService.DATABLOCK);
+                            dbElement.SetAttribute(DataBlockService.CHANNEL_ID, $"{db.ChannelId}");
+                            dbElement.SetAttribute(DataBlockService.DEVICE_ID, $"{db.DeviceId}");
+                            dbElement.SetAttribute(DataBlockService.DATABLOCK_ID, $"{db.DataBlockId}");
+                            dbElement.SetAttribute(DataBlockService.DATABLOCK_NAME, db.DataBlockName);
+                            dbElement.SetAttribute(DataBlockService.TypeOfRead, $"{db.TypeOfRead}");
+                            dbElement.SetAttribute(DataBlockService.START_ADDRESS, $"{db.StartAddress}");
+                            dbElement.SetAttribute(DataBlockService.LENGTH, $"{db.Length}");
+                            dbElement.SetAttribute(DataBlockService.DATA_TYPE, $"{db.DataType}");
+                            dbElement.SetAttribute(DataBlockService.MemoryType, $"{db.MemoryType}");
                             dbElement.SetAttribute(DESCRIPTION, db.Description);
                             dvElement.AppendChild(dbElement);
 
                             // List Tags.
                             foreach (var tg in db.Tags)
                             {
-                                var tgElement = xmlDoc.CreateElement(TagManagerXML.TAG);
-                                tgElement.SetAttribute(DataBlockManager.CHANNEL_ID, $"{db.ChannelId}");
-                                tgElement.SetAttribute(DataBlockManager.DEVICE_ID, $"{db.DeviceId}");
-                                tgElement.SetAttribute(DataBlockManager.DATABLOCK_ID, $"{db.DataBlockId}");
-                                tgElement.SetAttribute(TagManagerXML.TAG_ID, $"{tg.TagId}");
-                                tgElement.SetAttribute(TagManagerXML.TAG_NAME, tg.TagName);
-                                tgElement.SetAttribute(TagManagerXML.ADDRESS, $"{tg.Address}");
-                                tgElement.SetAttribute(TagManagerXML.DATA_TYPE, $"{tg.DataType}");
-                                tgElement.SetAttribute(DESCRIPTION, tg.Desp);
+                                var tgElement = xmlDoc.CreateElement(TagService.TAG);
+                                tgElement.SetAttribute(DataBlockService.CHANNEL_ID, $"{db.ChannelId}");
+                                tgElement.SetAttribute(DataBlockService.DEVICE_ID, $"{db.DeviceId}");
+                                tgElement.SetAttribute(DataBlockService.DATABLOCK_ID, $"{db.DataBlockId}");
+                                tgElement.SetAttribute(TagService.TAG_ID, $"{tg.TagId}");
+                                tgElement.SetAttribute(TagService.TAG_NAME, tg.TagName);
+                                tgElement.SetAttribute(TagService.ADDRESS, $"{tg.Address}");
+                                tgElement.SetAttribute(TagService.DATA_TYPE, $"{tg.DataType}");
+                                tgElement.SetAttribute(DESCRIPTION, tg.Description);
                                 dbElement.AppendChild(tgElement);
                             }
                         }

@@ -46,5 +46,11 @@ namespace AdvancedScada.DriverBase.Devices
         [Display(Name = "SlaveId", Order = 1)]
         [Category("Device")]
         public short SlaveId { get; set; }
+        public object ChannelId { get; set; }
+        public object CPUType { get; set; }
+        public object IPAddress { get; set; }
+        public object Rack { get; set; }
+        public object Slot { get; set; }
+        public object IsActived { get; set; }
     }
 }

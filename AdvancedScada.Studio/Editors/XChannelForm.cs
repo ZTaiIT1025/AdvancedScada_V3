@@ -15,14 +15,14 @@ namespace AdvancedScada.Studio.Editors
         private string _DriverTypes;
 
         public EventChannelChanged eventChannelChanged = null;
-        private readonly ChannelManager objChannelManager;
+        private readonly ChannelService objChannelManager;
 
 
         public XChannelForm()
         {
             InitializeComponent();
         }
-        public XChannelForm(string DriverTypes,  ChannelManager chm = null, Channel chCurrent = null)
+        public XChannelForm(string DriverTypes,  ChannelService chm = null, Channel chCurrent = null)
         {
             InitializeComponent();
             objChannelManager = chm;

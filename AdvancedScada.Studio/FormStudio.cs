@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
+using AdvancedScada.IBaseService.Common;
 using AdvancedScada.ImagePicker;
 using AdvancedScada.Management.BLManager;
 using AdvancedScada.Studio.Config;
@@ -88,8 +89,8 @@ namespace AdvancedScada.Studio
             Registry.SetValue("HKEY_CURRENT_USER\\Software\\FormConfiguration", "IPAddress", "localhost");
             Registry.SetValue("HKEY_CURRENT_USER\\Software\\FormConfiguration", "Port", "8080");
 
-           
-           
+
+            XCollection.eventLoggingMessage += ServiceBase_eventChannelCount;
             foreach (Form form in Application.OpenForms)
                 if (form.GetType() == typeof(FormMain))
                 {
@@ -100,7 +101,7 @@ namespace AdvancedScada.Studio
 
             child.Show();
             Application.DoEvents();
-            var objChannelManager = ChannelManager.GetChannelManager();
+            var objChannelManager = ChannelService.GetChannelManager();
 
             try
             {
@@ -121,7 +122,10 @@ namespace AdvancedScada.Studio
             ServiceItem_LinkClicked(null, null);
         }
 
-
+        private void ServiceBase_eventChannelCount(string message)
+        {
+            txtHistory.Text += string.Format("{0}" + Environment.NewLine, message);
+        }
 
         private void mMonioring_ItemClick(object sender, ItemClickEventArgs e)
         {

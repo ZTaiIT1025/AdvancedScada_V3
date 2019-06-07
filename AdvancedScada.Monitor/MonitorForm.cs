@@ -21,10 +21,10 @@ namespace AdvancedScada.Monitor
     {
         public const string Driver = "Driver";
 
-        private ChannelManager objChannelManager = null;
-        private DeviceManager objDeviceManager = null;
-        private DataBlockManager objDataBlockManager = null;
-        private TagManagerXML objTagManager = null;
+        private ChannelService objChannelManager = null;
+        private DeviceService objDeviceManager = null;
+        private DataBlockService objDataBlockManager = null;
+        private TagService objTagManager = null;
         private BindingList<Tag> bS7Tags;
         private IReadService client;
         public bool IsDataChanged = false;
@@ -157,10 +157,10 @@ namespace AdvancedScada.Monitor
             {
 
                 this.Text = $"Monitor:{GetDriverTypes()}";
-                objChannelManager = ChannelManager.GetChannelManager();
-                objDeviceManager = DeviceManager.GetDeviceManager();
-                objDataBlockManager = DataBlockManager.GetDataBlockManager();
-                objTagManager = TagManagerXML.GetTagManager();
+                objChannelManager = ChannelService.GetChannelManager();
+                objDeviceManager = DeviceService.GetDeviceManager();
+                objDataBlockManager = DataBlockService.GetDataBlockManager();
+                objTagManager = TagService.GetTagManager();
 
                 string xmlFile = objChannelManager.ReadKey(objChannelManager.XML_NAME_DEFAULT);
                 if (string.IsNullOrEmpty(xmlFile) || string.IsNullOrWhiteSpace(xmlFile)) return;
@@ -361,7 +361,7 @@ namespace AdvancedScada.Monitor
         {
             if (client != null)
             {
-                client.Disconnection();
+               // client.Disconnect(XC;
                 Application.DoEvents();
             }
         }
@@ -411,7 +411,7 @@ namespace AdvancedScada.Monitor
                     new EndpointAddress(new Uri($"net.Tcp://{HOST}:{PORT}/{UriService}/{Driver}"));
                 var factory = new DuplexChannelFactory<IReadService>(ic, netTcpBinding, endPoint);
                 client = factory.CreateChannel();
-                client.Connection();
+               // client.Connect(Machine mac); ();
 
             }
             catch (Exception ex)

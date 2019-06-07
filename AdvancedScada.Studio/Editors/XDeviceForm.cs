@@ -14,7 +14,7 @@ namespace AdvancedScada.Studio.Editors
 
 
         private readonly Channel ch;
-        private string DriverTypes;
+       
         private readonly Device dv;
         public EventDeviceChanged eventDeviceChanged = null;
 

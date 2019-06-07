@@ -21,10 +21,10 @@ namespace AdvancedScada.Studio.Monitor
         private string SelectedTagName = string.Empty;
 
         private BindingSource bsSource;
-        private ChannelManager objChannelManager;
-        private DataBlockManager objDataBlockManager;
-        private DeviceManager objDeviceManager;
-        private TagManagerXML objTagManager;
+        private ChannelService objChannelManager;
+        private DataBlockService objDataBlockManager;
+        private DeviceService objDeviceManager;
+        private TagService objTagManager;
         public PLC_MonitorForm2()
         {
             InitializeComponent();
@@ -35,10 +35,10 @@ namespace AdvancedScada.Studio.Monitor
             try
             {
                 Text = "Monitor:AdvancedScada";
-                objChannelManager = ChannelManager.GetChannelManager();
-                objDeviceManager = DeviceManager.GetDeviceManager();
-                objDataBlockManager = DataBlockManager.GetDataBlockManager();
-                objTagManager = TagManagerXML.GetTagManager();
+                objChannelManager = ChannelService.GetChannelManager();
+                objDeviceManager = DeviceService.GetDeviceManager();
+                objDataBlockManager = DataBlockService.GetDataBlockManager();
+                objTagManager = TagService.GetTagManager();
 
                 var xmlFile = objChannelManager.ReadKey(objChannelManager.XML_NAME_DEFAULT);
                 if (string.IsNullOrEmpty(xmlFile) || string.IsNullOrWhiteSpace(xmlFile)) return;
