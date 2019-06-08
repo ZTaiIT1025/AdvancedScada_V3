@@ -261,11 +261,8 @@ namespace AdvancedScada.Management.BLManager
                         device.DataBlocks = device.DataBlocks;
                         device.ChannelId = target.ChannelId;
                         device.DeviceId = GetNewId(target);
-                        //{
-                        //    ChannelId = target.ChannelId
-                        //});
-                        //   device.IPAddress = GetNewIPAddress();
-                        device.DeviceName = $"{device.DeviceName}{device.DeviceId}";
+                       
+                        device.DeviceName = $"{device.DeviceName}New";
                        
                         TagService tagService = new TagService();
                         if (device.DataBlocks != null)

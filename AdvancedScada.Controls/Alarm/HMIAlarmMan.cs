@@ -2,7 +2,6 @@
 using AdvancedScada.Controls.Alarm.Designers;
 using AdvancedScada.Controls.Properties;
 using AdvancedScada.DriverBase;
-using AdvancedScada.DriverBase.Core;
 using AdvancedScada.DriverBase.Devices;
 using AdvancedScada.IBaseService;
 using AdvancedScada.IBaseService.Common;

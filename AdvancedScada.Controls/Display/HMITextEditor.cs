@@ -3,7 +3,6 @@ using AdvancedScada.Controls.DialogEditor;
 using AdvancedScada.Controls.Utility;
 using AdvancedScada.DriverBase;
 using AdvancedScada.DriverBase.Client;
-using AdvancedScada.DriverBase.Core.DataTypes;
 using AdvancedScada.Monitor;
 using System;
 using System.ComponentModel;

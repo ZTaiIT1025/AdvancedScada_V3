@@ -597,7 +597,7 @@ namespace AdvancedScada.Management.BLManager
                         DeviceService deviceService = new DeviceService();
                         ch.Devices = GetByChannel(ch);
                         ch.ChannelId = GetNewId();
-                        ch.ChannelName = $"{ch.ChannelName}{ch.ChannelId}";
+                        ch.ChannelName = $"{ch.ChannelName}New";
                       
                         if (ch.Devices != null)
                         {
@@ -605,15 +605,14 @@ namespace AdvancedScada.Management.BLManager
                             TagService tagService = new TagService();
                             foreach (Device dv in ch.Devices.ToList())
                             {
-                              //  dv.DataBlocks = new List<DataBlock>(dv.DataBlocks);
+                              
                                 dv.ChannelId = ch.ChannelId;
-                               // dv.IPAddress = GetNewIPAddress();
                                
                                 if (dv.DataBlocks != null)
                                 {
                                     foreach (DataBlock db in dv.DataBlocks.ToList())
                                     {
-                                      //  db.Tags = new List<Tag>(db.Tags);//  GetByListTag(db);
+                                      
                                         db.ChannelId = ch.ChannelId;
                                         db.DeviceId = dv.DeviceId;
                                         

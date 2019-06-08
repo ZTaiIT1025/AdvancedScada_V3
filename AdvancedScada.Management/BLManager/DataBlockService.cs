@@ -296,7 +296,7 @@ namespace AdvancedScada.Management.BLManager
                         dataBlock.ChannelId = dataBlock.ChannelId;
                         dataBlock.DeviceId = dataBlock.DeviceId;
                         dataBlock.DataBlockId = GetNewIdByIds(dataBlock.ChannelId, target);
-                        dataBlock.DataBlockName = $"{dataBlock.DataBlockName}{dataBlock.DataBlockId}";
+                        dataBlock.DataBlockName = $"{dataBlock.DataBlockName}New";
                         
                         TagService tagService = new TagService();
                         dataBlock.Tags = source.Tags;

@@ -1,6 +1,5 @@
 ﻿using AdvancedScada.BaseService;
 using AdvancedScada.BaseService.Client;
-using AdvancedScada.DriverBase.Core;
 using AdvancedScada.IBaseService;
 using AdvancedScada.IBaseService.Common;
 using AdvancedScada.Utils;
