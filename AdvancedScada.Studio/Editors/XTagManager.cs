@@ -4,14 +4,12 @@ using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 using AdvancedScada.DriverBase.Devices;
-using AdvancedScada.IBaseService;
 using AdvancedScada.Management.BLManager;
 using AdvancedScada.Studio.IE;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
-using Microsoft.Win32;
 using OfficeOpenXml;
 using RowClickEventArgs = DevExpress.XtraGrid.Views.Grid.RowClickEventArgs;
 
@@ -45,6 +43,39 @@ namespace AdvancedScada.Studio.Editors
         public XTagManager()
         {
             InitializeComponent();
+        }
+        public void GettreeListChannel()
+        {
+            TreeListNode node = null;
+            TreeListNode node2 = null;
+            TreeListNode node3 = null;
+
+            treeList1.Nodes.Clear();
+            foreach (var ch in objChannelManager.Channels)
+            {
+                var dvList = new List<TreeNode>();
+                ////Sort.
+                ch.Devices.Sort(delegate (Device x, Device y) { return x.DeviceName.CompareTo(y.DeviceName); });
+                node = treeList1.AppendNode(new object[] { ch.ChannelName }, null);
+                node.StateImageIndex = 1;
+                foreach (var dv in ch.Devices)
+                {
+                    var tgList = new List<TreeNode>();
+                    node2 = treeList1.AppendNode(new object[] { dv.DeviceName }, node);
+                    node2.StateImageIndex = 0;
+                    foreach (var db in dv.DataBlocks)
+                    {
+                        tgList.Add(new TreeNode(db.DataBlockName));
+                        node3 = treeList1.AppendNode(new object[] { db.DataBlockName }, node2);
+                        node3.StateImageIndex = 7;
+                    }
+                    var dvNode = new TreeNode(dv.DeviceName, tgList.ToArray());
+                }
+
+                var chNode = new TreeNode(ch.ChannelName, dvList.ToArray());
+            }
+
+           
         }
         public void InitializeData(string xmlPath = "")
         {
@@ -954,7 +985,7 @@ namespace AdvancedScada.Studio.Editors
 
                         break;
                 }
-                InitializeData(); IsDataChanged = true;
+                GettreeListChannel(); IsDataChanged = true;
             }
             catch (Exception ex)
             {
