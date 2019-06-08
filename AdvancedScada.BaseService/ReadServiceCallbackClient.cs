@@ -38,7 +38,7 @@ namespace AdvancedScada.BaseService
                 }
                 catch (Exception ex)
                 {
-                    var err = new HMIException.ScadaException("ServiceBaseClient", ex.Message);
+                throw ex;
                 }
            
 

@@ -100,20 +100,11 @@
       <DependentUpon>XTagForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SQLManager\ClassSQLServer.cs" />
-    <Compile Include="SQLManager\ColumnManager.cs" />
-    <Compile Include="SQLManager\DataBaseManager.cs" />
-    <Compile Include="SQLManager\ServerManager.cs" />
-    <Compile Include="SQLManager\TableManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Drivers\AdvancedScada.DriverBase\DriverBase.csproj">
       <Project>{0c4043a0-522d-456f-82c3-d086bd07ee27}</Project>
       <Name>DriverBase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Drivers\AdvancedScada.ErorrPLC\HMIException.csproj">
-      <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
-      <Name>HMIException</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

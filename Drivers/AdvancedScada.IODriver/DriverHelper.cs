@@ -1,6 +1,7 @@
 ﻿using AdvancedScada.DriverBase;
 using AdvancedScada.DriverBase.Comm;
 using AdvancedScada.DriverBase.Devices;
+using AdvancedScada.IBaseService;
 using AdvancedScada.IODriver.ASCII;
 using AdvancedScada.IODriver.Cnet;
 using AdvancedScada.IODriver.FENET;
@@ -22,6 +23,7 @@ namespace AdvancedScada.IODriver
 {
     public class DriverHelper
     {
+         
         public static List<Channel> Channels;
         //==================================Modbus===================================================
         private static Dictionary<string, ModbusTCPMaster> mbe = null;
@@ -157,7 +159,7 @@ namespace AdvancedScada.IODriver
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(this.GetType().Name + " XModbus.InitializeService", ex.Message);
+                throw ex;
             }
         }
 
@@ -540,8 +542,7 @@ namespace AdvancedScada.IODriver
                 Disconnect();
                 if (ex.Message == "Hex Character Count Not Even") return;
                 IsConnected = false;
-                var err = new HMIException.ScadaException(this.GetType().Name + "  XLSIS.SendPackage", ex.Message);
-
+                throw ex;
             }
             catch (Exception ex)
             {

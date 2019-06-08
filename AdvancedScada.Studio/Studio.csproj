@@ -201,12 +201,6 @@
     <Compile Include="Editors\XTagManager.Designer.cs">
       <DependentUpon>XTagManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormMain.Designer.cs">
-      <DependentUpon>FormMain.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormStudio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,12 +240,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\FormFrameMonitor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Service\FormFrameMonitor.Designer.cs">
-      <DependentUpon>FormFrameMonitor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Service\FormServerUtils.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,7 +247,6 @@
       <DependentUpon>FormServerUtils.cs</DependentUpon>
     </Compile>
     <Compile Include="Service\ServerUtilsGrid.cs" />
-    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="Config\FormConfiguration.resx">
       <DependentUpon>FormConfiguration.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,9 +304,6 @@
     <EmbeddedResource Include="Editors\XTagManager.resx">
       <DependentUpon>XTagManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormStudio.resx">
       <DependentUpon>FormStudio.cs</DependentUpon>
     </EmbeddedResource>
@@ -349,9 +333,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Service\FormFrameMonitor.resx">
-      <DependentUpon>FormFrameMonitor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Service\FormServerUtils.resx">
       <DependentUpon>FormServerUtils.cs</DependentUpon>
     </EmbeddedResource>
@@ -407,10 +388,6 @@
       <Project>{6892b89e-2cc0-4f7d-95d1-beaa1a21c607}</Project>
       <Name>Utils</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Drivers\AdvancedScada.ErorrPLC\HMIException.csproj">
-      <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
-      <Name>HMIException</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\0000157_xbc-dn32ua_500.png" />
@@ -423,19 +400,6 @@
     <None Include="Resources\OPC.png" />
     <None Include="Resources\Panasonic.jpg" />
     <None Include="Resources\img-wemx-designer-5.jpg" />
-    <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

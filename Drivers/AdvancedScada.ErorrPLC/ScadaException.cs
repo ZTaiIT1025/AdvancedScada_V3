@@ -9,13 +9,11 @@ namespace AdvancedScada.HMIException
             return o.GetType().Name;
         }
     }
-    public delegate void ConnectionPlc(bool bPLC);
-
-    public delegate void GetErorrPLC(string classname, string erorr);
+   
     public class ScadaException : EventArgs
     {
         public static ConnectionPlc eventConnectionPlc;
-        public static GetErorrPLC eventGetErorrPLC;
+        public static ScadaException eventGetErorrPLC;
 
 
         public ScadaException()

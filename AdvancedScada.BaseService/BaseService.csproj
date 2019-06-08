@@ -60,10 +60,6 @@
       <Project>{4ba1e9c3-f791-458c-b4f7-3b7943e8de10}</Project>
       <Name>IBaseService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Drivers\AdvancedScada.ErorrPLC\HMIException.csproj">
-      <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
-      <Name>HMIException</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Drivers\AdvancedScada.IODriver\IODriver.csproj">
       <Project>{09b71d40-9c34-44f8-bc1b-1b3380ead582}</Project>
       <Name>IODriver</Name>

@@ -109,10 +109,6 @@
       <Project>{6892b89e-2cc0-4f7d-95d1-beaa1a21c607}</Project>
       <Name>Utils</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Drivers\AdvancedScada.ErorrPLC\HMIException.csproj">
-      <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
-      <Name>HMIException</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

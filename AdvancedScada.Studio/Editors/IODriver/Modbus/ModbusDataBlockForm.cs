@@ -89,7 +89,7 @@ namespace AdvancedScada.XModbus.Core.UserEditors
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(this.GetType().Name + ".UserEditors.Load", ex.Message);
+                throw ex;
             }
         }
 
@@ -157,7 +157,7 @@ namespace AdvancedScada.XModbus.Core.UserEditors
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(this.GetType().Name + ".UserEditors.btnOK_Click", ex.Message);
+                throw ex;
             }
         }
 
@@ -169,7 +169,7 @@ namespace AdvancedScada.XModbus.Core.UserEditors
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(this.GetType().Name + ".chkCreateTag_CheckedChanged", ex.Message);
+                throw ex;
             }
         }
 
@@ -209,8 +209,7 @@ namespace AdvancedScada.XModbus.Core.UserEditors
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(this.GetType().Name + ".cboxDataType_SelectedIndexChanged", ex.Message);
-
+                throw ex;
             }
         }
 

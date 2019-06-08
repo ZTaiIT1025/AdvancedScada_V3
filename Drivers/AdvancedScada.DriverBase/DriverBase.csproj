@@ -52,18 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client\TagCollectionClient.cs" />
-    <Compile Include="Comm\EventsPLC.cs" />
-    <Compile Include="Comm\RequestAndResponseMessage.cs" />
     <Compile Include="Comm\Util.cs" />
-    <Compile Include="DataTypes\Bit.cs" />
-    <Compile Include="DataTypes\ByteArray.cs" />
-    <Compile Include="DataTypes\Conversion.cs" />
-    <Compile Include="DataTypes\DInt.cs" />
-    <Compile Include="DataTypes\DWord.cs" />
-    <Compile Include="DataTypes\Int.cs" />
-    <Compile Include="DataTypes\Memory.cs" />
-    <Compile Include="DataTypes\Real.cs" />
-    <Compile Include="DataTypes\Word.cs" />
     <Compile Include="Devices\Channel.cs" />
     <Compile Include="Devices\DataBlock.cs" />
     <Compile Include="Devices\Device.cs" />
@@ -77,12 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AdvancedScada.ErorrPLC\HMIException.csproj">
-      <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
-      <Name>HMIException</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

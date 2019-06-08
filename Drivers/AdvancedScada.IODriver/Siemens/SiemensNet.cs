@@ -24,8 +24,7 @@ namespace AdvancedScada.IODriver.Siemens
         public bool IsConnected { get => _IsConnected; set => _IsConnected = value; }
         public byte Station { get => station; set => station = value; }
 
-        public RequestAndResponseMessage RequestAndResponseMessage { get; } = null;
-
+ 
         public SiemensNet()
         {
         }
@@ -82,17 +81,13 @@ namespace AdvancedScada.IODriver.Siemens
                 }
 
 
-                var err = new HMIException.ScadaException(IsConnected);
+                
                 stopwatch.Stop();
             }
             catch (SocketException ex)
             {
                 stopwatch.Stop();
-
-                var err = new HMIException.ScadaException(this.GetType().Name,
-                    $"Could Not Connect to Server : {ex.SocketErrorCode}Time{stopwatch.ElapsedTicks}");
-
-                var err1 = new HMIException.ScadaException(false);
+                throw ex;
 
             }
         }
@@ -102,17 +97,13 @@ namespace AdvancedScada.IODriver.Siemens
             try
             {
                 siemensTcpNet.ConnectClose();
-                var err = new HMIException.ScadaException(false);
+                 
             }
-            catch (SocketException)
+            catch (SocketException ex)
             {
+                throw ex;
             }
-            finally
-            {
-                var err = new HMIException.ScadaException(false);
-
-
-            }
+            
         }
         public byte[] BuildReadByte(byte station, string address, ushort length)
         {

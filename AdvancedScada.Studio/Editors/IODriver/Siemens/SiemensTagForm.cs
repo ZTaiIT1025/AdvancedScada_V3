@@ -1,5 +1,4 @@
 ﻿using AdvancedScada.DriverBase.Devices;
-using AdvancedScada.HMIException;
 using System;
 
 namespace XSiemens.Core.UserEditors
@@ -60,7 +59,7 @@ namespace XSiemens.Core.UserEditors
             }
             catch (Exception ex)
             {
-                var err = new ScadaException(this.GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -116,7 +115,7 @@ namespace XSiemens.Core.UserEditors
             }
             catch (Exception ex)
             {
-                var err = new ScadaException(this.GetType().Name, ex.Message);
+                throw ex;
             }
         }
 

@@ -61,13 +61,13 @@
     <Compile Include="Modbus\TCP\ModbusTCPMaster.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\AdvancedScada.IBaseService\IBaseService.csproj">
+      <Project>{4BA1E9C3-F791-458C-B4F7-3B7943E8DE10}</Project>
+      <Name>IBaseService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AdvancedScada.DriverBase\DriverBase.csproj">
       <Project>{0C4043A0-522D-456F-82C3-D086BD07EE27}</Project>
       <Name>DriverBase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AdvancedScada.ErorrPLC\HMIException.csproj">
-      <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
-      <Name>HMIException</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

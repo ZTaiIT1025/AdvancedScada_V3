@@ -60,10 +60,10 @@ namespace AdvancedScada.BaseService
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                 throw ex;
             }
 
-            return true;
+             
         }
 
         public bool GetStopService()
@@ -75,14 +75,14 @@ namespace AdvancedScada.BaseService
 
                     driverHelper.Disconnect();
 
-               
+               return true;
             }
             catch (System.Exception ex)
             {
 
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                throw ex;
             }
-            return true;
+            
         }
     }
 }

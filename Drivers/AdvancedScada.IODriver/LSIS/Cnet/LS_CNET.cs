@@ -11,8 +11,7 @@ namespace AdvancedScada.IODriver.Cnet
     {
         private SerialPort serialPort;
         private XGBCnet xGBCnet = null;
-        RequestAndResponseMessage _RequestAndResponseMessage = null;
-
+ 
         private object LockObject = new object();
         public LS_CNET(short slaveId, SerialPort serialPort)
         {
@@ -50,18 +49,17 @@ namespace AdvancedScada.IODriver.Cnet
                     }
                     catch (Exception ex)
                     {
-                        var err1 = new  HMIException.ScadaException(this.GetType().Name, ex.Message);
+                        throw ex;
                     }
-                    var err = new HMIException.ScadaException(IsConnected);
+                    
                    
                 }
             }
             catch (TimeoutException ex)
             {
-                var err = new HMIException.ScadaException(this.GetType().Name,
-                    $"Could Not Connect to Server : {ex.Message}");
-                var err1 = new HMIException.ScadaException(false);
                 IsConnected = false;
+                throw ex;
+              
             }
         }
         public void Disconnection()
@@ -70,13 +68,12 @@ namespace AdvancedScada.IODriver.Cnet
             try
             {
                 xGBCnet.Close();
-                var err = new HMIException.ScadaException(false);
+                
                 IsConnected = false;
             }
             catch (TimeoutException ex)
             {
-                var err = new HMIException.ScadaException(this.GetType().Name, $"Could Not Connect to Server : {ex.Message}");
-                var err1 = new HMIException.ScadaException(false);
+                
                 throw ex;
             }
         }
@@ -85,8 +82,7 @@ namespace AdvancedScada.IODriver.Cnet
         public byte[] BuildReadByte(byte station, string address, ushort length)
         {
             var frame = DemoUtils.BulkReadRenderResult(xGBCnet, address, length);
-            _RequestAndResponseMessage = new RequestAndResponseMessage("Reception", "XGT slave", frame);
-            return frame;
+             return frame;
         }
 
         public byte[] BuildWriteByte(byte station, string address, byte[] value)

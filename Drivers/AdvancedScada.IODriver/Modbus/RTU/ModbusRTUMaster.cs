@@ -42,16 +42,14 @@ namespace AdvancedScada.IODriver.RTU
                 });
                 busRtuClient.Open();
                 IsConnected = true;
-                var err = new HMIException.ScadaException(IsConnected);
+                
                 
             }
             catch (TimeoutException ex)
             {
-                
 
-                var err = new HMIException.ScadaException(this.GetType().Name,
-                    $"Could Not Connect to Server : {ex.Message}");
-                var err1 = new HMIException.ScadaException(false);
+
+                throw ex;
             }
         }
 
@@ -60,13 +58,12 @@ namespace AdvancedScada.IODriver.RTU
             try
             {
                 busRtuClient.Close();
-                var err = new HMIException.ScadaException(false);
+                
             }
             catch (TimeoutException ex)
             {
 
-                var err = new HMIException.ScadaException(this.GetType().Name, $"Could Not Connect to Server : {ex.Message}");
-                var err1 = new HMIException.ScadaException(false);
+                throw ex;
             }
         }
 

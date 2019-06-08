@@ -3,6 +3,9 @@ using System.ServiceModel;
 using System.ServiceModel.Description;
 namespace AdvancedScada.IBaseService
 {
+  
+
+    public delegate void ScadaException(string classname, string erorr);
     public class BaseBinding
     {
         protected ushort PORT = 8086;

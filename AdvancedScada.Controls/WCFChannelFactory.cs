@@ -36,7 +36,7 @@ namespace AdvancedScada.Controls
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(typeof(WCFChannelFactory).Name, ex.Message);
+                throw ex;
             }
 
         }

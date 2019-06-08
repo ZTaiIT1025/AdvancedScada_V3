@@ -54,19 +54,18 @@ namespace AdvancedScada.IODriver.Panasonic
                     }
                     catch (Exception ex)
                     {
-                        var err1 = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                        throw ex;
                     }
-                    var err = new HMIException.ScadaException(IsConnected);
+                    
                     stopwatch.Stop();
                 }
             }
             catch (TimeoutException ex)
             {
                 stopwatch.Stop();
-                var err = new HMIException.ScadaException(this.GetType().Name,
-                    $"Could Not Connect to Server : {ex.Message}Time{stopwatch.ElapsedTicks}");
-                var err1 = new HMIException.ScadaException(false);
+               
                 IsConnected = false;
+                throw ex;
             }
         }
 
@@ -76,7 +75,7 @@ namespace AdvancedScada.IODriver.Panasonic
             try
             {
                 panasonicMewtocol.Close();
-                var err = new HMIException.ScadaException(false);
+               
                 IsConnected = false;
 
 
@@ -85,8 +84,7 @@ namespace AdvancedScada.IODriver.Panasonic
             {
 
 
-                var err = new HMIException.ScadaException(this.GetType().Name, $"Could Not Connect to Server : {ex.Message}");
-                var err1 = new HMIException.ScadaException(false);
+               
                 throw ex;
             }
         }

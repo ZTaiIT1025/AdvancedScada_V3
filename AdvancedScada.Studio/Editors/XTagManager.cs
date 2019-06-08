@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 using AdvancedScada.DriverBase.Devices;
+using AdvancedScada.IBaseService;
 using AdvancedScada.Management.BLManager;
 using AdvancedScada.Studio.IE;
 using DevExpress.XtraBars;
@@ -32,12 +33,20 @@ namespace AdvancedScada.Studio.Editors
         private TagService objTagManager;
         private string[] SelectebNodesHelpr;
 
+        private Device result;
+        private Channel fCh;
+        private Channel fChNew;
+        private Device dvNewCopy;
+        private DataBlock dbNewCopy;
+        private Tag tgNewCopy;
+        public string SelecteCopy_Paste;
+        public TreeListNode node = null;
 
         public XTagManager()
         {
             InitializeComponent();
         }
-        public void InitializeData(string xmlPath)
+        public void InitializeData(string xmlPath = "")
         {
 
             TreeListNode node = null;
@@ -50,7 +59,7 @@ namespace AdvancedScada.Studio.Editors
             foreach (var ch in chList)
             {
                 ////Sort.
-                ch.Devices.Sort(delegate(Device x, Device y) { return x.DeviceName.CompareTo(y.DeviceName); });
+                ch.Devices.Sort(delegate (Device x, Device y) { return x.DeviceName.CompareTo(y.DeviceName); });
                 node = treeList1.AppendNode(new object[] { ch.ChannelName }, null);
                 node.StateImageIndex = 1;
                 foreach (var dv in ch.Devices)
@@ -87,7 +96,7 @@ namespace AdvancedScada.Studio.Editors
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -110,7 +119,7 @@ namespace AdvancedScada.Studio.Editors
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -125,7 +134,7 @@ namespace AdvancedScada.Studio.Editors
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
         #region treeList
@@ -157,7 +166,7 @@ namespace AdvancedScada.Studio.Editors
                 {
                     case 0:
                         chCurrent = objChannelManager.GetByChannelName(treeList1.FocusedNode.GetDisplayText(0));
- 
+
                         switch (chCurrent.ConnectionType)
                         {
                             case "SerialPort":
@@ -181,10 +190,10 @@ namespace AdvancedScada.Studio.Editors
                                 vGridEthernet.DataSource = bDIEthernet;
                                 vGridChannel.DataSource = bChannelEthernet;
                                 vGridSerialPort.Visible = false;
-                                
+
                                 break;
                         }
-                        
+
                         break;
                     case 1:
                         bvDevice = new List<Device>();
@@ -223,7 +232,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -272,7 +281,7 @@ namespace AdvancedScada.Studio.Editors
                     case 0:
                         chCurrent = objChannelManager.GetByChannelName(treeList1.FocusedNode.GetDisplayText(0));
 
-                        var chFrm = new XChannelForm(chCurrent.ChannelTypes,  objChannelManager, chCurrent);
+                        var chFrm = new XChannelForm(chCurrent.ChannelTypes, objChannelManager, chCurrent);
                         chFrm.eventChannelChanged += (ch, isNew) =>
                         {
                             if (!isNew) objChannelManager.Update(ch);
@@ -319,7 +328,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -336,7 +345,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
         #endregion
@@ -392,7 +401,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -405,7 +414,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -442,7 +451,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -458,18 +467,11 @@ namespace AdvancedScada.Studio.Editors
             var xmlFile = objChannelManager.ReadKey(objChannelManager.XML_NAME_DEFAULT);
             if (string.IsNullOrEmpty(xmlFile) || string.IsNullOrWhiteSpace(xmlFile)) return;
             InitializeData(xmlFile);
- 
+
         }
         #endregion
         #region Add
-        private Device result;
-        private Channel fCh;
-        private Channel fChNew;
-        private Device dvNewCopy;
-        private DataBlock dbNewCopy;
-        private Tag tgNewCopy;
-        public string SelecteCopy_Paste;
-        public TreeListNode node = null;
+       
         public void OpenWaitForm()
         {
             ////Open Wait Form
@@ -486,40 +488,6 @@ namespace AdvancedScada.Studio.Editors
             //SplashScreenManager.CloseForm(false);
         }
 
-
-        public void GettreeList()
-        {
-            TreeListNode node = null;
-            TreeListNode node2 = null;
-            TreeListNode node3 = null;
-
-            treeList1.Nodes.Clear();
-            foreach (var ch in objChannelManager.Channels)
-            {
-                var dvList = new List<TreeNode>();
-                ////Sort.
-                ch.Devices.Sort(delegate(Device x, Device y) { return x.DeviceName.CompareTo(y.DeviceName); });
-                node = treeList1.AppendNode(new object[] { ch.ChannelName }, null);
-                node.StateImageIndex = 1;
-                foreach (var dv in ch.Devices)
-                {
-                    var tgList = new List<TreeNode>();
-                    node2 = treeList1.AppendNode(new object[] { dv.DeviceName }, node);
-                    node2.StateImageIndex = 0;
-                    foreach (var db in dv.DataBlocks)
-                    {
-                        tgList.Add(new TreeNode(db.DataBlockName));
-                        node3 = treeList1.AppendNode(new object[] { db.DataBlockName }, node2);
-                        node3.StateImageIndex = 7;
-                    }
-                    var dvNode = new TreeNode(dv.DeviceName, tgList.ToArray());
-                }
-
-                var chNode = new TreeNode(ch.ChannelName, dvList.ToArray());
-            }
-
-            OpenWaitForm();
-        }
 
         private void ItemAddChannel_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -542,7 +510,7 @@ namespace AdvancedScada.Studio.Editors
                                 treeList1.FocusedNode = treeList1.AppendNode(new object[] { ch.ChannelName },
                                     treeList1.FocusedNode.ParentNode);
                                 treeList1.FocusedNode.StateImageIndex = 1;
-                                // treeList1.RefreshDataSource();
+
 
                             }
                             else
@@ -551,14 +519,14 @@ namespace AdvancedScada.Studio.Editors
                                 treeList1.FocusedNode.StateImageIndex = 1;
                             }
 
-                            //treeList1.Nodes.Add(new object[] { ch.ChannelName });
+
 
                             IsDataChanged = true;
                         }
                         catch (Exception ex)
                         {
 
-                            var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                            throw ex;
                         }
                     };
                     chFrm.ShowDialog();
@@ -568,7 +536,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -590,7 +558,7 @@ namespace AdvancedScada.Studio.Editors
                         chCurrent = objChannelManager.GetByChannelName(treeList1.FocusedNode.ParentNode.GetDisplayText(0));
                         break;
                 }
-              
+
 
                 dvFrm = new XDeviceForm(chCurrent);
                 dvFrm.eventDeviceChanged += (dv, isNew) =>
@@ -613,24 +581,12 @@ namespace AdvancedScada.Studio.Editors
                                 IsDataChanged = true;
                                 break;
                         }
-                        //switch (Level)
-                        //{
-                        //    case 0:
-                        //        treeList1.FocusedNode.Nodes.Add(new object[] { dv.DeviceName });
-                        //        treeList1.FocusedNode.StateImageIndex = 0;
-                        //        IsDataChanged = true;
-                        //        break;
-                        //    case 1:
-                        //        treeList1.FocusedNode.ParentNode.Nodes.Add(new object[] { dv.DeviceName });
-                        //        treeList1.FocusedNode.StateImageIndex = 0;
-                        //        IsDataChanged = true;
-                        //        break;
-                        //}
+
                     }
                     catch (Exception ex)
                     {
 
-                        var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                        throw ex;
                     }
                 };
                 dvFrm.ShowDialog();
@@ -640,7 +596,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -667,7 +623,7 @@ namespace AdvancedScada.Studio.Editors
                         dvCurrent = objDeviceManager.GetByDeviceName(chCurrent, treeList1.FocusedNode.ParentNode.GetDisplayText(0));
                         break;
                 }
-               
+
                 dbFrm = new XDataBlockForm(chCurrent, dvCurrent);
                 dbFrm.eventDataBlockChanged += (db, isNew) =>
                 {
@@ -681,35 +637,24 @@ namespace AdvancedScada.Studio.Editors
                                 treeList1.FocusedNode = treeList1.AppendNode(new object[] { db.DataBlockName },
                                     treeList1.FocusedNode);
                                 treeList1.FocusedNode.StateImageIndex = 7;
-                              
+
                                 IsDataChanged = true;
                                 break;
                             case 2:
                                 treeList1.FocusedNode = treeList1.AppendNode(new object[] { db.DataBlockName },
                                     treeList1.FocusedNode.ParentNode);
                                 treeList1.FocusedNode.StateImageIndex = 7;
-                              
+
                                 IsDataChanged = true;
                                 break;
                         }
                         gridControl1.RefreshDataSource();
-                        //switch (Level)
-                        //{
-                        //    case 1:
-                        //        treeList1.FocusedNode.Nodes.Add(new object[] { db.DataBlockName });
-                        //        IsDataChanged = true;
-                        //        break;
-                        //    case 2:
-                        //        treeList1.FocusedNode.ParentNode.Nodes.Add(new object[] { db.DataBlockName });
-                        //        IsDataChanged = true;
-                        //        break;
-                        //}
-                        //gridControl1.RefreshDataSource();
+
                     }
                     catch (Exception ex)
                     {
 
-                        var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                        throw ex;
                     }
                 };
                 dbFrm.ShowDialog();
@@ -718,7 +663,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -743,18 +688,10 @@ namespace AdvancedScada.Studio.Editors
                         var dvNode = dbNode.ParentNode; // Node:Device
                         var chNode = dvNode.ParentNode; // Node:Channel
 
-
-                        var channelName = chNode["Name"].ToString();
-                        var DeviceName = dvNode["Name"].ToString();
-
-                        var DataBlockName = dbNode["Name"].ToString();
-
                         var chCurrent = objChannelManager.GetByChannelName(treeList1.FocusedNode.ParentNode.ParentNode.GetDisplayText(0));
                         var dvCurrent = objDeviceManager.GetByDeviceName(chCurrent, treeList1.FocusedNode.ParentNode.GetDisplayText(0));
                         var dbCurrent = objDataBlockManager.GetByDataBlockName(dvCurrent, treeList1.FocusedNode.GetDisplayText(0));
-                        //chCurrent = objChannelManager.GetByChannelName(channelName);
-                        //dvCurrent = objDeviceManager.GetByDeviceName(chCurrent, DeviceName);
-                        //dbCurrent = objDataBlockManager.GetByDataBlockName(dvCurrent, DataBlockName);
+
 
                         var tgFrm = new XTagForm(chCurrent, dvCurrent, dbCurrent);
                         tgFrm.eventTagChanged += (tg, isNew) =>
@@ -770,7 +707,7 @@ namespace AdvancedScada.Studio.Editors
                             catch (Exception ex)
                             {
 
-                                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                                throw ex;
                             }
                         };
                         tgFrm.ShowDialog();
@@ -781,7 +718,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -833,20 +770,19 @@ namespace AdvancedScada.Studio.Editors
                             catch (Exception ex)
                             {
 
-                                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                                throw ex;
                             }
                         };
-                        //frm.Padding = new Padding(0);
-                        //frm.MdiParent = this;
+
                         frm.ShowDialog();
-                        //OpenWaitForm();
+
                         break;
                 }
             }
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -931,7 +867,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -948,7 +884,7 @@ namespace AdvancedScada.Studio.Editors
                 switch (Level)
                 {
                     case 0:
-                        
+
                         fChNew = new Channel();
                         fCh = objChannelManager.GetByChannelName(SelectebNodesHelpr[0]);
                         fChNew = objChannelManager.Copy(fCh);
@@ -975,7 +911,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
 
         }
@@ -995,15 +931,11 @@ namespace AdvancedScada.Studio.Editors
                         switch (fCh.ConnectionType)
                         {
                             case "SerialPort":
-
                                 objChannelManager.Add((DISerialPort)fChNew);
-                                GettreeList();
-                                IsDataChanged = true;
                                 break;
                             case "Ethernet":
                                 objChannelManager.Add((DIEthernet)fChNew);
-                                GettreeList();
-                                IsDataChanged = true;
+
                                 break;
                         }
 
@@ -1012,22 +944,22 @@ namespace AdvancedScada.Studio.Editors
                     case "Device":
                         fCh = objChannelManager.GetByChannelName(SelectebNodesHelpr[0]);
                         objDeviceManager.Add(fCh, dvNewCopy);
-                        GettreeList();
-                        IsDataChanged = true;
+
                         break;
                     case "DataBlock":
                         fCh = objChannelManager.GetByChannelName(SelectebNodesHelpr[0]);
                         dvNewCopy = objDeviceManager.GetByDeviceName(fCh, SelectebNodesHelpr[1]);
                         objDataBlockManager.Add(dvNewCopy, dbNewCopy);
-                        GettreeList();
-                        IsDataChanged = true;
+
+
                         break;
                 }
+                InitializeData(); IsDataChanged = true;
             }
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -1088,7 +1020,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
         #endregion
@@ -1142,7 +1074,7 @@ namespace AdvancedScada.Studio.Editors
                             catch (Exception ex)
                             {
 
-                                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                                throw ex;
                             }
                         };
                         tgFrm.ShowDialog();
@@ -1153,7 +1085,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -1203,7 +1135,7 @@ namespace AdvancedScada.Studio.Editors
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -1257,7 +1189,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -1299,7 +1231,7 @@ namespace AdvancedScada.Studio.Editors
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
         #endregion

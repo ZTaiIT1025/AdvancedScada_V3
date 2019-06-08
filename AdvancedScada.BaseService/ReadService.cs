@@ -27,8 +27,8 @@ namespace AdvancedScada.BaseService
                 eventLoggingMessage?.Invoke(string.Format("Added Callback Channel: {0}, IP Address: {1}.", mac.MachineName, mac.IPAddress));
                 EventChannelCount?.Invoke(1, true);
                     RUN_APPLICATION = true;
-                 
-                ThreadPool.QueueUserWorkItem(delegate
+
+                ThreadPool.QueueUserWorkItem((WaitCallback)delegate
                 {
                     while (RUN_APPLICATION)
                     {
@@ -59,7 +59,7 @@ namespace AdvancedScada.BaseService
 
                             eventLoggingMessage?.Invoke(string.Format("Removed Callback Channel: {0}, IP Address: {1}| Message Exception: {2}.", mac.MachineName, mac.IPAddress, ex.Message));
 
-                            var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                            throw ex;
                         }
                     }
                 });
@@ -67,7 +67,7 @@ namespace AdvancedScada.BaseService
             catch (System.Exception ex)
             {
 
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -84,7 +84,7 @@ namespace AdvancedScada.BaseService
             catch (Exception ex)
             {
                 Console.WriteLine("Disconnect-Removed Callback Channel: {0}", ex.Message);
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                throw ex;
             }
             finally
             {
@@ -106,7 +106,7 @@ namespace AdvancedScada.BaseService
             catch (System.Exception ex)
             {
 
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                throw ex;
             }
         }
     }

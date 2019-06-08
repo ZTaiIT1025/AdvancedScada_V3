@@ -58,19 +58,16 @@ namespace AdvancedScada.IODriver.TCP
                 }
 
                
-                var err = new HMIException.ScadaException(IsConnected);
+               
                 
             }
             catch (SocketException ex)
             {
-                
 
-                var err = new HMIException.ScadaException(this.GetType().Name,
-                    $"Could Not Connect to Server : {ex.SocketErrorCode}");
 
-                var err1 = new HMIException.ScadaException(false);
+                throw ex;
 
-             }
+            }
         }
 
         public void Disconnection()
@@ -78,17 +75,13 @@ namespace AdvancedScada.IODriver.TCP
             try
             {
                 busTcpClient.ConnectClose();
-                var err = new HMIException.ScadaException(false);
+               
             }
-            catch (SocketException)
+            catch (SocketException ex)
             {
+                throw ex;
             }
-            finally
-            {
-                var err = new HMIException.ScadaException(false);
-
-                 
-            }
+            
         }
         public byte[] BuildReadByte(byte station, string address, ushort length)
         {

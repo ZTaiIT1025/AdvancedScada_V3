@@ -160,7 +160,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -178,7 +178,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -196,7 +196,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                 throw ex;
             }
         }
 
@@ -218,7 +218,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                 throw ex;
             }
         }
 
@@ -241,7 +241,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                 throw ex;
             }
 
             return result;
@@ -266,7 +266,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                 throw ex;
             }
 
             return result;
@@ -291,7 +291,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                 throw ex;
             }
 
             return result;
@@ -359,7 +359,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                 throw ex;
             }
 
             return _Channels;
@@ -384,7 +384,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                 throw ex;
             }
         }
 
@@ -404,7 +404,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                 throw ex;
             }
 
             return result;
@@ -426,7 +426,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                 throw ex;
             }
         }
 
@@ -524,7 +524,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                 throw ex;
             }
         }
 
@@ -567,7 +567,7 @@ namespace AdvancedScada.Management.BLManager
                 throw ex;
             }
 
-            return result;
+         
         }
         internal List<DataBlock> GetByListDataBlock(Device dv)
         {

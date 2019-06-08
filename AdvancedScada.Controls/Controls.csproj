@@ -1329,10 +1329,6 @@
       <Project>{6892B89E-2CC0-4F7D-95D1-BEAA1A21C607}</Project>
       <Name>Utils</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Drivers\AdvancedScada.ErorrPLC\HMIException.csproj">
-      <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
-      <Name>HMIException</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MotorYellow.png" />

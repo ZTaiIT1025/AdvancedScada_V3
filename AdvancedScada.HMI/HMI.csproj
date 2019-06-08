@@ -167,10 +167,6 @@
       <Project>{A6981D28-2360-4212-8EEF-F78C117EB615}</Project>
       <Name>Management</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Drivers\AdvancedScada.ErorrPLC\HMIException.csproj">
-      <Project>{dcf54cf4-e611-46b1-8056-7f71aae0d9f5}</Project>
-      <Name>HMIException</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\17-1.bmp" />

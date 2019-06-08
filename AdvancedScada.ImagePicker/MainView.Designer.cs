@@ -47,13 +47,12 @@
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.PoBtnXAML = new DevExpress.XtraBars.BarButtonItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.PoBtnXAML = new DevExpress.XtraBars.BarButtonItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.xtbImageGallery)).BeginInit();
             this.xtbImageGallery.SuspendLayout();
@@ -73,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
             this.gc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,7 +94,7 @@
             this.tbImageGallerySVG.Controls.Add(this.splitContainerControl1);
             this.tbImageGallerySVG.Controls.Add(this.panelControl1);
             this.tbImageGallerySVG.Name = "tbImageGallerySVG";
-            this.tbImageGallerySVG.Size = new System.Drawing.Size(627, 381);
+            this.tbImageGallerySVG.Size = new System.Drawing.Size(626, 379);
             this.tbImageGallerySVG.Text = "ImageGallerySVG";
             // 
             // textEdit2
@@ -144,21 +142,21 @@
             this.gcSVG.Gallery.ItemDoubleClick += new DevExpress.XtraBars.Ribbon.GalleryItemClickEventHandler(this.gcSVG_Gallery_ItemDoubleClick);
             this.gcSVG.Location = new System.Drawing.Point(0, 0);
             this.gcSVG.Name = "gcSVG";
-            this.gcSVG.Size = new System.Drawing.Size(420, 295);
+            this.gcSVG.Size = new System.Drawing.Size(421, 295);
             this.gcSVG.TabIndex = 0;
             // 
             // galleryControlClient1
             // 
             this.galleryControlClient1.GalleryControl = this.gcSVG;
             this.galleryControlClient1.Location = new System.Drawing.Point(2, 2);
-            this.galleryControlClient1.Size = new System.Drawing.Size(399, 291);
+            this.galleryControlClient1.Size = new System.Drawing.Size(400, 291);
             // 
             // panelControl1
             // 
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 346);
+            this.panelControl1.Location = new System.Drawing.Point(0, 344);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(627, 35);
+            this.panelControl1.Size = new System.Drawing.Size(626, 35);
             this.panelControl1.TabIndex = 0;
             // 
             // ImageGallery
@@ -169,7 +167,7 @@
             this.ImageGallery.Controls.Add(this.splitContainerControl2);
             this.ImageGallery.Controls.Add(this.panelControl4);
             this.ImageGallery.Name = "ImageGallery";
-            this.ImageGallery.Size = new System.Drawing.Size(627, 381);
+            this.ImageGallery.Size = new System.Drawing.Size(626, 379);
             this.ImageGallery.Text = "ImageGallery";
             // 
             // textEdit1
@@ -187,13 +185,13 @@
             // splitContainerControl2
             // 
             this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitContainerControl2.Location = new System.Drawing.Point(0, 55);
+            this.splitContainerControl2.Location = new System.Drawing.Point(0, 53);
             this.splitContainerControl2.Name = "splitContainerControl2";
             this.splitContainerControl2.Panel1.Controls.Add(this.cboxListForder);
             this.splitContainerControl2.Panel1.Text = "Panel1";
             this.splitContainerControl2.Panel2.Controls.Add(this.gc);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(627, 291);
+            this.splitContainerControl2.Size = new System.Drawing.Size(626, 291);
             this.splitContainerControl2.SplitterPosition = 200;
             this.splitContainerControl2.TabIndex = 8;
             // 
@@ -233,9 +231,9 @@
             this.panelControl4.Appearance.BackColor = System.Drawing.Color.White;
             this.panelControl4.Appearance.Options.UseBackColor = true;
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl4.Location = new System.Drawing.Point(0, 346);
+            this.panelControl4.Location = new System.Drawing.Point(0, 344);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(627, 35);
+            this.panelControl4.Size = new System.Drawing.Size(626, 35);
             this.panelControl4.TabIndex = 7;
             // 
             // btnCancel
@@ -256,12 +254,11 @@
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // popupMenu1
+            // PoBtnXAML
             // 
-            this.popupMenu1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.PoBtnXAML)});
-            this.popupMenu1.Manager = this.barManager1;
-            this.popupMenu1.Name = "popupMenu1";
+            this.PoBtnXAML.Caption = "ExPortXAML";
+            this.PoBtnXAML.Id = 0;
+            this.PoBtnXAML.Name = "PoBtnXAML";
             // 
             // barManager1
             // 
@@ -306,13 +303,6 @@
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 470);
             // 
-            // PoBtnXAML
-            // 
-            this.PoBtnXAML.Caption = "ExPortXAML";
-            this.PoBtnXAML.Id = 0;
-            this.PoBtnXAML.Name = "PoBtnXAML";
-            this.PoBtnXAML.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.PoBtnXAML_ItemClick);
-            // 
             // MainView
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -328,9 +318,9 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(638, 502);
+            this.MaximumSize = new System.Drawing.Size(642, 502);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(638, 502);
+            this.MinimumSize = new System.Drawing.Size(642, 502);
             this.Name = "MainView";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -354,7 +344,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gc)).EndInit();
             this.gc.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -380,7 +369,6 @@
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraBars.PopupMenu popupMenu1;
         private DevExpress.XtraBars.BarButtonItem PoBtnXAML;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;

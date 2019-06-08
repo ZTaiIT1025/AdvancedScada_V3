@@ -45,16 +45,14 @@ namespace AdvancedScada.IODriver.Siemens
                 siemensPPI.Open();
                 siemensPPI.Station = station;
                 IsConnected = true;
-                var err = new HMIException.ScadaException(IsConnected);
+               
                 stopwatch.Stop();
             }
             catch (TimeoutException ex)
             {
                 stopwatch.Stop();
 
-                var err = new HMIException.ScadaException(this.GetType().Name,
-                    $"Could Not Connect to Server : {ex.Message}Time{stopwatch.ElapsedTicks}");
-                var err1 = new HMIException.ScadaException(false);
+                throw ex;
             }
         }
 
@@ -63,13 +61,12 @@ namespace AdvancedScada.IODriver.Siemens
             try
             {
                 siemensPPI.Close();
-                var err = new HMIException.ScadaException(false);
+                
             }
             catch (TimeoutException ex)
             {
 
-                var err = new HMIException.ScadaException(this.GetType().Name, $"Could Not Connect to Server : {ex.Message}");
-                var err1 = new HMIException.ScadaException(false);
+                throw ex;
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
+using AdvancedScada.IBaseService;
 using AdvancedScada.IBaseService.Common;
 using AdvancedScada.ImagePicker;
 using AdvancedScada.Management.BLManager;
@@ -39,13 +40,7 @@ namespace AdvancedScada.Studio
         #region Constoer
         public FormStudio()
         {
-            HMIException.ScadaException.eventGetErorrPLC += (classname, Message) =>
-            {
-                SetLabelText(txtHistory, string.Format("{0}     {1}" + Environment.NewLine, classname, Message));
-                Application.DoEvents();
-            };
-           
-            // InitSkins();
+          
             InitializeComponent();
 
             SkinHelper.InitSkinGallery(skinRibbonGalleryBarItem1);
@@ -56,8 +51,6 @@ namespace AdvancedScada.Studio
         {
             SkinManager.EnableFormSkins();
             BonusSkins.Register();
-
-            //UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
         }
         #endregion
         #region Form
@@ -261,27 +254,6 @@ namespace AdvancedScada.Studio
         private void barItemClear_ItemClick(object sender, ItemClickEventArgs e)
         {
             txtHistory.Text = string.Empty;
-        }
-
-        private void SQLItem_LinkClicked(object sender, NavBarLinkEventArgs e)
-        {
-           
-
-        }
-
-       
-
-        private void navFrameMonitor_LinkClicked(object sender, NavBarLinkEventArgs e)
-        {
-            foreach (Form form in Application.OpenForms)
-                if (form.GetType() == typeof(FormFrameMonitor))
-                {
-                    form.Activate();
-                    return;
-                }
-            var child = new FormFrameMonitor { Padding = new Padding(0), MdiParent = this };
-            child.Show();
-
         }
         #endregion
          

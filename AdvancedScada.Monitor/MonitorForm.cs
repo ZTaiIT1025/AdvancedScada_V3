@@ -77,7 +77,7 @@ namespace AdvancedScada.Monitor
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                 throw ex;
             }
         }
         private void InitializeData(string xmlPath)
@@ -254,7 +254,7 @@ namespace AdvancedScada.Monitor
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                 throw ex;
             }
 
 
@@ -417,7 +417,7 @@ namespace AdvancedScada.Monitor
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                 throw ex;
             }
 
 
@@ -531,7 +531,7 @@ namespace AdvancedScada.Monitor
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                 throw ex;
             }
         }
 

@@ -124,7 +124,7 @@ namespace AdvancedScada.Studio.Monitor
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
         private void mWriteTagValue_ItemClick(object sender, ItemClickEventArgs e)
@@ -164,7 +164,7 @@ namespace AdvancedScada.Studio.Monitor
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -189,7 +189,7 @@ namespace AdvancedScada.Studio.Monitor
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -223,7 +223,7 @@ namespace AdvancedScada.Studio.Monitor
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
         private void gridView1_RowCellStyle(object sender, RowCellStyleEventArgs e)
@@ -271,7 +271,7 @@ namespace AdvancedScada.Studio.Monitor
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -380,7 +380,7 @@ namespace AdvancedScada.Studio.Monitor
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -402,14 +402,14 @@ namespace AdvancedScada.Studio.Monitor
                 }
                 catch (Exception ex)
                 {
-                    var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                    throw ex;
                 }
                 
 
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
 
         }
@@ -456,7 +456,7 @@ namespace AdvancedScada.Studio.Monitor
             catch (Exception ex)
             {
 
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
 
 
@@ -574,7 +574,7 @@ namespace AdvancedScada.Studio.Monitor
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -637,7 +637,7 @@ namespace AdvancedScada.Studio.Monitor
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
         #endregion

@@ -314,8 +314,7 @@ namespace AdvancedScada.Studio
             this.SQLItem.Caption = "Microsoft SQL Server";
             this.SQLItem.ImageOptions.SmallImageIndex = 7;
             this.SQLItem.Name = "SQLItem";
-            this.SQLItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.SQLItem_LinkClicked);
-            // 
+             // 
             // SQLiteItem
             // 
             this.SQLiteItem.Caption = "SQLite";
@@ -327,8 +326,7 @@ namespace AdvancedScada.Studio
             this.navFrameMonitor.Caption = "FormFrameMonitor";
             this.navFrameMonitor.ImageOptions.SmallImageIndex = 0;
             this.navFrameMonitor.Name = "navFrameMonitor";
-            this.navFrameMonitor.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navFrameMonitor_LinkClicked);
-            // 
+             // 
             // xtraTabbedMdiManager1
             // 
             this.xtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;

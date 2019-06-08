@@ -470,7 +470,7 @@ namespace AdvancedScada.Utils.Databases
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                throw ex;
 
             }
             return dtable;

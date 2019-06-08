@@ -41,16 +41,14 @@ namespace AdvancedScada.IODriver.ASCII
                 });
                 busAsciiClient.Open();
                 IsConnected = true;
-                var err = new HMIException.ScadaException(IsConnected);
+               
              
             }
             catch (TimeoutException ex)
             {
-               
 
-                var err = new HMIException.ScadaException(this.GetType().Name,
-                    $"Could Not Connect to Server : {ex.Message}");
-                var err1 = new HMIException.ScadaException(false);
+
+                throw ex;
             }
         }
 
@@ -59,13 +57,12 @@ namespace AdvancedScada.IODriver.ASCII
             try
             {
                 busAsciiClient.Close();
-                var err = new HMIException.ScadaException(false);
+               
             }
             catch (TimeoutException ex)
             {
 
-                var err = new HMIException.ScadaException(this.GetType().Name, $"Could Not Connect to Server : {ex.Message}");
-                var err1 = new HMIException.ScadaException(false);
+                throw ex;
             }
         }
 

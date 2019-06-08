@@ -11,8 +11,7 @@ namespace AdvancedScada.IODriver.FENET
     public class LS_FENET : IDriverAdapter
     {
         private XGBFastEnet fastEnet = null;
-        RequestAndResponseMessage _RequestAndResponseMessage = null;
-        public bool IsConnected { get; set; } = false;
+         public bool IsConnected { get; set; } = false;
 
         private readonly int Port = 502;
         private readonly string IP = "127.0.0.1";
@@ -68,16 +67,15 @@ namespace AdvancedScada.IODriver.FENET
                 {
                     throw ex;
                 }
-                var err = new HMIException.ScadaException(IsConnected);
+                 
                
             }
             catch (SocketException ex)
             {
 
-                var err = new HMIException.ScadaException(this.GetType().Name,
-                    $"Could Not Connect to Server : {ex.SocketErrorCode}");
-                var err1 = new HMIException.ScadaException(false);
+               
                 IsConnected = false;
+                throw ex;
 
             }
         }
@@ -87,18 +85,14 @@ namespace AdvancedScada.IODriver.FENET
             try
             {
                 fastEnet.ConnectClose();
-                var err = new HMIException.ScadaException(false);
+                
                 IsConnected = false;
             }
             catch (SocketException ex)
             {
                 throw ex;
             }
-            finally
-            {
-                 var err = new HMIException.ScadaException(false);
-
-            }
+            
         }
 
         #endregion
@@ -106,8 +100,7 @@ namespace AdvancedScada.IODriver.FENET
         public byte[] BuildReadByte(byte station, string address, ushort length)
         {
             var frame = DemoUtils.BulkReadRenderResult(fastEnet, address, length);
-            _RequestAndResponseMessage = new RequestAndResponseMessage("Reception", "XGT slave", frame);
-            return frame;
+             return frame;
         }
 
         public byte[] BuildWriteByte(byte station, string address, byte[] value)

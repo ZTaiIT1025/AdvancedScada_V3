@@ -70,26 +70,10 @@ namespace AdvancedScada.ImagePicker
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                throw ex;
             }
 
-
-            // string[] imageKeys = ImageResourceCache.Default.GetAllResourceKeys();
-            //List<string> CategoryList = ImageResourceCache.Default.CategoryList;
-            //group1 = new GalleryItemGroup[CategoryList.Count];
-            //cboxListForder.Items.AddRange(CategoryList.ToArray());
-            //IEnumerable<string> pngImages = imageKeys.Where((p) => p.EndsWith(".bmp")|| p.EndsWith(".png")||  p.EndsWith(".gif"));
-            //List<GalleryItem> galleryItems = new List<GalleryItem>(imageKeys.Length);
-            //foreach (string imageKey in pngImages)
-            //{
-            //    galleryItems.Add(new GalleryItem(ImageResourceCache.Default.GetImage(imageKey), imageKey, imageKey));
-            //}
-            //gc.Gallery.BeginUpdate();
-            //gc.Gallery.Groups.Add(new GalleryItemGroup());
-            //gc.Gallery.ItemImageLayout = ImageLayoutMode.ZoomInside;
-            //gc.Gallery.ImageSize = new Size(70, 70);
-            //gc.Gallery.Groups[0].Items.AddRange(galleryItems.ToArray());
-            //gc.Gallery.EndUpdate();
+ 
 
 
         }
@@ -169,7 +153,7 @@ namespace AdvancedScada.ImagePicker
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                 throw ex;
             }
 
 
@@ -218,7 +202,7 @@ namespace AdvancedScada.ImagePicker
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                 throw ex;
             }
 
 
@@ -242,7 +226,7 @@ namespace AdvancedScada.ImagePicker
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                 throw ex;
             }
 
             //this.Text =$"{e.Item.Description}";
@@ -292,78 +276,10 @@ namespace AdvancedScada.ImagePicker
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                 throw ex;
             }
 
         }
-        public static System.Windows.Controls.Canvas previewTarget;
-        private void PoBtnXAML_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //var img = pic.Image;
-            //CurrentFile = pic.Tag.ToString();
-            //var newName = Path.GetFileNameWithoutExtension(CurrentFile);
-
-            //newName = newName + ".Xaml";
-            //try
-            //{
-            //    var xamlOutputText = string.Empty;
-            //    var xamlOutput = string.Empty;
-
-            //    previewTarget = new System.Windows.Controls.Canvas();
-            //    previewTarget.Background = System.Windows.Media.Brushes.Transparent;
-            //    System.Windows.Shapes.Rectangle rectangle = null;
-            //    var bitmap = new Bitmap(pic.Image);
-            //    previewTarget.Height = bitmap.Height;
-            //    previewTarget.Width = bitmap.Width;
-
-
-            //    for (var y = 0; y < bitmap.Height; ++y)
-            //        for (var x = 0; x < bitmap.Width; ++x)
-            //        {
-            //            var pixel = bitmap.GetPixel(x, y);
-            //            rectangle = new System.Windows.Shapes.Rectangle();
-            //            rectangle.Fill = new SolidColorBrush(System.Windows.Media.Color.FromArgb(pixel.A, pixel.R, pixel.G, pixel.B));
-            //            rectangle.Height = rectangle.Width = 1.0;
-            //            rectangle.SetValue(System.Windows.Controls.Canvas.LeftProperty, (double)x);
-            //            rectangle.SetValue(System.Windows.Controls.Canvas.TopProperty, (double)y);
-            //            rectangle.SnapsToDevicePixels = true;
-            //            previewTarget.Children.Add(rectangle);
-            //           // ProgressBar1.EditValue = Math.Floor(100 * x / (double)(bitmap.Width - 2)).ToString();
-            //            Application.DoEvents();
-            //        }
-
-            //    Application.DoEvents();
-                
-            //    var settings = new XmlWriterSettings();
-            //    settings.Indent = true;
-            //    settings.IndentChars = "\t";
-            //    settings.ConformanceLevel = ConformanceLevel.Fragment;
-            //    var output = new StringBuilder();
-            //    XamlWriter.Save(previewTarget, XmlWriter.Create(output, settings));
-            //    xamlOutputText = output.ToString();
-            //    saveFileDialog1.Filter = "Xaml Files(*.Xaml)|*.Xaml|All files (*.*)|*.*";
-            //    saveFileDialog1.FilterIndex = 1;
-            //    saveFileDialog1.RestoreDirectory = true;
-            //    saveFileDialog1.FileName = newName;
-            //    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            //    {
-            //        TextWriter writeFile = new StreamWriter(saveFileDialog1.FileName);
-            //        writeFile.Write(xamlOutputText);
-            //        writeFile.Flush();
-            //        writeFile.Close();
-            //        writeFile = null;
-            //    }
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Failed to save Xaml to Xaml format.", "Error",
-            //        MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-
-            //MessageBox.Show("Xaml file saved to " + newName,
-            //    "Xaml Saved", MessageBoxButtons.OK,
-            //    MessageBoxIcon.Information);
-        }
+       
     }
 }

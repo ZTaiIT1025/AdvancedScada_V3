@@ -79,7 +79,7 @@ namespace AdvancedScada.Studio.IE
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(GetType().Name, ex.Message);
+                throw ex;
             }
         }
 

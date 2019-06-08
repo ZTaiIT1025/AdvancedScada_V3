@@ -1,6 +1,5 @@
 ﻿
 using AdvancedScada.DriverBase.Devices;
-using AdvancedScada.HMIException;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -110,7 +109,7 @@ namespace XSiemens.Core.UserEditors
             }
             catch (Exception ex)
             {
-                var err = new ScadaException(this.GetType().Name, ex.Message);
+                throw ex;
             }
         }
         private void btnCancel_Click(object sender, EventArgs e)

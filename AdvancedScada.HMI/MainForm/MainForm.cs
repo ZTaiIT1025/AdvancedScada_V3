@@ -25,15 +25,15 @@ namespace AdvancedScada.HMI.MainForm
         public double[] TankMixWeight;
         private double[] TankMixWeightFinel;
         #endregion
-       
+
         public IReadService client = null;
-        
+
 
         public MainForm()
         {
             try
             {
-               
+
                 ReadServiceCallbackClient.LoadTagCollection();
                 XCollection.CURRENT_MACHINE = new Machine
                 {
@@ -51,12 +51,12 @@ namespace AdvancedScada.HMI.MainForm
                 }
                 client = DriverHelper.GetInstance().GetReadService();
                 client.Connect(XCollection.CURRENT_MACHINE);
-               
+
             }
             catch (CommunicationException ex)
             {
 
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                throw ex;
             }
             InitializeComponent();
         }
@@ -123,7 +123,7 @@ namespace AdvancedScada.HMI.MainForm
             catch (CommunicationException ex)
             {
 
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                throw ex;
             }
         }
 
@@ -156,7 +156,7 @@ namespace AdvancedScada.HMI.MainForm
                 }
                 catch (Exception ex)
                 {
-                    var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                    throw ex;
                 }
             }
             else
@@ -178,7 +178,7 @@ namespace AdvancedScada.HMI.MainForm
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                throw ex;
             }
 
 
@@ -274,7 +274,7 @@ namespace AdvancedScada.HMI.MainForm
             }
             catch (Exception ex)
             {
-                var err = new HMIException.ScadaException(this.GetType().Name, ex.Message);
+                throw ex;
             }
 
             return TankMixWeightFinel;
@@ -303,7 +303,7 @@ namespace AdvancedScada.HMI.MainForm
 
 
             }
-            catch 
+            catch
             {
                 return;
             }
