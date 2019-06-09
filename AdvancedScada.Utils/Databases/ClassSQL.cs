@@ -262,7 +262,7 @@ namespace AdvancedScada.Utils.Databases
 
         #region void
 
-        public string GetServerConnectionString(string teServer)
+        public static  string GetServerConnectionString(string teServer)
         {
             var connectionString = $"data source={teServer};integrated security=SSPI";
             //if (radioGroup1.SelectedIndex == 1)
@@ -429,7 +429,7 @@ namespace AdvancedScada.Utils.Databases
             return schemaTable;
         }
 
-        public DataTable AddDatabases(string teServer)
+        public static  DataTable AddDatabases(string teServer)
         {
             DataTable dtable = null;
             try
@@ -473,7 +473,7 @@ namespace AdvancedScada.Utils.Databases
             }
             catch (Exception ex)
             {
-               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
+               EventscadaException?.Invoke("SQL", ex.Message);
 
             }
             return dtable;

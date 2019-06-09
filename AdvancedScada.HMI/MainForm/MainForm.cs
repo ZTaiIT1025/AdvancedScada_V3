@@ -15,6 +15,7 @@ using System.Net.Sockets;
 using System.ServiceModel;
 using System.Windows.Forms;
 using static AdvancedScada.HMI.Tools.Tools;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.HMI.MainForm
 {

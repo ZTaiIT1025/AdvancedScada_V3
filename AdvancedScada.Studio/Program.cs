@@ -28,7 +28,7 @@ namespace AdvancedScada.Studio
                 Application.SetCompatibleTextRenderingDefault(false);
                 BonusSkins.Register();
                 SkinManager.EnableFormSkins();
-                Application.Run(new FormStudio());
+                Application.Run(new TagManagerLibrary.Studio.FormStudio());
             }
         }
     }
