@@ -5,6 +5,7 @@ using AdvancedScada.DriverBase.Client;
 using AdvancedScada.DriverBase.Devices;
 using AdvancedScada.IBaseService;
 using AdvancedScada.Management.BLManager;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.BaseService
 {
@@ -38,7 +39,7 @@ namespace AdvancedScada.BaseService
                 }
                 catch (Exception ex)
                 {
-                throw ex;
+               EventscadaException?.Invoke("ReadServiceCallbackClient", ex.Message);
                 }
            
 

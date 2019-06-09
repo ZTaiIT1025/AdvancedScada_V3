@@ -59,15 +59,15 @@ namespace AdvancedScada.BaseService
 
                             eventLoggingMessage?.Invoke(string.Format("Removed Callback Channel: {0}, IP Address: {1}| Message Exception: {2}.", mac.MachineName, mac.IPAddress, ex.Message));
 
-                            throw ex;
+                           EventscadaException?.Invoke(this.GetType().Name, ex.Message);
                         }
                     }
                 });
             }
             catch (System.Exception ex)
             {
-
-                throw ex;
+               
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -84,7 +84,7 @@ namespace AdvancedScada.BaseService
             catch (Exception ex)
             {
                 Console.WriteLine("Disconnect-Removed Callback Channel: {0}", ex.Message);
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
             finally
             {
@@ -106,7 +106,7 @@ namespace AdvancedScada.BaseService
             catch (System.Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
     }

@@ -3,7 +3,7 @@ using HslCommunication;
 using HslCommunication.ModBus;
 using System;
 using System.IO.Ports;
-
+using static AdvancedScada.IBaseService.Common.XCollection;
 namespace AdvancedScada.IODriver.ASCII
 {
     public class ModbusASCIIMaster : IDriverAdapter
@@ -48,7 +48,7 @@ namespace AdvancedScada.IODriver.ASCII
             {
 
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -62,7 +62,7 @@ namespace AdvancedScada.IODriver.ASCII
             catch (TimeoutException ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -84,7 +84,7 @@ namespace AdvancedScada.IODriver.ASCII
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
             return new byte[0];
         }

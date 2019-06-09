@@ -21,6 +21,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
 using Microsoft.Win32;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.Studio.Monitor
 {
@@ -124,7 +125,7 @@ namespace AdvancedScada.Studio.Monitor
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
         private void mWriteTagValue_ItemClick(object sender, ItemClickEventArgs e)
@@ -164,7 +165,7 @@ namespace AdvancedScada.Studio.Monitor
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -189,7 +190,7 @@ namespace AdvancedScada.Studio.Monitor
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -223,7 +224,7 @@ namespace AdvancedScada.Studio.Monitor
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
         private void gridView1_RowCellStyle(object sender, RowCellStyleEventArgs e)
@@ -271,7 +272,7 @@ namespace AdvancedScada.Studio.Monitor
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -380,7 +381,7 @@ namespace AdvancedScada.Studio.Monitor
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -402,14 +403,14 @@ namespace AdvancedScada.Studio.Monitor
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                   EventscadaException?.Invoke(this.GetType().Name, ex.Message);
                 }
                 
 
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
         }
@@ -456,7 +457,7 @@ namespace AdvancedScada.Studio.Monitor
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
 
@@ -574,7 +575,7 @@ namespace AdvancedScada.Studio.Monitor
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -637,7 +638,7 @@ namespace AdvancedScada.Studio.Monitor
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
         #endregion

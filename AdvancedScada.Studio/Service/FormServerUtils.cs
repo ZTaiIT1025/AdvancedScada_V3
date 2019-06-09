@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ServiceModel;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AdvancedScada.BaseService;
-using AdvancedScada.IBaseService;
 using AdvancedScada.IBaseService.Common;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.Studio.Service
 {
@@ -63,7 +61,7 @@ namespace AdvancedScada.Studio.Service
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
 
@@ -88,7 +86,7 @@ namespace AdvancedScada.Studio.Service
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
 
             }
 

@@ -7,6 +7,7 @@ using AdvancedScada.DriverBase.Devices;
 using AdvancedScada.Utils.Excel;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraSplashScreen;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.Studio.IE
 {
@@ -79,7 +80,7 @@ namespace AdvancedScada.Studio.IE
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 

@@ -3,6 +3,7 @@ using HslCommunication;
 using HslCommunication.ModBus;
 using System;
 using System.Net.Sockets;
+using static AdvancedScada.IBaseService.Common.XCollection;
 namespace AdvancedScada.IODriver.TCP
 {
     public class ModbusTCPMaster : IDriverAdapter
@@ -54,7 +55,7 @@ namespace AdvancedScada.IODriver.TCP
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                   EventscadaException?.Invoke(this.GetType().Name, ex.Message);
                 }
 
                
@@ -65,7 +66,7 @@ namespace AdvancedScada.IODriver.TCP
             {
 
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
 
             }
         }
@@ -79,7 +80,7 @@ namespace AdvancedScada.IODriver.TCP
             }
             catch (SocketException ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
             
         }
@@ -103,7 +104,7 @@ namespace AdvancedScada.IODriver.TCP
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
             return new byte[0];
         }

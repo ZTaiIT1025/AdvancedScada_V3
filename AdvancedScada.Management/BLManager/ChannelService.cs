@@ -10,7 +10,7 @@ using AdvancedScada.DriverBase;
 using AdvancedScada.DriverBase.Devices;
 using Microsoft.Win32;
 using System.Linq;
-
+using static AdvancedScada.IBaseService.Common.XCollection;
 namespace AdvancedScada.Management.BLManager
 {
     
@@ -110,7 +110,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -160,7 +160,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -178,7 +178,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -196,7 +196,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -218,7 +218,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -241,7 +241,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return result;
@@ -266,7 +266,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return result;
@@ -291,7 +291,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return result;
@@ -359,7 +359,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return _Channels;
@@ -384,7 +384,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -404,7 +404,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return result;
@@ -426,7 +426,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -524,7 +524,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -543,7 +543,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return result;
@@ -564,10 +564,11 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
+                  
             }
+            return result;
 
-         
         }
         internal List<DataBlock> GetByListDataBlock(Device dv)
         {
@@ -580,16 +581,17 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return result;
         }
         public Channel Copy(Channel source)
         {
+            Channel ch = source.CopyObject<Channel>();
             try
             {
-                Channel ch = source.CopyObject<Channel>();
+               
                 if (ch != null)
                 {
                     using (TransactionScope transactionScope = new TransactionScope())
@@ -634,8 +636,9 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
+            return ch;
         }
 
         private int GetNewId()

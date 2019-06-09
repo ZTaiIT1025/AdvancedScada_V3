@@ -6,7 +6,6 @@ using AdvancedScada.IBaseService.Common;
 using AdvancedScada.ImagePicker;
 using AdvancedScada.Management.BLManager;
 using AdvancedScada.Studio.Config;
-
 using AdvancedScada.Studio.Editors;
 using AdvancedScada.Studio.IE;
 using AdvancedScada.Studio.Monitor;
@@ -83,17 +82,8 @@ namespace AdvancedScada.Studio
             Registry.SetValue("HKEY_CURRENT_USER\\Software\\FormConfiguration", "Port", "8080");
 
 
-            //XCollection.eventLoggingMessage += ServiceBase_eventChannelCount;
-            //foreach (Form form in Application.OpenForms)
-            //    if (form.GetType() == typeof(FormMain))
-            //    {
-            //        form.Activate();
-            //        return;
-            //    }
-            //var child = new FormMain { Padding = new Padding(0), MdiParent = this };
-
-            //child.Show();
-            //Application.DoEvents();
+            XCollection.eventLoggingMessage += ServiceBase_eventChannelCount;
+           XCollection.EventscadaException += ServiceBase_eventChannelCount;
             var objChannelManager = ChannelService.GetChannelManager();
 
             try
@@ -119,7 +109,10 @@ namespace AdvancedScada.Studio
         {
             txtHistory.Text += string.Format("{0}" + Environment.NewLine, message);
         }
-
+        private void ServiceBase_eventChannelCount(string classname, string erorr)
+        {
+            txtHistory.Text += string.Format("{0} : {1}" + Environment.NewLine, classname, erorr);
+        }
         private void mMonioring_ItemClick(object sender, ItemClickEventArgs e)
         {
             foreach (Form form in Application.OpenForms)

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.ImagePicker
 {
@@ -17,7 +18,7 @@ namespace AdvancedScada.ImagePicker
     {
         public EventStringImageSelected OnStringImageSelected_Clicked = null;
         public EventImageSelected OnImagSelected_Clicked = null;
-        public static string ReadKey(string keyName)
+        public  string ReadKey(string keyName)
         {
             var result = string.Empty;
             try
@@ -28,7 +29,7 @@ namespace AdvancedScada.ImagePicker
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return result;
@@ -70,7 +71,7 @@ namespace AdvancedScada.ImagePicker
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
  
@@ -153,7 +154,7 @@ namespace AdvancedScada.ImagePicker
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
 
@@ -202,7 +203,7 @@ namespace AdvancedScada.ImagePicker
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
 
@@ -226,7 +227,7 @@ namespace AdvancedScada.ImagePicker
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             //this.Text =$"{e.Item.Description}";
@@ -276,7 +277,7 @@ namespace AdvancedScada.ImagePicker
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
         }

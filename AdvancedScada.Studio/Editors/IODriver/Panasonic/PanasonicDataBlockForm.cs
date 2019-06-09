@@ -2,6 +2,7 @@
 using AdvancedScada.DriverBase.Devices;
 using System;
 using System.Collections.Generic;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.XPanasonic.Core.UserEditors
 {
@@ -112,7 +113,7 @@ namespace AdvancedScada.XPanasonic.Core.UserEditors
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -180,7 +181,7 @@ namespace AdvancedScada.XPanasonic.Core.UserEditors
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -192,7 +193,7 @@ namespace AdvancedScada.XPanasonic.Core.UserEditors
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -232,7 +233,7 @@ namespace AdvancedScada.XPanasonic.Core.UserEditors
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 

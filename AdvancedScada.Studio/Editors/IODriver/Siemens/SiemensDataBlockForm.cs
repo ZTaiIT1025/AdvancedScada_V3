@@ -1,4 +1,4 @@
-﻿
+﻿using static AdvancedScada.IBaseService.Common.XCollection;
 using AdvancedScada.DriverBase.Devices;
 using System;
 using System.Collections.Generic;
@@ -109,7 +109,7 @@ namespace XSiemens.Core.UserEditors
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
         private void btnCancel_Click(object sender, EventArgs e)

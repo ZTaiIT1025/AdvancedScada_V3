@@ -2,6 +2,7 @@
 using AdvancedScada.DriverBase.Devices;
 using System;
 using System.Collections.Generic;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.XModbus.Core.UserEditors
 {
@@ -89,7 +90,7 @@ namespace AdvancedScada.XModbus.Core.UserEditors
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -157,7 +158,7 @@ namespace AdvancedScada.XModbus.Core.UserEditors
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -169,7 +170,7 @@ namespace AdvancedScada.XModbus.Core.UserEditors
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -209,7 +210,7 @@ namespace AdvancedScada.XModbus.Core.UserEditors
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 

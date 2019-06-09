@@ -5,6 +5,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.BaseService.Client
 {
@@ -43,8 +44,9 @@ namespace AdvancedScada.BaseService.Client
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
+            return null;
         }
         public IReadService GetReadService(InstanceContext callbackInstance)
         {
@@ -60,8 +62,9 @@ namespace AdvancedScada.BaseService.Client
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
+            return null;
         }
 
     }

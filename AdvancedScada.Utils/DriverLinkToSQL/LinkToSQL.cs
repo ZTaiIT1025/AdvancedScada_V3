@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-
+using static AdvancedScada.IBaseService.Common.XCollection;
 namespace AdvancedScada.Utils.DriverLinkToSQL
 {
     public class LinkToSQL
@@ -83,7 +83,7 @@ namespace AdvancedScada.Utils.DriverLinkToSQL
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
 
@@ -115,7 +115,7 @@ namespace AdvancedScada.Utils.DriverLinkToSQL
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                   EventscadaException?.Invoke(this.GetType().Name, ex.Message);
 
                 }
             }

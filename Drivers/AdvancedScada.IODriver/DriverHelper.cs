@@ -18,7 +18,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
+using static AdvancedScada.IBaseService.Common.XCollection;
 namespace AdvancedScada.IODriver
 {
     public class DriverHelper
@@ -139,8 +139,6 @@ namespace AdvancedScada.IODriver
                                 }
                                 break;
 
-
-
                         }
 
                         foreach (var db in dv.DataBlocks)
@@ -159,7 +157,7 @@ namespace AdvancedScada.IODriver
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -267,7 +265,7 @@ namespace AdvancedScada.IODriver
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -407,12 +405,12 @@ namespace AdvancedScada.IODriver
             catch (SocketException ex)
             {
                 Disconnect();
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
             catch (Exception ex)
             {
                 Disconnect();
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
         private void SendPackageLSIS(IDriverAdapter ILSIS, Channel ch, Device dv, DataBlock db)
@@ -542,7 +540,7 @@ namespace AdvancedScada.IODriver
                 Disconnect();
                 if (ex.Message == "Hex Character Count Not Even") return;
                 IsConnected = false;
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
             catch (Exception ex)
             {
@@ -915,7 +913,7 @@ namespace AdvancedScada.IODriver
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
     }

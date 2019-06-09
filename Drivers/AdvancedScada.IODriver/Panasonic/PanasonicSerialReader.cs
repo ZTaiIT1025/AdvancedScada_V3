@@ -4,6 +4,7 @@ using HslCommunication.Profinet.Panasonic;
 using System;
 using System.Diagnostics;
 using System.IO.Ports;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.IODriver.Panasonic
 {
@@ -54,7 +55,7 @@ namespace AdvancedScada.IODriver.Panasonic
                     }
                     catch (Exception ex)
                     {
-                        throw ex;
+                       EventscadaException?.Invoke(this.GetType().Name, ex.Message);
                     }
                     
                     stopwatch.Stop();
@@ -65,7 +66,7 @@ namespace AdvancedScada.IODriver.Panasonic
                 stopwatch.Stop();
                
                 IsConnected = false;
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -85,7 +86,7 @@ namespace AdvancedScada.IODriver.Panasonic
 
 
                
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 

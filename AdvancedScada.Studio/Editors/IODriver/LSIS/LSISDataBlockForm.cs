@@ -2,6 +2,7 @@
 using AdvancedScada.Utils.LSIS;
 using System;
 using System.Collections.Generic;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.XLSIS.Core.UserEditors
 {
@@ -135,7 +136,7 @@ namespace AdvancedScada.XLSIS.Core.UserEditors
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -234,7 +235,7 @@ namespace AdvancedScada.XLSIS.Core.UserEditors
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -246,7 +247,7 @@ namespace AdvancedScada.XLSIS.Core.UserEditors
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -296,7 +297,7 @@ namespace AdvancedScada.XLSIS.Core.UserEditors
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 

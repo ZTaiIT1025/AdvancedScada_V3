@@ -8,6 +8,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.BaseService
 {
@@ -29,10 +30,10 @@ namespace AdvancedScada.BaseService
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
                 
             }
-
+            return serviceHost;
         }
         public bool GetStartService()
         {
@@ -60,10 +61,10 @@ namespace AdvancedScada.BaseService
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
+            return true;
 
-             
         }
 
         public bool GetStopService()
@@ -80,9 +81,9 @@ namespace AdvancedScada.BaseService
             catch (System.Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
-            
+            return true;
         }
     }
 }

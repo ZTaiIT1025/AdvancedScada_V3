@@ -5,7 +5,7 @@ using HslCommunication.Profinet.Siemens;
 using System;
 using System.Diagnostics;
 using System.Net.Sockets;
-
+using static AdvancedScada.IBaseService.Common.XCollection;
 namespace AdvancedScada.IODriver.Siemens
 {
     public   class SiemensNet: IDriverAdapter
@@ -77,7 +77,7 @@ namespace AdvancedScada.IODriver.Siemens
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                   EventscadaException?.Invoke(this.GetType().Name, ex.Message);
                 }
 
 
@@ -87,7 +87,7 @@ namespace AdvancedScada.IODriver.Siemens
             catch (SocketException ex)
             {
                 stopwatch.Stop();
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
 
             }
         }
@@ -101,7 +101,7 @@ namespace AdvancedScada.IODriver.Siemens
             }
             catch (SocketException ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
             
         }
@@ -125,7 +125,7 @@ namespace AdvancedScada.IODriver.Siemens
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
             return new byte[0];
         }

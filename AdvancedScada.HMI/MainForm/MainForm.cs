@@ -56,7 +56,7 @@ namespace AdvancedScada.HMI.MainForm
             catch (CommunicationException ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
             InitializeComponent();
         }
@@ -123,7 +123,7 @@ namespace AdvancedScada.HMI.MainForm
             catch (CommunicationException ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -156,7 +156,7 @@ namespace AdvancedScada.HMI.MainForm
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                   EventscadaException?.Invoke(this.GetType().Name, ex.Message);
                 }
             }
             else
@@ -178,7 +178,7 @@ namespace AdvancedScada.HMI.MainForm
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
 
@@ -274,7 +274,7 @@ namespace AdvancedScada.HMI.MainForm
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return TankMixWeightFinel;

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.ServiceModel;
 using System.Threading;
 using System.Windows.Forms;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.Controls
 {
@@ -35,7 +36,7 @@ namespace AdvancedScada.Controls
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke("WCFChannelFactory", ex.Message);
             }
 
         }

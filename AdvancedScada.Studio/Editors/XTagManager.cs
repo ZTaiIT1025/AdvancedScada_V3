@@ -12,6 +12,7 @@ using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
 using OfficeOpenXml;
 using RowClickEventArgs = DevExpress.XtraGrid.Views.Grid.RowClickEventArgs;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.Studio.Editors
 {
@@ -127,7 +128,7 @@ namespace AdvancedScada.Studio.Editors
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -150,7 +151,7 @@ namespace AdvancedScada.Studio.Editors
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -165,7 +166,7 @@ namespace AdvancedScada.Studio.Editors
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
         #region treeList
@@ -263,7 +264,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -359,7 +360,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -376,7 +377,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
         #endregion
@@ -432,7 +433,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -445,7 +446,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -482,7 +483,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -557,7 +558,7 @@ namespace AdvancedScada.Studio.Editors
                         catch (Exception ex)
                         {
 
-                            throw ex;
+                           EventscadaException?.Invoke(this.GetType().Name, ex.Message);
                         }
                     };
                     chFrm.ShowDialog();
@@ -567,7 +568,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -617,7 +618,7 @@ namespace AdvancedScada.Studio.Editors
                     catch (Exception ex)
                     {
 
-                        throw ex;
+                       EventscadaException?.Invoke(this.GetType().Name, ex.Message);
                     }
                 };
                 dvFrm.ShowDialog();
@@ -627,7 +628,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -685,7 +686,7 @@ namespace AdvancedScada.Studio.Editors
                     catch (Exception ex)
                     {
 
-                        throw ex;
+                       EventscadaException?.Invoke(this.GetType().Name, ex.Message);
                     }
                 };
                 dbFrm.ShowDialog();
@@ -694,7 +695,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -738,7 +739,7 @@ namespace AdvancedScada.Studio.Editors
                             catch (Exception ex)
                             {
 
-                                throw ex;
+                               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
                             }
                         };
                         tgFrm.ShowDialog();
@@ -749,7 +750,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -801,7 +802,7 @@ namespace AdvancedScada.Studio.Editors
                             catch (Exception ex)
                             {
 
-                                throw ex;
+                               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
                             }
                         };
 
@@ -813,7 +814,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -898,7 +899,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -942,7 +943,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
         }
@@ -990,7 +991,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -1051,7 +1052,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
         #endregion
@@ -1105,7 +1106,7 @@ namespace AdvancedScada.Studio.Editors
                             catch (Exception ex)
                             {
 
-                                throw ex;
+                               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
                             }
                         };
                         tgFrm.ShowDialog();
@@ -1116,7 +1117,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -1166,7 +1167,7 @@ namespace AdvancedScada.Studio.Editors
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -1220,7 +1221,7 @@ namespace AdvancedScada.Studio.Editors
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -1262,7 +1263,7 @@ namespace AdvancedScada.Studio.Editors
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
         #endregion

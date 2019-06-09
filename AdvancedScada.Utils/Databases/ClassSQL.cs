@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.ServiceProcess;
 using System.Windows.Forms;
-
+using static AdvancedScada.IBaseService.Common.XCollection;
 namespace AdvancedScada.Utils.Databases
 {
     public class ClassSQL
@@ -350,8 +350,9 @@ namespace AdvancedScada.Utils.Databases
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
+            return dtable;
         }
 
         public DataTable AddColumnID(string TableLookUpEdit, string teServer,
@@ -382,8 +383,9 @@ namespace AdvancedScada.Utils.Databases
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
+            return ds;
         }
 
         public DataTable AddColumn(string TableLookUpEdit, string teServer, string Databasename)
@@ -393,7 +395,7 @@ namespace AdvancedScada.Utils.Databases
             SqlConnection sqlCnn;
             SqlCommand sqlCmd;
             string sql = null;
-
+            DataTable schemaTable=null;
             connetionString = $"Data Source={teServer};Initial Catalog={Databasename};Integrated Security=True";
             sql = $"Select * from {TableLookUpEdit}";
 
@@ -403,7 +405,7 @@ namespace AdvancedScada.Utils.Databases
                 sqlCnn.Open();
                 sqlCmd = new SqlCommand(sql, sqlCnn);
                 var sqlReader = sqlCmd.ExecuteReader();
-                var schemaTable = sqlReader.GetSchemaTable();
+                  schemaTable = sqlReader.GetSchemaTable();
 
                 foreach (DataRow row in schemaTable.Rows)
                     foreach (DataColumn column in schemaTable.Columns)
@@ -422,8 +424,9 @@ namespace AdvancedScada.Utils.Databases
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
+            return schemaTable;
         }
 
         public DataTable AddDatabases(string teServer)
@@ -470,7 +473,7 @@ namespace AdvancedScada.Utils.Databases
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
 
             }
             return dtable;
@@ -507,8 +510,9 @@ namespace AdvancedScada.Utils.Databases
             catch (Exception ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke("SQL", ex.Message);
             }
+            return ds;
         }
 
         public static DataTable AddColumnGrid(string DBListLookUpEdit, string TableNamesListBox, string teServer)

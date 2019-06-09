@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Xml;
 using AdvancedScada.DriverBase.Devices;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.Management.BLManager
 {
@@ -37,7 +38,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -65,7 +66,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -84,7 +85,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -103,7 +104,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -126,7 +127,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -151,7 +152,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return result;
@@ -177,7 +178,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return result;
@@ -203,7 +204,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return result;
@@ -230,7 +231,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return result;
@@ -262,7 +263,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return dbList;

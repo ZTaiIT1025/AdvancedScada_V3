@@ -7,6 +7,7 @@ using AdvancedScada.Studio.Properties;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using Microsoft.Win32;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.Studio.Config
 {
@@ -43,7 +44,7 @@ namespace AdvancedScada.Studio.Config
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
 
@@ -96,7 +97,7 @@ namespace AdvancedScada.Studio.Config
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -117,7 +118,7 @@ namespace AdvancedScada.Studio.Config
 
             Close();
         }
-        public static void WriteKey(string keyName, string keyValue)
+        public   void WriteKey(string keyName, string keyValue)
         {
             try
             {
@@ -128,7 +129,7 @@ namespace AdvancedScada.Studio.Config
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
         private void cboxLibraryImage_ButtonClick(object sender, ButtonPressedEventArgs e)

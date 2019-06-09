@@ -2,7 +2,7 @@
 using AdvancedScada.DriverBase.Devices;
 using System;
 using System.Linq;
-
+using static AdvancedScada.IBaseService.Common.XCollection;
 namespace AdvancedScada.XLSIS.Core.UserEditors
 {
     public partial class XUserTagForm : AdvancedScada.Management.Editors.XTagForm
@@ -59,7 +59,7 @@ namespace AdvancedScada.XLSIS.Core.UserEditors
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -97,7 +97,7 @@ namespace AdvancedScada.XLSIS.Core.UserEditors
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 

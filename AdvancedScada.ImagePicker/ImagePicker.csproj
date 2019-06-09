@@ -101,6 +101,10 @@
     <Content Include="Untitled - 3.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AdvancedScada.IBaseService\IBaseService.csproj">
+      <Project>{4ba1e9c3-f791-458c-b4f7-3b7943e8de10}</Project>
+      <Name>IBaseService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AdvancedScada.Utils\Utils.csproj">
       <Project>{6892B89E-2CC0-4F7D-95D1-BEAA1A21C607}</Project>
       <Name>Utils</Name>

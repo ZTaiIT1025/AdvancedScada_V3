@@ -102,6 +102,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AdvancedScada.IBaseService\IBaseService.csproj">
+      <Project>{4ba1e9c3-f791-458c-b4f7-3b7943e8de10}</Project>
+      <Name>IBaseService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Drivers\AdvancedScada.DriverBase\DriverBase.csproj">
       <Project>{0c4043a0-522d-456f-82c3-d086bd07ee27}</Project>
       <Name>DriverBase</Name>

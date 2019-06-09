@@ -5,7 +5,7 @@ using HslCommunication;
 using HslCommunication.Profinet.LSIS;
 using System;
 using System.Net.Sockets;
-
+using static AdvancedScada.IBaseService.Common.XCollection;
 namespace AdvancedScada.IODriver.FENET
 {
     public class LS_FENET : IDriverAdapter
@@ -65,7 +65,7 @@ namespace AdvancedScada.IODriver.FENET
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                   EventscadaException?.Invoke(this.GetType().Name, ex.Message);
                 }
                  
                
@@ -75,7 +75,7 @@ namespace AdvancedScada.IODriver.FENET
 
                
                 IsConnected = false;
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
 
             }
         }
@@ -90,7 +90,7 @@ namespace AdvancedScada.IODriver.FENET
             }
             catch (SocketException ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
             
         }
@@ -111,7 +111,7 @@ namespace AdvancedScada.IODriver.FENET
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
             return new byte[0];
         }

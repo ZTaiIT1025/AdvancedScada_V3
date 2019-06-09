@@ -12,6 +12,7 @@ using System.Drawing;
 using System.ServiceModel;
 using System.Threading;
 using System.Windows.Forms;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.Monitor
 {
@@ -77,7 +78,7 @@ namespace AdvancedScada.Monitor
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
         private void InitializeData(string xmlPath)
@@ -254,7 +255,7 @@ namespace AdvancedScada.Monitor
             catch (Exception ex)
             {
 
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
 
@@ -417,7 +418,7 @@ namespace AdvancedScada.Monitor
             catch (Exception ex)
             {
 
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
 
@@ -531,7 +532,7 @@ namespace AdvancedScada.Monitor
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 

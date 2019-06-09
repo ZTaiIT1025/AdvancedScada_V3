@@ -4,7 +4,7 @@ using HslCommunication;
 using HslCommunication.Profinet.LSIS;
 using System;
 using System.IO.Ports;
-
+using static AdvancedScada.IBaseService.Common.XCollection;
 namespace AdvancedScada.IODriver.Cnet
 {
     public class LS_CNET : IDriverAdapter
@@ -49,7 +49,7 @@ namespace AdvancedScada.IODriver.Cnet
                     }
                     catch (Exception ex)
                     {
-                        throw ex;
+                       EventscadaException?.Invoke(this.GetType().Name, ex.Message);
                     }
                     
                    
@@ -58,7 +58,7 @@ namespace AdvancedScada.IODriver.Cnet
             catch (TimeoutException ex)
             {
                 IsConnected = false;
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
               
             }
         }
@@ -74,7 +74,7 @@ namespace AdvancedScada.IODriver.Cnet
             catch (TimeoutException ex)
             {
                 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
         #endregion
@@ -93,7 +93,7 @@ namespace AdvancedScada.IODriver.Cnet
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
             return new byte[0];
         }

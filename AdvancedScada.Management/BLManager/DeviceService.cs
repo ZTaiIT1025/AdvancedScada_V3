@@ -5,6 +5,7 @@ using System.Transactions;
 using System.Xml;
 using AdvancedScada.DriverBase;
 using AdvancedScada.DriverBase.Devices;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.Management.BLManager
 
@@ -47,7 +48,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -76,7 +77,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -95,7 +96,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -114,7 +115,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -137,7 +138,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -161,7 +162,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return result;
@@ -187,7 +188,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return result;
@@ -213,7 +214,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return result;
@@ -242,7 +243,7 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
             return dvList;
@@ -250,9 +251,10 @@ namespace AdvancedScada.Management.BLManager
 
         public Device Copy(Device source, Channel target)
         {
+            Device device = source.CopyObject<Device>();
             try
             {
-                Device device = source.CopyObject<Device>();
+                
                 if (device != null)
                 {
                     using (TransactionScope transactionScope = new TransactionScope())
@@ -289,16 +291,18 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
+            return device;
         }
 
         private int GetNewId(Channel channel)
         {
+            short GetInt = 0;
             try
             {
                
-                short GetInt = 0;
+               
 
                 int max = channel.Devices.Max(r => r.DeviceId);
                 GetInt = (short)(max + 1);
@@ -306,9 +310,9 @@ namespace AdvancedScada.Management.BLManager
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
-
+            return GetInt;
         }
     }
 }

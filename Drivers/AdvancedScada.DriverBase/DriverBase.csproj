@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Client\TagCollectionClient.cs" />
     <Compile Include="Comm\Util.cs" />
+    <Compile Include="DemoUtils.cs" />
     <Compile Include="Devices\Channel.cs" />
     <Compile Include="Devices\DataBlock.cs" />
     <Compile Include="Devices\Device.cs" />

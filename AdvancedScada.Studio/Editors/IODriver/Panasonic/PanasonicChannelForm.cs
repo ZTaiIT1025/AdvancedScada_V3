@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO.Ports;
 using System.Linq;
-
+using static AdvancedScada.IBaseService.Common.XCollection;
 namespace AdvancedScada.XPanasonic.Core.UserEditors
 {
     public partial class XUserChannelForm : AdvancedScada.Management.Editors.XChannelForm
@@ -120,7 +120,7 @@ namespace AdvancedScada.XPanasonic.Core.UserEditors
             catch (Exception ex)
             {
 
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 

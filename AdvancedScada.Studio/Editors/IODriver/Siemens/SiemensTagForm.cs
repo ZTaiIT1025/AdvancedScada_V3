@@ -1,5 +1,6 @@
 ﻿using AdvancedScada.DriverBase.Devices;
 using System;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace XSiemens.Core.UserEditors
 {
@@ -59,7 +60,7 @@ namespace XSiemens.Core.UserEditors
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -115,7 +116,7 @@ namespace XSiemens.Core.UserEditors
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 

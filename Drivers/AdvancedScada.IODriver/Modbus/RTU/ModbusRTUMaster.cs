@@ -4,7 +4,7 @@ using HslCommunication;
 using HslCommunication.ModBus;
 using System;
 using System.IO.Ports;
-
+using static AdvancedScada.IBaseService.Common.XCollection;
 namespace AdvancedScada.IODriver.RTU
 {
     public class ModbusRTUMaster : IDriverAdapter
@@ -49,7 +49,7 @@ namespace AdvancedScada.IODriver.RTU
             {
 
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -63,7 +63,7 @@ namespace AdvancedScada.IODriver.RTU
             catch (TimeoutException ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -85,7 +85,7 @@ namespace AdvancedScada.IODriver.RTU
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
             return new byte[0];
         }

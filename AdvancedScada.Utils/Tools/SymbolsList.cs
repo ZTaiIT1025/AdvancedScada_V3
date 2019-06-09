@@ -6,7 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-
+using static AdvancedScada.IBaseService.Common.XCollection;
 namespace AdvancedScada.Utils.Tools
 {
     public delegate void GetSelectedPath(string FullName);
@@ -245,7 +245,7 @@ namespace AdvancedScada.Utils.Tools
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
         }
@@ -391,7 +391,7 @@ namespace AdvancedScada.Utils.Tools
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
 
             }
 
@@ -413,7 +413,7 @@ namespace AdvancedScada.Utils.Tools
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
 
         }

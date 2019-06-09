@@ -6,6 +6,7 @@ using AdvancedScada.IBaseService.Common;
 using AdvancedScada.Management;
 using DevExpress.XtraEditors;
 using Microsoft.Win32;
+using static AdvancedScada.IBaseService.Common.XCollection;
 
 namespace AdvancedScada.Studio.Editors
 {
@@ -65,7 +66,7 @@ namespace AdvancedScada.Studio.Editors
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -93,7 +94,7 @@ namespace AdvancedScada.Studio.Editors
             }
             catch (Exception ex)
             {
-                 throw ex;
+                EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 

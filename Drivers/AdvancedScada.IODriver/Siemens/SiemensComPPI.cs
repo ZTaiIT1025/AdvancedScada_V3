@@ -4,7 +4,7 @@ using HslCommunication.Profinet.Siemens;
 using System;
 using System.Diagnostics;
 using System.IO.Ports;
-
+using static AdvancedScada.IBaseService.Common.XCollection;
 namespace AdvancedScada.IODriver.Siemens
 {
     public  class SiemensComPPI : IDriverAdapter
@@ -52,7 +52,7 @@ namespace AdvancedScada.IODriver.Siemens
             {
                 stopwatch.Stop();
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -66,7 +66,7 @@ namespace AdvancedScada.IODriver.Siemens
             catch (TimeoutException ex)
             {
 
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
         }
 
@@ -87,7 +87,7 @@ namespace AdvancedScada.IODriver.Siemens
             }
             catch (Exception ex)
             {
-                throw ex;
+               EventscadaException?.Invoke(this.GetType().Name, ex.Message);
             }
             return new byte[0];
         }

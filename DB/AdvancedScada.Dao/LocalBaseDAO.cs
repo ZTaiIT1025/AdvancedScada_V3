@@ -48,6 +48,7 @@ namespace AdvancedScada.Dao
             }
             catch (Exception ex)
             {
+                //EventscadaException?.Invoke(this.GetType().Name, ex.Message);
                 throw ex;
             }
         }
