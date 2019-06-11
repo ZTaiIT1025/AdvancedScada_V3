@@ -227,6 +227,32 @@
     </Compile>
     <Compile Include="Display\Label\Format.cs" />
     <Compile Include="Display\SetLabel.cs" />
+    <Compile Include="Drawing\HMIBkGradientStyle.cs" />
+    <Compile Include="Drawing\HMICustomizedCap.cs" />
+    <Compile Include="Drawing\HMIImageLibraryItem.cs" />
+    <Compile Include="Drawing\HMILine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Drawing\HMILineDesigner.cs" />
+    <Compile Include="Drawing\HMILineListItem.cs" />
+    <Compile Include="Drawing\HMILineType.cs" />
+    <Compile Include="Drawing\HMIPipe.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Drawing\HMIPipeType.cs" />
+    <Compile Include="Drawing\HMIShape.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Drawing\HMIShapeType.cs" />
+    <Compile Include="Drawing\HMIValve.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Drawing\HMIValveDesigner.cs" />
+    <Compile Include="Drawing\HMIValveKnobType.cs" />
+    <Compile Include="Drawing\HMIValveListItem.cs" />
+    <Compile Include="Drawing\HMIValveType.cs" />
+    <Compile Include="Drawing\INBase.cs" />
+    <Compile Include="Drawing\ProcessPictureUtil.cs" />
     <Compile Include="Enum\Enums.cs" />
     <Compile Include="Gauge2\HMICircularGauge.cs">
       <SubType>UserControl</SubType>

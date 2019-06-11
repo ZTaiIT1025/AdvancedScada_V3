@@ -78,14 +78,14 @@ namespace TagManagerLibrary.Studio
             this.documentGroup1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup(this.components);
             this.bar4 = new DevExpress.XtraBars.Bar();
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
+            this.organizerGroup = new DevExpress.XtraNavBar.NavBarGroup();
+            this.SQLItem = new DevExpress.XtraNavBar.NavBarItem();
+            this.SQLiteItem = new DevExpress.XtraNavBar.NavBarItem();
             this.mailGroup = new DevExpress.XtraNavBar.NavBarGroup();
             this.ServiceItem = new DevExpress.XtraNavBar.NavBarItem();
             this.LoggingItem = new DevExpress.XtraNavBar.NavBarItem();
             this.TagManagerItem = new DevExpress.XtraNavBar.NavBarItem();
             this.SQLManagerItem = new DevExpress.XtraNavBar.NavBarItem();
-            this.organizerGroup = new DevExpress.XtraNavBar.NavBarGroup();
-            this.SQLItem = new DevExpress.XtraNavBar.NavBarItem();
-            this.SQLiteItem = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navFrameMonitor = new DevExpress.XtraNavBar.NavBarItem();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
@@ -551,6 +551,28 @@ namespace TagManagerLibrary.Studio
             this.navBarControl.TabIndex = 34;
             this.navBarControl.Text = "navBarControl1";
             // 
+            // organizerGroup
+            // 
+            this.organizerGroup.Caption = "Database";
+            this.organizerGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.SQLItem),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.SQLiteItem)});
+            this.organizerGroup.Name = "organizerGroup";
+            // 
+            // SQLItem
+            // 
+            this.SQLItem.Caption = "Microsoft SQL Server";
+            this.SQLItem.ImageOptions.SmallImageIndex = 7;
+            this.SQLItem.Name = "SQLItem";
+            this.SQLItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.SQLItem_LinkClicked);
+            // 
+            // SQLiteItem
+            // 
+            this.SQLiteItem.Caption = "SQLite";
+            this.SQLiteItem.ImageOptions.SmallImageIndex = 7;
+            this.SQLiteItem.Name = "SQLiteItem";
+            this.SQLiteItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.SQLiteItem_LinkClicked);
+            // 
             // mailGroup
             // 
             this.mailGroup.Caption = "Management";
@@ -591,28 +613,6 @@ namespace TagManagerLibrary.Studio
             this.SQLManagerItem.ImageOptions.SmallImageIndex = 6;
             this.SQLManagerItem.Name = "SQLManagerItem";
             this.SQLManagerItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.SQLManagerItem_LinkClicked);
-            // 
-            // organizerGroup
-            // 
-            this.organizerGroup.Caption = "Database";
-            this.organizerGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.SQLItem),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.SQLiteItem)});
-            this.organizerGroup.Name = "organizerGroup";
-            // 
-            // SQLItem
-            // 
-            this.SQLItem.Caption = "Microsoft SQL Server";
-            this.SQLItem.ImageOptions.SmallImageIndex = 7;
-            this.SQLItem.Name = "SQLItem";
-            this.SQLItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.SQLItem_LinkClicked);
-            // 
-            // SQLiteItem
-            // 
-            this.SQLiteItem.Caption = "SQLite";
-            this.SQLiteItem.ImageOptions.SmallImageIndex = 7;
-            this.SQLiteItem.Name = "SQLiteItem";
-            this.SQLiteItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.SQLiteItem_LinkClicked);
             // 
             // navBarGroup1
             // 

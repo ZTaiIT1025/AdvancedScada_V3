@@ -21,6 +21,7 @@ using AdvancedScada.IBaseService.Common;
 using AdvancedScada.Studio.DB;
 using AdvancedScada.Studio.DB.SQLite;
 using AdvancedScada.Studio.Logging;
+using AdvancedScada.Studio.DriverLinkToSQL;
 
 namespace TagManagerLibrary.Studio
 {
@@ -316,17 +317,17 @@ namespace TagManagerLibrary.Studio
 
         private void SQLManagerItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            //foreach (Form form in Application.OpenForms)
-            //{
-            //    if (form.GetType() == typeof(SQLMaster))
-            //    {
-            //        form.Activate();
-            //        return;
-            //    }
-            //}
-            //SQLMaster child = new SQLMaster() { Padding = new Padding(0), MdiParent = this };
-            //child.Show();
-            //OpenWaitForm();
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(SQLMaster))
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+            SQLMaster child = new SQLMaster() { Padding = new Padding(0), MdiParent = this };
+            child.Show();
+            OpenWaitForm();
         }
 
         private void ItemView_ItemClick(object sender, ItemClickEventArgs e)
@@ -356,47 +357,47 @@ namespace TagManagerLibrary.Studio
 
         private void SQLItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            //foreach (Form form in Application.OpenForms)
-            //{
-            //    if (form.GetType() == typeof(SQLFormCreate))
-            //    {
-            //        form.Activate();
-            //        return;
-            //    }
-            //}
-            //SQLFormCreate child = new SQLFormCreate() { Padding = new Padding(0), MdiParent = this };
-            //child.Show();
-            //OpenWaitForm();
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(SQLFormCreate))
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+            SQLFormCreate child = new SQLFormCreate() { Padding = new Padding(0), MdiParent = this };
+            child.Show();
+            OpenWaitForm();
         }
 
         private void SQLiteItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            //foreach (Form form in Application.OpenForms)
-            //{
-            //    if (form.GetType() == typeof(SQLiteFormCreate))
-            //    {
-            //        form.Activate();
-            //        return;
-            //    }
-            //}
-            //SQLiteFormCreate child = new SQLiteFormCreate() { Padding = new Padding(0), MdiParent = this };
-            //child.Show();
-            //OpenWaitForm();
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(SQLiteFormCreate))
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+            SQLiteFormCreate child = new SQLiteFormCreate() { Padding = new Padding(0), MdiParent = this };
+            child.Show();
+            OpenWaitForm();
         }
 
         private void mPCControllercs_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //foreach (Form form in Application.OpenForms)
-            //{
-            //    if (form.GetType() == typeof(FormPCControllercs))
-            //    {
-            //        form.Activate();
-            //        return;
-            //    }
-            //}
-            //FormPCControllercs child = new FormPCControllercs();
-            //child.Show();
-            //// OpenWaitForm();
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(FormPCControllercs))
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+            FormPCControllercs child = new FormPCControllercs();
+            child.Show();
+            // OpenWaitForm();
         }
 
         private void barCheckEnabele_CheckedChanged(object sender, ItemClickEventArgs e)
@@ -407,17 +408,17 @@ namespace TagManagerLibrary.Studio
 
         private void navFrameMonitor_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            //foreach (Form form in Application.OpenForms)
-            //{
-            //    if (form.GetType() == typeof(FormFrameMonitor))
-            //    {
-            //        form.Activate();
-            //        return;
-            //    }
-            //}
-            //FormFrameMonitor child = new FormFrameMonitor() { Padding = new Padding(0), MdiParent = this };
-            //child.Show();
-            //OpenWaitForm();
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(FormFrameMonitor))
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+            FormFrameMonitor child = new FormFrameMonitor() { Padding = new Padding(0), MdiParent = this };
+            child.Show();
+            OpenWaitForm();
         }
         #endregion
         #region Commands

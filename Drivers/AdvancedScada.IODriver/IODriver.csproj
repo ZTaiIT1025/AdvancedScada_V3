@@ -38,8 +38,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Source\Repos\dathlin\HslCommunication\TestProject\HslCommunicationDemo\bin\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="S7.Net, Version=0.3.0.0, Culture=neutral, PublicKeyToken=d5812d469e84c693, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\S7netplus.0.3.0\lib\net452\S7.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Sharp7, Version=1.0.25.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sharp7.1.0.25\lib\net40\Sharp7.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +61,11 @@
     <Compile Include="Comm\DataType.cs" />
     <Compile Include="Panasonic\PanasonicSerialReader.cs" />
     <Compile Include="LSIS\FENET\LS_FENET.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Siemens\SiemensComPPI.cs" />
     <Compile Include="Siemens\SiemensNet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,6 +84,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DMT.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

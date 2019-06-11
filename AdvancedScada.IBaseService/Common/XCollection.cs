@@ -16,6 +16,7 @@ namespace AdvancedScada.IBaseService.Common
     public class XCollection
     {
         public static ScadaException EventscadaException;
+        public static ScadaLogger EventscadaLogger;
         public static ChannelCount EventChannelCount;
         public static EventLoggingMessage eventLoggingMessage;
         public static Machine CURRENT_MACHINE = null;

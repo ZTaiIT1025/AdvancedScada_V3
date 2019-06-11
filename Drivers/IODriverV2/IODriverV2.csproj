@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1FB22772-D39F-44D1-8D4C-8B10BBEE0E47}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IODriverV2</RootNamespace>
+    <AssemblyName>IODriverV2</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="S7.Net, Version=0.3.0.0, Culture=neutral, PublicKeyToken=d5812d469e84c693, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\S7netplus.0.3.0\lib\net452\S7.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Sharp7, Version=1.0.25.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sharp7.1.0.25\lib\net40\Sharp7.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataTypes\Bit.cs" />
+    <Compile Include="DataTypes\ByteArray.cs" />
+    <Compile Include="DataTypes\Conversion.cs" />
+    <Compile Include="DataTypes\DataType.cs" />
+    <Compile Include="DataTypes\DInt.cs" />
+    <Compile Include="DataTypes\DWord.cs" />
+    <Compile Include="DataTypes\Int.cs" />
+    <Compile Include="DataTypes\Memory.cs" />
+    <Compile Include="DataTypes\Real.cs" />
+    <Compile Include="DataTypes\Word.cs" />
+    <Compile Include="Delta\ASCII\DVPASCIIMaster.cs" />
+    <Compile Include="Delta\ASCII\DVPASCIIMessage.cs" />
+    <Compile Include="Delta\Comm\BaseMessage.cs" />
+    <Compile Include="Delta\Comm\DMT.cs" />
+    <Compile Include="Delta\Comm\IDVPMaster.cs" />
+    <Compile Include="Delta\DataService.cs" />
+    <Compile Include="Delta\INException\AcknowledgeException.cs" />
+    <Compile Include="Delta\INException\GatewayPathUnavailableException.cs" />
+    <Compile Include="Delta\INException\GatewayTargetDeviceFailedToRespondException.cs" />
+    <Compile Include="Delta\INException\IllegalDataAddressException.cs" />
+    <Compile Include="Delta\INException\IllegalDataValueException.cs" />
+    <Compile Include="Delta\INException\IllegalFunctionException.cs" />
+    <Compile Include="Delta\INException\IllegalIPAddressException.cs" />
+    <Compile Include="Delta\INException\IllegalModbusModeException.cs" />
+    <Compile Include="Delta\INException\IMessage.cs" />
+    <Compile Include="Delta\INException\IPAdressNotAvailableException.cs" />
+    <Compile Include="Delta\INException\MemoryParityErrorException.cs" />
+    <Compile Include="Delta\INException\NegativeKnowledgementException.cs" />
+    <Compile Include="Delta\INException\SlaveDeviceBusyException.cs" />
+    <Compile Include="Delta\INException\SlaveDeviceFailureException.cs" />
+    <Compile Include="Delta\RTU\DVPRTUMaster.cs" />
+    <Compile Include="Delta\RTU\DVPRTUMessage.cs" />
+    <Compile Include="Delta\TCP\DVPTCPMaster.cs" />
+    <Compile Include="Delta\TCP\DVPTCPMessage.cs" />
+    <Compile Include="EthernetAdapter.cs" />
+    <Compile Include="LSISV2\Comm\GetAddressFormat.cs" />
+    <Compile Include="LSISV2\Comm\IODriverDataTypes.cs" />
+    <Compile Include="LSISV2\Comm\IPLCMessage.cs" />
+    <Compile Include="LSISV2\Comm\IPLC_LS_Master.cs" />
+    <Compile Include="LSISV2\Comm\LSAmbleTypes.cs" />
+    <Compile Include="LSISV2\Comm\LSDomainTypes.cs" />
+    <Compile Include="LSISV2\LSCNet.cs" />
+    <Compile Include="LSISV2\LSFENet.cs" />
+    <Compile Include="LSISV2\LSNetBase.cs" />
+    <Compile Include="LSISV2\LSRequestMessage.cs" />
+    <Compile Include="LSISV2\LSResponseMessage.cs" />
+    <Compile Include="LSISV2\PLCMessageChecker.cs" />
+    <Compile Include="LSISV2\PLCResponseMessage.cs" />
+    <Compile Include="LSISV2\_PieceData.cs" />
+    <Compile Include="LSISV3\Comm\Functions.cs" />
+    <Compile Include="LSISV3\Comm\IPLC_LS_Master.cs" />
+    <Compile Include="LSISV3\DataService.cs" />
+    <Compile Include="LSISV3\Drivers\Cnet\LS_CNET.cs" />
+    <Compile Include="LSISV3\Drivers\FENET\LS_FENET.cs" />
+    <Compile Include="Modbus\ASCII\ModbusASCIIMaster.cs" />
+    <Compile Include="Modbus\ASCII\ModbusASCIIMessage.cs" />
+    <Compile Include="Modbus\Comm\BaseMessage.cs" />
+    <Compile Include="Modbus\Comm\IModbusMaster.cs" />
+    <Compile Include="Modbus\DataService.cs" />
+    <Compile Include="Modbus\INException\AcknowledgeException.cs" />
+    <Compile Include="Modbus\INException\GatewayPathUnavailableException.cs" />
+    <Compile Include="Modbus\INException\GatewayTargetDeviceFailedToRespondException.cs" />
+    <Compile Include="Modbus\INException\IllegalDataAddressException.cs" />
+    <Compile Include="Modbus\INException\IllegalDataValueException.cs" />
+    <Compile Include="Modbus\INException\IllegalFunctionException.cs" />
+    <Compile Include="Modbus\INException\IllegalIPAddressException.cs" />
+    <Compile Include="Modbus\INException\IllegalModbusModeException.cs" />
+    <Compile Include="Modbus\INException\IMessage.cs" />
+    <Compile Include="Modbus\INException\IPAdressNotAvailableException.cs" />
+    <Compile Include="Modbus\INException\MemoryParityErrorException.cs" />
+    <Compile Include="Modbus\INException\NegativeKnowledgementException.cs" />
+    <Compile Include="Modbus\INException\SlaveDeviceBusyException.cs" />
+    <Compile Include="Modbus\INException\SlaveDeviceFailureException.cs" />
+    <Compile Include="Modbus\RTU\ModbusRTUMaster.cs" />
+    <Compile Include="Modbus\RTU\ModbusRTUMessage.cs" />
+    <Compile Include="Modbus\TCP\ModbusTCPMaster.cs" />
+    <Compile Include="Modbus\TCP\ModbusTCPMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S7.Net\Comm\IPLCS7Master.cs" />
+    <Compile Include="S7.Net\Comm\Struct.cs" />
+    <Compile Include="S7.Net\DataService.cs" />
+    <Compile Include="S7.Net\Profinet\PLC.cs" />
+    <Compile Include="IDriverAdapter.cs" />
+    <Compile Include="Sharp7\Comm\IPLCS7Master.cs" />
+    <Compile Include="Sharp7\Comm\Struct.cs" />
+    <Compile Include="Sharp7\DataService.cs" />
+    <Compile Include="Sharp7\Profinet\PLC.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\AdvancedScada.IBaseService\IBaseService.csproj">
+      <Project>{4ba1e9c3-f791-458c-b4f7-3b7943e8de10}</Project>
+      <Name>IBaseService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdvancedScada.DriverBase\DriverBase.csproj">
+      <Project>{0C4043A0-522D-456F-82C3-D086BD07EE27}</Project>
+      <Name>DriverBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

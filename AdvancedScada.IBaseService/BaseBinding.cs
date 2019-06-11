@@ -3,7 +3,7 @@ using System.ServiceModel;
 using System.ServiceModel.Description;
 namespace AdvancedScada.IBaseService
 {
-  
+    public delegate void ScadaLogger(int _Id, string _logType, string _time, string _message);
 
     public delegate void ScadaException(string classname, string erorr);
     public class BaseBinding

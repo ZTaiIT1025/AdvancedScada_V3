@@ -81,6 +81,20 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="OpcNetApi">
+      <HintPath>..\packages\OPC\OpcNetApi.dll</HintPath>
+    </Reference>
+    <Reference Include="OpcNetApi.Com">
+      <HintPath>..\packages\OPC\OpcNetApi.Com.dll</HintPath>
+    </Reference>
+    <Reference Include="OpcRcw.Comn">
+      <HintPath>..\packages\OPC\OpcRcw.Comn.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="OpcRcw.Da">
+      <HintPath>..\packages\OPC\OpcRcw.Da.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="StructureMap, Version=4.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\StructureMap.4.7.0\lib\net45\StructureMap.dll</HintPath>
     </Reference>
@@ -130,6 +144,42 @@
       <DependentUpon>SQLiteFormCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="DB\UtilsTableSQLite.cs" />
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LinkToSQL\AddColumn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LinkToSQL\AddColumn.Designer.cs">
+      <DependentUpon>AddColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LinkToSQL\AddDataBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LinkToSQL\AddDataBase.Designer.cs">
+      <DependentUpon>AddDataBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LinkToSQL\AddServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LinkToSQL\AddServer.Designer.cs">
+      <DependentUpon>AddServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LinkToSQL\AddTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LinkToSQL\AddTable.Designer.cs">
+      <DependentUpon>AddTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LinkToSQL\SQLMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LinkToSQL\SQLMaster.Designer.cs">
+      <DependentUpon>SQLMaster.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editors\IODriver\LSIS\LSISDataBlockForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -284,6 +334,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\FormFrameMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Service\FormFrameMonitor.designer.cs">
+      <DependentUpon>FormFrameMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service\FormPCControllercs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Service\FormPCControllercs.designer.cs">
+      <DependentUpon>FormPCControllercs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Service\FormServerUtils.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +370,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DB\SQLite\SQLiteFormCreate.resx">
       <DependentUpon>SQLiteFormCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LinkToSQL\AddColumn.resx">
+      <DependentUpon>AddColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LinkToSQL\AddDataBase.resx">
+      <DependentUpon>AddDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LinkToSQL\AddServer.resx">
+      <DependentUpon>AddServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LinkToSQL\AddTable.resx">
+      <DependentUpon>AddTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LinkToSQL\SQLMaster.resx">
+      <DependentUpon>SQLMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editors\IODriver\LSIS\LSISDataBlockForm.resx">
       <DependentUpon>LSISDataBlockForm.cs</DependentUpon>
@@ -395,6 +475,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Service\FormFrameMonitor.resx">
+      <DependentUpon>FormFrameMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Service\FormPCControllercs.resx">
+      <DependentUpon>FormPCControllercs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Service\FormServerUtils.resx">
       <DependentUpon>FormServerUtils.cs</DependentUpon>
     </EmbeddedResource>
@@ -452,6 +538,10 @@
     <ProjectReference Include="..\AdvancedScada.Utils\Utils.csproj">
       <Project>{6892b89e-2cc0-4f7d-95d1-beaa1a21c607}</Project>
       <Name>Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Drivers\AdvancedScada.IODriver\IODriver.csproj">
+      <Project>{09B71D40-9C34-44F8-BC1B-1B3380EAD582}</Project>
+      <Name>IODriver</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

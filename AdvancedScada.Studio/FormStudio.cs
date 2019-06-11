@@ -24,6 +24,7 @@ using Microsoft.Win32;
 
 namespace AdvancedScada.Studio
 {
+   
     public partial class FormStudio
     {
          public bool IsDataChanged;
